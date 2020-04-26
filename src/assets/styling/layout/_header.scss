@@ -1,0 +1,105 @@
+header {
+  @include pxRem(padding, 15);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: map-get($color, black-a);
+  transition: all 0.3s;
+  cursor: pointer;
+  .close-header {
+    @include pxRem(font-size, 20);
+    @include pxRem(padding, 5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: map-get($color, white);
+    font-weight: bold;
+    cursor: pointer;
+  }
+  img {
+    @include pxRem(width, 145);
+    @include pxRem(height, 30);
+    position: absolute;
+    left: 50%;
+    top: 0;
+  }
+  .menu-bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    li {
+      font-weight: bold;
+      color: map-get($color, white);
+      &:last-child {
+        &:after {
+          content: '' !important;
+        }
+      }
+    }
+    .active {
+      color: map-get($color, badge-4) !important;
+      &:after {
+        display: block;
+        color: map-get($color, badge-4);
+        line-height: 0;
+      }
+    }
+  }
+  .lock-menu {
+    color: map-get($color, white);
+    position: absolute;
+    bottom: 15px;
+  }
+}
+
+.header-hover {
+  @include pxRem(width, 60);
+  img {
+    transform: translate(-50%, 75px) rotateZ(90deg);
+  }
+  .menu-hover {
+    li {
+      @include pxRem(font-size, 22);
+      font-family: Anton;
+    }
+    .active {
+      &:after {
+        content: '|';
+      }
+    }
+  }
+  .lock-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.header-close, .header-lock {
+  @include pxRem(width, 175);
+  img {
+    transform: translate(-50%, 50px);
+  }
+  
+  .menu-close {
+    li {
+      @include pxRem(font-size, 30);
+      font-family: PT sans;
+      color: map-get($color, white);
+    }
+    .active {
+      &:after {
+        content: '';
+      }
+    }
+    .child-menu {
+      li {
+        @include pxRem(font-size, 22);
+      }
+    }
+  }
+  .lock-menu {
+    @include pxRem(right, 5);
+  }
+}
