@@ -29,21 +29,17 @@ jobs:
         run: bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
         env:
           apiKey: ${{ secrets.API_KEY }}
-          authDomain: ${{ secrets.AUTH_DOMAIN }}
-          databaseURL: ${{ secrets.DATABASE_URL }}
-          projectId: ${{ secrets.PROJECT_ID }}
-          storageBucket: ${{ secrets.STORAGE_BUCKET }}
-          messagingSenderId: ${{ secrets.MESSAGING_SENDER_ID }}
+          authDomain: stg-grapevin-tech.firebaseapp.com
+          databaseURL: https://stg-grapevin-tech.firebaseio.com
+          projectId: stg-grapevin-tech
+          storageBucket: stg-grapevin-tech.appspot.com
+          messagingSenderId: 351226426855
           appId: ${{ secrets.APP_ID }}
-          measurementId: ${{ secrets.MEASUREMENT_ID }}
+          measurementId: G-4CWQGZFN3T
 
       - name: Clean Code & Build
         run: |
-          npm run clean && npm run build
-
-      - name: Build Layer Packages
-        run: |
-          cd functions && npm install && cd ..
+          npm run build:firebase
 
       - name: Deploy Code
         run: |
