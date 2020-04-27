@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Setup env file
-        run: npm run build:env -- "$apiKey" $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
+        run: bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
         env:
           apiKey: ${{ secrets.API_KEY }}
           authDomain: ${{ secrets.AUTH_DOMAIN }}
