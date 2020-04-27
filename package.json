@@ -18,7 +18,9 @@
     "copy:nuxt": "mkdir public/_nuxt && cp -r functions/.nuxt/dist/* public/_nuxt",
     "copy:static": "cp -r src/static/* public",
     "start:firebase": "firebase serve --only functions,hosting",
-    "deploy": "firebase deploy --only functions,hosting"
+    "deploy": "firebase deploy --only functions,hosting",
+    "deploy:firebase": "npm run clean && npm run build && cd functions && npm install && cd .. && npm run deploy",
+    "build:env": "run(){ bash ./ops/set-env.sh $@; }; run"
   },
   "dependencies": {
     "animate.css": "^3.7.2",

@@ -4,7 +4,6 @@
      <v-btn color="red lighten-2" dark v-on="on">
         Click Me
       </v-btn>
-    <dialog/>
   </div>
 </template>
 
