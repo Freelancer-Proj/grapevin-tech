@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Setup env file
-        run: bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
+        run: echo $authDomain $projectId && bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
         env:
           apiKey: ${{ secrets.API_KEY }}
           authDomain: stg-grapevin-tech.firebaseapp.com
