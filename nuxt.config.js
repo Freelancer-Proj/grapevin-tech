@@ -1,11 +1,6 @@
 require('dotenv').config()
 const webpack = require('webpack')
 
-if (!process.env.apiKey) {
-  console.log('No Env')
-}
-console.log(process.env.apiKey)
-
 module.exports = {
   srcDir: 'src',
   mode: 'universal',

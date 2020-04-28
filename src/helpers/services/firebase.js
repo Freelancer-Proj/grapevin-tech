@@ -6,7 +6,6 @@ class FirebaseService {
 
   constructor() {
     if (!firebase.apps.length) {
-      console.log(process.env.apiKey)
       const firebaseConfig = {
         apiKey: process.env.apiKey,
         authDomain: process.env.authDomain,
