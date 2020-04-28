@@ -44,7 +44,9 @@ jobs:
           measurementId: G-4CWQGZFN3T
 
       - name: Initial Public Folder
-        run: [ ! -d "./public" ] && mkdir ./public
+        run: |
+          [ ! -d "./public" ]
+          mkdir ./public
 
       - name: Clean Code & Build
         run: |
