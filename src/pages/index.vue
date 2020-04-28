@@ -1,9 +1,5 @@
 <template>
   <div class="main">
-    <h1>Hello World</h1>
-     <v-btn color="red lighten-2" dark v-on="on">
-        <i class="material-icons">contact_support</i>Click Me
-      </v-btn>
   </div>
 </template>
 
