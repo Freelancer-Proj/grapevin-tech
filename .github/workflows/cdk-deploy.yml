@@ -2,8 +2,8 @@ name: cdk deploy
 
 on:
   push:
-    branches:
-      - develop
+    # branches:
+    #   - develop
     tags:
       - 'v*'
 jobs:

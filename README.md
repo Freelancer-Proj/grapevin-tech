@@ -27,4 +27,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - Wow.js: https://wowjs.uk/docs.html
 - Vuetify: https://vuetifyjs.com
 - Video plyr: https://plyr.io
+- Icons: https://jossef.github.io/material-design-icons-iconfont/
 
