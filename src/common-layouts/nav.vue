@@ -4,7 +4,7 @@
       <img class="logo" src="../assets/img/grape-w-vertical.png" alt="">
       <ul class="menu-bar shortcut-menu-bar">
         <li v-for="(item, index) in shortcutMenu" :key="index" @click="activeSection(index)" :class="{ active : item.active }">
-          <span>{{ item.name }}</span>
+          <span :class="{ active : item.active }">{{ item.name }}</span>
           <span class="menu-line"></span>
         </li>
       </ul>
@@ -15,7 +15,7 @@
         <img class="logo" src="../assets/img/grape-w.png" alt="">
         <ul class="menu-bar">
           <li v-for="(item, index) in fullMenu" :key="index" @click="activeSection(index)">
-            <span>{{ item.name }}</span>
+            <span :class="{ active : item.active }">{{ item.name }}</span>
             <ul class="menu-bar-sub">
               <li v-for="(child, indexChild) in item.child" :key="indexChild" :class="{ active : item.active && child.active }">{{ child.name }}</li>
             </ul>
@@ -69,16 +69,20 @@ export default {
     ],
     shortcutMenu: [
       {
-        name: '01'
+        name: '01',
+        active: true
       },
       {
-        name: '02'
+        name: '02',
+        active: false
       },
       {
-        name: '03'
+        name: '03',
+        active: false
       },
       {
-        name: '04'
+        name: '04',
+        active: false
       }
     ]
   }),
