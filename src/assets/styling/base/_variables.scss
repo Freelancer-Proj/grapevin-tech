@@ -9,7 +9,7 @@ $breakpoints: (
 );
 
 $color: (
-  primary:  #F16B97,
+  primary:  #FCD575,
   primary-hover: #F7A6C1,
   secondary: #E61E56,
   accent: #E61A54,
@@ -26,10 +26,9 @@ $color: (
   border-item: #d7d7d7,
   border-1: #5b5b5b,
   border-2: #999999,
-  badge-1: #F09199,
+  badge-1: #DE9102,
   badge-2: #F19072,
   badge-3: #98D98E,
-  badge-4: #FCD575,
   badge-5: #F688AF,
   badge-6: #F4B3C2,
   badge-7: #CC7EB1,
@@ -56,7 +55,6 @@ $font-size: (
   xxxl:   30px
 );
 
-// $font-family: 'Yu Gothic', 'YuGothic', 'Helvetica Neue', Verdana, 'Meiryo', 'M+ 1p', sans-serif;
-$font-body: '游ゴシック体', '游ゴシック', 'Yu Gothic', 'YuGothic', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo', 'sans-serif';
+$font-family: PT sans, sans-serif;
 $font-quicksand: 'Quicksand', sans-serif;
 $font-didot: 'Didot', 'Didot LT STD', 'Times New Roman', serif;

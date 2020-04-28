@@ -6,7 +6,7 @@
 }
 
 html, body {
-  font-family: $font-body;
+  font-family: $font-family;
   position: relative;
   font-weight: 300;
   color: map-get($color, black);
@@ -37,4 +37,16 @@ hr {
   border-top: 1px solid black;
   width: 100%;
   margin: 0;
+}
+
+h2 {
+  @include pxRem(font-size, 30);
+  font-weight: bold;
+  font-family: Montserrat;
+}
+
+h3 {
+  @include pxRem(font-size, 25);
+  font-weight: bold;
+  font-family: Montserrat;
 }

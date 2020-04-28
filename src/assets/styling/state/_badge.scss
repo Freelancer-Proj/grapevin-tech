@@ -1,6 +1,7 @@
-// .bg-badge1 {
-//   background-color: map-get($color, badge-1);
-// }
+.badge-primary {
+  background-color: map-get($color, badge-1);
+  color: white;
+}
 // .bg-badge2 {
 //   background-color: map-get($color, badge-2);
 // }
@@ -8,7 +9,7 @@
 //   background-color: map-get($color, badge-3);
 // }
 // .bg-badge4 {
-//   background-color: map-get($color, badge-4);
+//   background-color: map-get($color, primary);
 // }
 // .bg-badge5 {
 //   background-color: map-get($color, badge-5);

@@ -1,0 +1,31 @@
+#what-we-do {
+  background-color: map-get($color, primary);
+  .shape-2 {
+    svg {
+      display: block;
+    }
+  }
+  .step-doing {
+    .badge {
+      @include pxRem(font-size, 24);
+    }
+    &-meta {
+      color: #4F4f4f;
+    }
+    &-item:nth-child(even) {
+      direction: rtl;
+    }
+    &-title {
+      small {
+        @include pxRem(font-size, 16);
+      }
+    }
+  }
+}
+
+.home {
+  h2 {
+    text-transform: capitalize;
+    text-align: center;
+  }
+}

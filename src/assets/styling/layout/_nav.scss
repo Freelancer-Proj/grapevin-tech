@@ -10,7 +10,7 @@
   transition: width 0.5s ease-out;
   overflow: hidden;
   .active {
-    color: map-get($color, badge-4) !important;
+    color: map-get($color, primary) !important;
   }
   .icon-lock {
     color: white;
@@ -47,7 +47,7 @@
           @include pxRem(height, 15);
           content: '';
           display: block;
-          background-color: map-get($color, badge-4);
+          background-color: map-get($color, primary);
           margin: auto;
         }
       }
