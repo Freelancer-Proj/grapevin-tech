@@ -62,15 +62,15 @@ module.exports = {
     measurementId: process.env.measurementId
   },
   head: {
-    title: ' Avatar Studio - Event Photography & TVC Films',
-    description: 'Avatar Media has proudly been a leading name of prestige and renown for conscientious media services provided for events in Vietnam.',
+    title: 'Grapevin',
+    description: 'Grapevin Tech',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
       { name: 'apple-touch-fullscreen', content: 'yes' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-title', content: 'Avatar' },
+      { name: 'apple-mobile-web-app-title', content: 'Grapevin' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -110,6 +110,11 @@ module.exports = {
   buildModules: [
     '@nuxtjs/vuetify'
   ],
+  vuetify: {
+    defaultAssets: {
+      icons: 'md'
+    }
+  },
   /*
   ** Nuxt.js modules
   */
