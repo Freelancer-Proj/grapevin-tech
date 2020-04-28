@@ -88,6 +88,7 @@ export default {
     },
     toggleLock() {
       this.lock = !this.lock
+      this.$store.commit('toggleLockNavbar', this.lock)
     },
     closeMenu() {
       this.lock = false;

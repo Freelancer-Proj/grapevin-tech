@@ -1,10 +1,10 @@
 export const state = () => ({
-  sidebarDisplay: false
+  navbarIsLock: false
 })
 
 export const mutations = {
-  setSidebar (state, status = null) {
-    state.sidebarDisplay = status !== null ? status : !state.sidebarDisplay
+  toggleLockNavbar (state, status) {
+    state.navbarIsLock = status
   }
 }
 // modules: {

@@ -2,7 +2,9 @@
   <div>
     <app-header/>
     <app-nav/>
-    <nuxt />
+    <div class="wrapper" :style="{'padding-left': navbarIsLock ? '200px': '60px'}">
+      <nuxt />
+    </div>
     <app-footer/>
   </div>
 </template>
@@ -18,9 +20,14 @@ export default {
     AppFooter,
     AppNav
   },
-  watch:{
-    $route (to, from){
-      // this.$store.commit('setSidebar', false)
+  // watch:{
+  //   $route (to, from){
+  //     // this.$store.commit('setSidebar', false)
+  //   }
+  // },
+  computed: {
+    navbarIsLock () {
+      return this.$store.state.navbarIsLock
     }
   },
   methods: {
