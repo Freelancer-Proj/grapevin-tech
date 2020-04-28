@@ -41,6 +41,16 @@
         font-weight: bold;
         color: map-get($color, white);
       }
+      .active {
+        &:after {
+          @include pxRem(width, 2);
+          @include pxRem(height, 15);
+          content: '';
+          display: block;
+          background-color: map-get($color, badge-4);
+          margin: auto;
+        }
+      }
     }
   }
   .full-menu {
@@ -58,11 +68,17 @@
           font-family: PT sans;
           color: map-get($color, white);
           @include pxRem(padding-bottom, 20);
+          &:hover {
+            color: map-get($color, hover);
+          }
         }
         &-sub {
           li {
             @include pxRem(font-size, 16);
             padding-bottom: 0;
+            &:hover {
+              color: map-get($color, hover);
+            }
           }
         }
       }
