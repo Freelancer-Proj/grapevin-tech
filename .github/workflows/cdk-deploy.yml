@@ -10,6 +10,12 @@ jobs:
   firebase_deploy:
     runs-on: ubuntu-18.04
     steps:
+      - name: Hello world
+        run: echo Hello world $FIRST_NAME $middle_name
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -36,6 +42,9 @@ jobs:
           messagingSenderId: 351226426855
           appId: ${{ secrets.APP_ID }}
           measurementId: G-4CWQGZFN3T
+
+      - name: Initial Public Folder
+        run: [ ! -d "./public" ] && mkdir ./public
 
       - name: Clean Code & Build
         run: |

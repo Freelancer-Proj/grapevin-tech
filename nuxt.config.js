@@ -115,6 +115,11 @@ module.exports = {
   buildModules: [
     '@nuxtjs/vuetify'
   ],
+  vuetify: {
+    defaultAssets: {
+      icons: 'md'
+    }
+  },
   /*
   ** Nuxt.js modules
   */
