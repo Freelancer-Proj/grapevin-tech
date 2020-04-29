@@ -23,6 +23,22 @@
   }
 }
 
+#about-us {
+  font-family: Anton;
+  h1 {
+    @include pxRem(font-size, 50);
+    @include pxRem(margin-left, -85);
+    width: 150%;
+  }
+  h4 {
+    @include pxRem(font-size, 20);
+  }
+  p {
+    @include pxRem(font-size, 16);
+    @include pxRem(line-height, 22);
+  }
+}
+
 .home {
   h2 {
     text-transform: capitalize;

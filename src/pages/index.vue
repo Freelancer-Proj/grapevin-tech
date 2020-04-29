@@ -5,6 +5,11 @@
         <source src="https://firebasestorage.googleapis.com/v0/b/stg-grapevin-tech.appspot.com/o/video-bg.mp4?alt=media&token=b6861919-7a6c-4c70-8b5f-012255a959cc" type="video/mp4">
       </video>
     </section>
+    <section id="about-us">
+      <div class="container content">
+        <AboutUs/>
+      </div>
+    </section>
     <section id="what-we-do">
       <div class="shape-1">
         <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -29,10 +34,12 @@ const isServer = typeof window === 'undefined'
 const WOW = !isServer ? require('wow.js') : null
 
 import WhatWeDoing from '../components/home/what-we-do'
+import AboutUs from '../components/home/about-us'
 
 export default {
   components: {
-    WhatWeDoing
+    WhatWeDoing,
+    AboutUs
   },
   data() {
     return {
