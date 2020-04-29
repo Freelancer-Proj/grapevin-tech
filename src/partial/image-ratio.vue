@@ -1,5 +1,6 @@
 <template>
-  <div class="image-ratio" :style="{paddingBottom: `calc(100% * ${ratioY} / ${ratioX})`, backgroundImage: `url(${imageLink})`}">
+  <div class="image-ratio" :style="{paddingBottom: `calc(100% * ${ratioY} / ${ratioX})`, backgroundImage: `url(${imageLoaded})`}">
+    <img :src="imageLink" style="display: none" @load="setImageLoaded">
   </div>
 </template>
 <script>
@@ -14,6 +15,16 @@ export default {
       type: Number,
       default: 1
     }
+  },
+  data () {
+    return {
+      imageLoaded: null
+    }
+  },
+  methods: {
+    setImageLoaded() {
+      this.imageLoaded = this.imageLink
+    }
   }
 }
 </script>
@@ -22,6 +33,7 @@ export default {
   height: 0;
   width: 100%;
   background-size: cover;
+  background-color: #f0f0f0;
   background-repeat: no-repeat;
 }
 </style>
