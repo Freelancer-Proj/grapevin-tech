@@ -2,7 +2,7 @@
   <div class="home">
     <section>
       <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
-        <source src="../assets/videos/video-bg.mp4" type="video/mp4">
+        <source src="https://firebasestorage.googleapis.com/v0/b/stg-grapevin-tech.appspot.com/o/video-bg.mp4?alt=media&token=b6861919-7a6c-4c70-8b5f-012255a959cc" type="video/mp4">
       </video>
     </section>
     <section id="what-we-do">
