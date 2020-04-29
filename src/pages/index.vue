@@ -5,7 +5,7 @@
         <source src="https://firebasestorage.googleapis.com/v0/b/stg-grapevin-tech.appspot.com/o/video-bg.mp4?alt=media&token=b6861919-7a6c-4c70-8b5f-012255a959cc" type="video/mp4">
       </video>
     </section>
-    <section id="about-us">
+    <section id="about-us" class="wow fadeInDown">
       <div class="container content">
         <AboutUs/>
       </div>
@@ -17,7 +17,7 @@
         </svg>
       </div>
       <div class="container content">
-        <h2 class="pb-10">What we are doing?</h2>
+        <h2 class="pb-10 wow fadeIn">What we are doing?</h2>
         <WhatWeDoing/>
       </div>
       <div class="shape-2">

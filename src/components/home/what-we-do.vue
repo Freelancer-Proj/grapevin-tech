@@ -1,6 +1,10 @@
 <template>
   <ul class="step-doing-list">
-    <li class="step-doing-item" v-for="(step, index) of stepDoings" :key="`step${index}`">
+    <li
+      class="step-doing-item wow bounceInLeft"
+      :class="index % 2 ? 'bounceInLeft' : 'bounceInRight'"
+      v-for="(step, index) of stepDoings"
+      :key="`step${index}`">
       <v-row no-gutters class="f-row f-center-x">
         <v-col
           sm="6"
@@ -10,7 +14,7 @@
         <v-col
           sm="6"
           cols="12">
-          <div class="pl-10 step-doing">
+          <div class="pr-10 pl-10 step-doing">
             <span class="badge badge-primary p-2 mb-2">
               0{{index + 1}}
             </span>
