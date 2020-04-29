@@ -2,7 +2,7 @@
   <div class="home">
     <section>
       <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
-        <source src="../assets/video/video-bg.mp4" type="video/mp4">
+        <source src="../assets/videos/video-bg.mp4" type="video/mp4">
       </video>
     </section>
     <section id="what-we-do">
