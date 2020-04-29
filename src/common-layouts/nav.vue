@@ -18,7 +18,7 @@
       <div class="menu-container">
         <img class="logo" src="../assets/img/grape-w.png" alt="">
         <ul class="menu-bar">
-          <li v-for="(item, index) in fullMenu" :key="index" @click="activeSection(index)">
+          <li v-for="(item, index) in homePos" :key="index" @click="activeSection(index)">
             <span :class="{ active : item.active }">{{ item.name }}</span>
             <ul class="menu-bar-sub">
               <li
@@ -49,16 +49,19 @@ export default {
         name: 'Home',
         child: [
           {
+            key: '01',
             name: 'Intro',
             active: true,
             sectionId: "#introduction"
           },
           {
+            key: '02',
             name: 'About us',
             active: false,
             sectionId: "#about-us"
           },
           {
+            key: '03',
             name: 'What we do',
             sectionId: "#what-we-do",
             active: false
@@ -101,7 +104,6 @@ export default {
   }),
   computed: {
     sectionPos () {
-      // console.log(this.$store.state.homeSectionPosition.top)
       return this.shortcutMenu.map(x =>
         ({
           key: x.key,
@@ -110,6 +112,19 @@ export default {
           top: this.$store.state.homeSectionPosition.top
         })
       )
+    },
+    homePos () {
+      this.fullMenu[0].child = this.fullMenu[0].child.map(x => 
+        ({
+          name: x.name,
+          sectionId: x.sectionId,
+          key: x.key,
+          active: x.key === this.$store.state.homeSectionPosition.id,
+          height: this.$store.state.homeSectionPosition.height,
+          top: this.$store.state.homeSectionPosition.top
+        })
+      )
+      return this.fullMenu;
     }
   },
   mounted() {
@@ -123,14 +138,6 @@ export default {
       $('html, body').animate({
         scrollTop: $(sectionId).offset().top
       }, 500);
-      this.activeSection(0);
-      this.fullMenu[0].child.forEach(element => {
-        if(element.sectionId === sectionId) {
-          element.active = true;
-        } else {
-          element.active = false;
-        }
-      });
     },
     activeSection(id) {
       this.fullMenu.forEach((element, index) => {
