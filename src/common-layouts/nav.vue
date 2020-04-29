@@ -3,9 +3,13 @@
     <div class="shortcut-menu">
       <img class="logo" src="../assets/img/grape-w-vertical.png" alt="">
       <ul class="menu-bar shortcut-menu-bar">
-        <li v-for="(item, index) in shortcutMenu" :key="index" @click="activeSection(index)" :class="{ active : item.active }">
-          <span :class="{ active : item.active }">{{ item.name }}</span>
-          <span class="menu-line"></span>
+        <li v-for="(item, index) in sectionPos" :key="index" @click="activeSection(index)" :class="{ active : item.active }">
+          <span>{{ item.key }}</span>
+          <transition
+            :duration="5000"
+            leave-active-class="animated fadeOutDown">
+            <span class="menu-line" v-if="item.active" :style="{height: `${((currentScroll - item.top) / item.height) * 40}px`}"></span>
+          </transition>
         </li>
       </ul>
     </div>
@@ -17,7 +21,11 @@
           <li v-for="(item, index) in fullMenu" :key="index" @click="activeSection(index)">
             <span :class="{ active : item.active }">{{ item.name }}</span>
             <ul class="menu-bar-sub">
-              <li v-for="(child, indexChild) in item.child" :key="indexChild" :class="{ active : item.active && child.active }">{{ child.name }}</li>
+              <li
+                v-for="(child, indexChild) in item.child"
+                :key="indexChild"
+                :class="{ active : item.active && child.active }"
+                @click="scrollToDiv(child.sectionId)">{{ child.name }}</li>
             </ul>
           </li>
         </ul>
@@ -35,22 +43,31 @@ export default {
     lock: false,
     closed: false,
     customWidth: 'auto',
+    currentScroll: 0,
     fullMenu: [
       {
         name: 'Home',
         child: [
           {
+            name: 'Intro',
+            active: true,
+            sectionId: "#introduction"
+          },
+          {
             name: 'About us',
-            active: true
+            active: false,
+            sectionId: "#about-us"
           },
           {
-            name: 'PortFolio',
+            name: 'What we do',
+            sectionId: "#what-we-do",
             active: false
           },
-          {
-            name: 'Our Team',
-            active: false
-          },
+          // {
+          //   name: 'Our Team',
+          //   sectionId: "#what-we-do",
+          //   active: false
+          // },
         ],
         active: true
       },
@@ -69,24 +86,44 @@ export default {
     ],
     shortcutMenu: [
       {
-        name: '01',
-        active: true
+        key: '01'
       },
       {
-        name: '02',
-        active: false
+        key: '02'
       },
       {
-        name: '03',
-        active: false
+        key: '03'
       },
-      {
-        name: '04',
-        active: false
-      }
+      // {
+      //   key: '04'
+      // }
     ]
   }),
+  computed: {
+    sectionPos () {
+      console.log(this.$store.state.homeSectionPosition.top)
+      return this.shortcutMenu.map(x =>
+        ({
+          key: x.key,
+          active: x.key === this.$store.state.homeSectionPosition.id,
+          height: this.$store.state.homeSectionPosition.height,
+          top: this.$store.state.homeSectionPosition.top
+        })
+      )
+    }
+  },
+  mounted() {
+    $(window).on('scroll', () => {
+      // this.currentScroll = $(window).scrollTop() + ($(window).height() / 2)
+      this.currentScroll = $(window).scrollTop()
+    })
+  },
   methods: {
+    scrollToDiv(sectionId) {
+      $('html, body').animate({
+        scrollTop: $(sectionId).offset().top
+      }, 500);
+    },
     activeSection(id) {
       console.log(id);
     },

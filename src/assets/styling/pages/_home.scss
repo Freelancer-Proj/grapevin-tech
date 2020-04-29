@@ -24,14 +24,10 @@
 }
 
 #about-us {
-  font-family: Anton;
   h1 {
-    @include pxRem(font-size, 50);
-    @include pxRem(margin-left, -85);
-    width: 150%;
-  }
-  h4 {
-    @include pxRem(font-size, 20);
+    @include pxRem(letter-spacing, -3);
+    line-height: 1;
+    @include pxRem(margin-left, -55);
   }
   p {
     @include pxRem(font-size, 16);

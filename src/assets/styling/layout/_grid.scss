@@ -28,16 +28,16 @@ $container-width: 1180px;
     padding: 0 10px;
   }
 }
-.row {
-  @extend %clr;
-  margin-left: -$grid-gutter;
-  margin-right: -$grid-gutter;
-  > [class*="col-"] {
-    float: left;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
-  }
-}
+// .row {
+//   @extend %clr;
+//   margin-left: -$grid-gutter;
+//   margin-right: -$grid-gutter;
+//   > [class*="col-"] {
+//     float: left;
+//     padding-left: $grid-gutter;
+//     padding-right: $grid-gutter;
+//   }
+// }
 
 // Remove gutters (margin, padding) of row & col
 .row-no-gutters {

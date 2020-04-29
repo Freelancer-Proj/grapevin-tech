@@ -9,7 +9,7 @@ html, body {
   font-family: $font-family;
   position: relative;
   font-weight: 300;
-  color: map-get($color, black);
+  color: map-get($color, black-a);
   line-height: 1.7;
   letter-spacing: 0.8px;
   background: map-get($color, white);
@@ -33,6 +33,11 @@ a {
   color: inherit;
 }
 
+%regular-style {
+  font-weight: bold;
+  font-family: Montserrat;
+}
+
 hr {
   border-top: 1px solid black;
   width: 100%;
@@ -40,13 +45,19 @@ hr {
 }
 
 h2 {
+  @extend %regular-style;
   @include pxRem(font-size, 30);
-  font-weight: bold;
-  font-family: Montserrat;
 }
 
 h3 {
+  @extend %regular-style;
   @include pxRem(font-size, 25);
-  font-weight: bold;
-  font-family: Montserrat;
+}
+h1 {
+  @include pxRem(font-size, 50);
+  @extend %regular-style;
+}
+h4 {
+  @include pxRem(font-size, 20);
+  @extend %regular-style;
 }
