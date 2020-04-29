@@ -10,7 +10,7 @@
         <v-col
           sm="6"
           cols="12">
-          <div class="step-doing">
+          <div class="pl-10 step-doing">
             <span class="badge badge-primary p-2 mb-2">
               0{{index + 1}}
             </span>

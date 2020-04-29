@@ -23,6 +23,18 @@
   }
 }
 
+#about-us {
+  h1 {
+    @include pxRem(letter-spacing, -3);
+    line-height: 1;
+    @include pxRem(margin-left, -55);
+  }
+  p {
+    @include pxRem(font-size, 16);
+    @include pxRem(line-height, 22);
+  }
+}
+
 .home {
   h2 {
     text-transform: capitalize;
