@@ -1,10 +1,18 @@
 export const state = () => ({
-  navbarIsLock: false
+  navbarIsLock: false,
+  homeSectionPosition: {
+    height: 1,
+    id: `01`,
+    top: 0
+  }
 })
 
 export const mutations = {
   toggleLockNavbar (state, status) {
     state.navbarIsLock = status
+  },
+  setSectionPos (state, status) {
+    state.homeSectionPosition = status
   }
 }
 // modules: {

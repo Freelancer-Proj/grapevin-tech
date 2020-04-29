@@ -41,15 +41,25 @@
         font-family: Anton;
         font-weight: bold;
         color: map-get($color, white);
+        position: relative;
+      }
+      .menu-line {
+        @include pxRem(width, 1);
+        @include pxRem(height, 2);
+        display: block;
+        position: absolute;
+        margin: auto;
+        background-color: map-get($color, primary);
+        top: 50%;
+        left: 50%;
+        transform: translate(0, 50%);
       }
       .active {
-        &:after {
-          @include pxRem(width, 2);
-          @include pxRem(height, 15);
-          content: '';
-          display: block;
-          background-color: map-get($color, primary);
-          margin: auto;
+        .menu-line {
+          position: relative;
+          transform: none;
+          top: 0;
+          left: 0;
         }
       }
     }
@@ -65,6 +75,7 @@
       text-align: center;
       .menu-bar {
         li {
+          text-transform: capitalize;
           @include pxRem(font-size, 22);
           font-family: PT sans;
           color: map-get($color, white);

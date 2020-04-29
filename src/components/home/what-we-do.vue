@@ -1,6 +1,10 @@
 <template>
   <ul class="step-doing-list">
-    <li class="step-doing-item" v-for="(step, index) of stepDoings" :key="`step${index}`">
+    <li
+      class="step-doing-item wow bounceInLeft"
+      :class="index % 2 ? 'bounceInLeft' : 'bounceInRight'"
+      v-for="(step, index) of stepDoings"
+      :key="`step${index}`">
       <v-row no-gutters class="f-row f-center-x">
         <v-col
           sm="6"
@@ -10,7 +14,7 @@
         <v-col
           sm="6"
           cols="12">
-          <div class="step-doing">
+          <div class="pr-10 pl-10 step-doing">
             <span class="badge badge-primary p-2 mb-2">
               0{{index + 1}}
             </span>
@@ -43,7 +47,7 @@ export default {
           name: 'Apps',
           jpName: 'アプリ',
           desc: '私たちは、貴社がそのアプリに求める特性（動作速度、ネイティブ機能との密接度、オフラインでの利用頻度など）やウェブアプリ、ネイティブアプリ、ハイブリッドアプリの違いと各々のメリット・デメリットを踏まえ、最もふさわしい種類のアプリを提案させていただきます。',
-          cover: require('~/assets/img/what-we-do/app.jpg')
+          cover: require('~/assets/img/what-we-do/app.png')
         },
         {
           name: 'Web',
@@ -55,7 +59,7 @@ export default {
           name: 'Maintenance',
           jpName: '運用保守',
           desc: '私たちが開発したアプリ・WEBシステムの運用保守については、お客様のご要望に応じて、お客さまご自身のあるいはアウトソーシングされているデータセンターやオペレーションセンターの非常事態に対するオンラインサポートを提供いたします。',
-          cover: require('~/assets/img/what-we-do/maintenance.jpg')
+          cover: require('~/assets/img/what-we-do/maintenance.png')
         },
         {
           name: 'Other',
