@@ -88,7 +88,6 @@ export default {
   }),
   methods: {
     activeSection(id) {
-      console.log(id);
     },
     toggleLock() {
       this.lock = !this.lock

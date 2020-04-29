@@ -24,6 +24,7 @@
 }
 
 #about-us {
+  @include pxRem(min-height, 500);
   font-family: Anton;
   h1 {
     @include pxRem(font-size, 50);
