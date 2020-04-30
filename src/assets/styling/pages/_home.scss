@@ -24,6 +24,7 @@
 }
 
 #about-us {
+  @include pxRem(min-height, 500);
   h1 {
     @include pxRem(letter-spacing, -3);
     line-height: 1;
