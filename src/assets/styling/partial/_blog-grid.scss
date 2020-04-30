@@ -1,0 +1,40 @@
+.blog-grid-images {
+  .col {
+    padding: 4px !important;
+  }
+}
+.blog-grid {
+  @include pxRem(height, 175);
+  overflow: hidden;
+  img {
+    @include pxRem(border-radius, 5);
+  }
+  .half-image {
+    height: 50%;
+  }
+  .blur-image {
+    position: relative;
+    // opacity: 0.5;
+    .more-blur {
+      @include pxRem(padding-bottom, 85);
+      @include pxRem(border-radius, 5);
+      display: inline-block;
+      width: 100%;
+      background-color: map-get($color, border-3);
+      position: absolute;
+      left: 0;
+      top: 0;
+      span {
+        @include pxRem(font-size, 20);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: map-get($color, white);
+      }
+    }
+  }
+}
+.blog-3grid {
+  display: flex;
+}

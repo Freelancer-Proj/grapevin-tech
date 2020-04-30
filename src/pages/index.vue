@@ -26,6 +26,11 @@
         </svg>
       </div>
     </section>
+    <section id="blogs" class="wow fadeInDown">
+      <div class="container content">
+        <BlogList :listBlog="listBlog"/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -35,11 +40,13 @@ const WOW = !isServer ? require('wow.js') : null
 
 import WhatWeDoing from '../components/home/what-we-do'
 import AboutUs from '../components/home/about-us'
+import BlogList from '../components/blogs/blog-list'
 
 export default {
   components: {
     WhatWeDoing,
-    AboutUs
+    AboutUs,
+    BlogList
   },
   data() {
     return {
@@ -47,7 +54,110 @@ export default {
       sectionList: [
         '#introduction',
         '#about-us',
-        '#what-we-do'
+        '#what-we-do',
+        '#blogs'
+      ],
+      listBlog: [
+        {
+          name: 'Guide to Pro Photography',
+          date: '16 March 2019',
+          description: `Let me start off by saying, you can do this! It will be hard work, but isn't impossible.`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            // require('~/assets/img/about-us/2.jpg'),
+            // require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Mordern Industrial Design',
+          date: '10 March 2019',
+          description: `Industrial designs require little furniture and more floor space. This design gerve wants people to be able`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            // require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Learning Design Process',
+          date: '07 March 2019',
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Design Thinking Process',
+          date: '02 March 2019',
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg'),
+            require('~/assets/img/about-us/5.jpg'),
+            require('~/assets/img/about-us/6.jpg'),
+            require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Design Thinking Process',
+          date: '02 March 2019',
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg'),
+            require('~/assets/img/about-us/5.jpg'),
+            require('~/assets/img/about-us/6.jpg'),
+            require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        }
       ]
     }
   },

@@ -1,0 +1,31 @@
+<template>
+  <article class="blog-item">
+    <BlogGrid :images="blog.images"/>
+    <div class="blog-content">
+      <h4>{{ blog.name }}</h4>
+      <span class="txt-light">{{ blog.date }}</span>
+      <p class="blog-description mt-3 mb-3">{{ blog.description }}</p>
+      <div class="responser">
+        <figure v-for="(responser, index) of blog.responser" :key="index">
+          <img class="circle-image" :src="responser">
+        </figure>
+      </div>
+    </div>
+  </article>
+</template>
+<script>
+
+import BlogGrid from '../../partial/blog-grid';
+export default {
+  components: {
+    BlogGrid
+  },
+  props: {
+    blog: Array,
+  },
+  data() {
+    return {
+    }
+  }
+}
+</script>

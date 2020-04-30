@@ -61,3 +61,10 @@ h4 {
   @include pxRem(font-size, 20);
   @extend %regular-style;
 }
+
+.circle-image {
+  @include pxRem(width, 50);
+  @include pxRem(height, 50);
+  border-radius: 50%;
+  display: inline-block;
+}
