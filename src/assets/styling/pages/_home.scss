@@ -36,6 +36,33 @@
   }
 }
 
+#skill-design {
+  @include pxRem(min-height, 500);
+  .yellow-label {
+    @include pxRem(border-radius, 5);
+    @include pxRem(padding, 10);
+    background-color: map-get($color, badge-1);
+    color: map-get($color, white);
+    font-weight: bold;
+  }
+  h2 {
+    @include pxRem(padding, 30 0 20);
+    text-align: left;
+  }
+  p {
+    color: map-get($color, text-light);
+  }
+  .skill-percent {
+    .percent {
+      @include pxRem(font-size, 56);
+      @include pxRem(line-height, 50);
+      span {
+        color: map-get($color, badge-1);
+      }
+    }
+  }
+}
+
 .home {
   h2 {
     text-transform: capitalize;
