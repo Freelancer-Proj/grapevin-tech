@@ -36,6 +36,32 @@
   }
 }
 
+#staff-design {
+  .staff-item {
+    .staff-content {
+      background-color: map-get($color, light-blue);
+      h4 {
+        color: map-get($color, border-2);
+      }
+      p {
+        color: map-get($color, text-blur);
+      }
+      .staff-position {
+        @include pxRem(margin, 5 0);
+        color: map-get($color, blue);
+        display: block;
+      }
+    }
+  }
+  .action-btn {
+    button {
+      @include pxRem(padding, 10 18);
+      @include pxRem(box-shadow, 0 2 5 rgba(0, 0, 0, 0.1));
+      border-radius: 50%;
+    }
+  }
+}
+
 .home {
   h2 {
     text-transform: capitalize;
