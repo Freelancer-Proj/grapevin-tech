@@ -28,7 +28,7 @@
     </section>
     <section id="blogs" class="wow fadeInDown">
       <div class="container content">
-        <BlogList :listBlog="listBlog"/>
+        <BlogList :listBlog="listBlog.slice(0,4)"/>
       </div>
     </section>
   </div>

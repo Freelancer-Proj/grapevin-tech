@@ -1,7 +1,7 @@
 <template>
   <div class="blog-list">
     <v-row class="f-row f-space-between">
-        <v-col sm="3" cols="12" v-for="(blog, index) of blogData" :key="index">
+        <v-col sm="3" cols="12" v-for="(blog, index) of listBlog" :key="index">
           <BlogItem :blog="blog" />
         </v-col>
     </v-row>
@@ -21,10 +21,7 @@ export default {
     listBlog: Array,
   },
   data() {
-    console.log(this.listBlog);
-    
     return {
-      blogData: this.listBlog.slice(0,4),
     }
   }
 }

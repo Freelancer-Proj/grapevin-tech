@@ -3,25 +3,31 @@
     <v-col v-if="images.length === 1"
       class="blog-grid"
       cols="12">
-      <img :src="images[0]">
+      <figure>
+        <img :src="images[0]">
+      </figure>
     </v-col>
     <v-col v-if="images.length === 2"
       class="blog-grid"
       v-for="(item, index) of listImage" :key="index"
       cols="6">
-      <img :src="item">
+      <figure>
+        <img :src="item">
+      </figure>
     </v-col>
     <div class="blog-3grid" v-if="images.length > 2">
-      <v-col
-        class="blog-grid"
-        cols="6">
-        <img :src="listImage[0]">
+      <v-col class="blog-grid" cols="6">
+        <figure>
+          <img :src="listImage[0]">
+        </figure>
       </v-col>
       <v-col
         class="blog-grid"
         cols="6">
         <div v-for="(item, index) of listImage" :key="index" v-if="index > 0" class="blur-image">
-          <img class="half-image" :src="item">
+          <figure>
+            <img class="half-image" :src="item">
+          </figure>
           <div v-if="lengthImages > 3 && index === 2" :class="{ 'more-blur': lengthImages > 3 && index === 2}"><span>{{ restImage.length + '+'}}</span></div>
         </div>
       </v-col>
