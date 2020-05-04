@@ -5,5 +5,13 @@
 }
 .wrapper {
   transition: all 0.5s ease-out;
+  @include pxRem(padding-left, 60);
+
 }
+
+.wrapper-lock {
+  transition: all 0.5s ease-out;
+  @include pxRem(padding-left, 200 !important);
+}
+
 

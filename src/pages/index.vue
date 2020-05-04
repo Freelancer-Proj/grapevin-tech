@@ -26,6 +26,7 @@
         </svg>
       </div>
     </section>
+    <v-icon>$angular</v-icon>
   </div>
 </template>
 

@@ -114,7 +114,7 @@ export default {
       )
     },
     homePos () {
-      this.fullMenu[0].child = this.fullMenu[0].child.map(x => 
+      this.fullMenu[0].child = this.fullMenu[0].child.map(x =>
         ({
           name: x.name,
           sectionId: x.sectionId,
@@ -136,7 +136,7 @@ export default {
   methods: {
     scrollToDiv(sectionId) {
       $('html, body').animate({
-        scrollTop: $(sectionId).offset().top
+        scrollTop: $(sectionId).offset().top + 1
       }, 500);
     },
     activeSection(id) {
