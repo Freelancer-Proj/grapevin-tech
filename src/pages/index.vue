@@ -69,7 +69,7 @@ export default {
       listBlog: [
         {
           name: 'Guide to Pro Photography',
-          date: '16 March 2019',
+          date: new Date(),
           description: `Let me start off by saying, you can do this! It will be hard work, but isn't impossible.`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
@@ -89,7 +89,7 @@ export default {
         },
         {
           name: 'Mordern Industrial Design',
-          date: '10 March 2019',
+          date: new Date(),
           description: `Industrial designs require little furniture and more floor space. This design gerve wants people to be able`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
@@ -109,7 +109,7 @@ export default {
         },
         {
           name: 'Learning Design Process',
-          date: '07 March 2019',
+          date: new Date(),
           description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
@@ -129,7 +129,7 @@ export default {
         },
         {
           name: 'Design Thinking Process',
-          date: '02 March 2019',
+          date: new Date(),
           description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
@@ -149,7 +149,7 @@ export default {
         },
         {
           name: 'Design Thinking Process',
-          date: '02 March 2019',
+          date: new Date(),
           description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
