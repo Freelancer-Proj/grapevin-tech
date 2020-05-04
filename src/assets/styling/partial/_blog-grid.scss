@@ -11,6 +11,7 @@
     height: 100%;
     img {
       @include pxRem(border-radius, 5);
+      object-fit: cover;
     }
   }
   .blur-image {

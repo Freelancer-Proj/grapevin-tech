@@ -21,13 +21,14 @@
         <WhatWeDoing/>
       </div>
       <div class="shape-2">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+        <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
         </svg>
       </div>
     </section>
     <section id="blogs" class="wow fadeInDown">
       <div class="container content">
+        <h2 class="pb-7 wow fadeIn">Blogs</h2>
         <BlogList :listBlog="listBlog.slice(0,4)"/>
       </div>
     </section>
