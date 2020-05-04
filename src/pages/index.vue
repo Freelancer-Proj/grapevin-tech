@@ -26,6 +26,11 @@
         </svg>
       </div>
     </section>
+    <section id="skill-design" class="wow fadeInDown">
+      <div class="container content">
+        <SkillDesign/>
+      </div>
+    </section>
     <v-icon>$angular</v-icon>
   </div>
 </template>
@@ -36,11 +41,13 @@ const WOW = !isServer ? require('wow.js') : null
 
 import WhatWeDoing from '../components/home/what-we-do'
 import AboutUs from '../components/home/about-us'
+import SkillDesign from '../components/home/skill-design'
 
 export default {
   components: {
     WhatWeDoing,
-    AboutUs
+    AboutUs,
+    SkillDesign
   },
   data() {
     return {
