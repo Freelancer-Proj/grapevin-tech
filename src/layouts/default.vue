@@ -2,7 +2,7 @@
   <div>
     <app-header/>
     <app-nav/>
-    <div class="wrapper" :style="{'padding-left': navbarIsLock ? '200px': '60px'}">
+    <div class="wrapper" :class="{'wrapper-lock': navbarIsLock}">
       <nuxt />
     </div>
     <app-footer/>

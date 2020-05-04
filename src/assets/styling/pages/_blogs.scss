@@ -11,7 +11,8 @@
       @include pxRem(font-size, 15);
     }
     .blog-description {
-      @include pxRem(min-height, 135);
+      @include pxRem(max-height, 70);
+      overflow: hidden;
     }
   }
   .responser {
