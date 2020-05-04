@@ -58,3 +58,6 @@
   @include pxRem(font-size, 24);
   @include pxRem(line-height, 34);
 }
+.txt-light {
+  color: map-get($color, text-light);
+}

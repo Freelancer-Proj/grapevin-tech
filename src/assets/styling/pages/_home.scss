@@ -55,6 +55,10 @@
   }
 }
 
+#blogs {
+  background-color: map-get($color, border);
+}
+
 .home {
   h2 {
     text-transform: capitalize;
