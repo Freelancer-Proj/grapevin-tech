@@ -1,0 +1,6 @@
+.inner {
+  h6 {
+    @include pxRem(padding-top, 15);
+    @include pxRem(padding-bottom, 10);
+  }
+}

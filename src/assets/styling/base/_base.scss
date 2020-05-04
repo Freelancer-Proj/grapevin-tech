@@ -61,3 +61,8 @@ h4 {
   @include pxRem(font-size, 20);
   @extend %regular-style;
 }
+p {
+  @include pxRem(margin-bottom, 10);
+  @include pxRem(font-size, 14);
+
+}

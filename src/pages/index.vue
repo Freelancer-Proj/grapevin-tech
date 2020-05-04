@@ -31,6 +31,7 @@
         <SkillDesign/>
       </div>
     </section>
+    <v-icon>$angular</v-icon>
   </div>
 </template>
 
