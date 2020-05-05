@@ -106,3 +106,9 @@
     text-align: center;
   }
 }
+
+#animation-number {
+  .animation-num {
+    @include pxRem(font-size, 50);
+  }
+}

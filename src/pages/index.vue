@@ -42,6 +42,17 @@
         <SkillDesign/>
       </div>
     </section>
+    <section id="animation-number" class="wow fadeInDown pt-10 pb-10">
+      <div class="container content">
+        <v-row no-gutters class="f-row">
+          <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of animationNumber" :key="index">
+            <AnimationNumber :valueNum="3" />
+            <p class="txt-bold">{{ item.text }}</p>
+          </v-col>
+        </v-row>
+      </div>
+    </section>
+    <v-icon>$angular</v-icon>
   </div>
 </template>
 
@@ -54,6 +65,7 @@ import AboutUs from '../components/home/about-us'
 import Staff from '../components/home/staff'
 import BlogList from '../components/blogs/blog-list'
 import SkillDesign from '../components/home/skill-design'
+import AnimationNumber from '../partial/animated-number'
 
 export default {
   components: {
@@ -61,7 +73,8 @@ export default {
     AboutUs,
     Staff,
     BlogList,
-    SkillDesign
+    SkillDesign,
+    AnimationNumber
   },
   data() {
     return {
@@ -172,6 +185,24 @@ export default {
             require('~/assets/img/about-us/3.jpg'),
             require('~/assets/img/about-us/4.jpg')
           ]
+        }
+      ],
+      animationNumber: [
+        {
+          number: 275,
+          text: 'アプリ開発'
+        },
+        {
+          number: 352,
+          text: 'WEBサイト開発'
+        },
+        {
+          number: 60,
+          text: '組込み系'
+        },
+        {
+          number: 33,
+          text: '人口知能導入'
         }
       ]
     }
