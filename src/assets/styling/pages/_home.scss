@@ -55,6 +55,47 @@
   }
 }
 
+#staff-design {
+  @include pxRem(min-height, 500);
+  .staff-description {
+    @include pxRem(font-size, 16);
+    color: map-get($color, text-blur);
+  }
+  .staff-item {
+    .staff-content {
+      @include pxRem(border-radius, 5);
+      background-color: map-get($color, light-blue);
+      h4 {
+        color: map-get($color, black-a);
+      }
+      p {
+        @include pxRem(font-size, 16);
+        color: map-get($color, text-blur);
+      }
+      .staff-position {
+        @include pxRem(margin, 5 0);
+        color: map-get($color, blue);
+        display: block;
+      }
+    }
+  }
+  .action-btn {
+    button {
+      @include pxRem(width, 50);
+      @include pxRem(height, 50);
+      @include pxRem(box-shadow, 0 2 5 rgba(0, 0, 0, 0.1));
+      border-radius: 50%;
+      position: relative;
+      i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+  
 #blogs {
   background-color: map-get($color, bg-search);
 }

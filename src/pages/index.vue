@@ -26,6 +26,11 @@
         </svg>
       </div>
     </section>
+    <section id="staff-design" class="wow fadeInDown">
+      <div class="container content">
+        <Staff/>
+        </div>
+    </section>
     <section id="blogs" class="wow fadeInDown">
       <div class="container content">
         <h2 class="pb-7 wow fadeIn">Blogs</h2>
@@ -57,6 +62,7 @@ const WOW = !isServer ? require('wow.js') : null
 
 import WhatWeDoing from '../components/home/what-we-do'
 import AboutUs from '../components/home/about-us'
+import Staff from '../components/home/staff'
 import BlogList from '../components/blogs/blog-list'
 import SkillDesign from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
@@ -65,6 +71,7 @@ export default {
   components: {
     WhatWeDoing,
     AboutUs,
+    Staff,
     BlogList,
     SkillDesign,
     AnimationNumber
