@@ -11,7 +11,7 @@ html, body {
   font-weight: 300;
   color: map-get($color, black-a);
   line-height: 1.7;
-  letter-spacing: 0.8px;
+  letter-spacing: 0;
   background: map-get($color, white);
   overscroll-behavior: contain;
   text-rendering: optimizeLegibility;
@@ -36,6 +36,7 @@ a {
 %regular-style {
   font-weight: bold;
   font-family: Montserrat;
+  color: map-get($color, black-a);
 }
 
 hr {
@@ -60,6 +61,13 @@ h1 {
 h4 {
   @include pxRem(font-size, 20);
   @extend %regular-style;
+}
+
+.circle-image {
+  @include pxRem(width, 50);
+  @include pxRem(height, 50);
+  border-radius: 50%;
+  display: inline-block;
 }
 p {
   @include pxRem(margin-bottom, 10);

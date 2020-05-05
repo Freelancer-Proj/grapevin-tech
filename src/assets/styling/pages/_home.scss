@@ -95,6 +95,10 @@
     }
   }
 }
+  
+#blogs {
+  background-color: map-get($color, bg-search);
+}
 
 .home {
   h2 {

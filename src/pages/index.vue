@@ -21,14 +21,20 @@
         <WhatWeDoing/>
       </div>
       <div class="shape-2">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+        <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+          <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
         </svg>
       </div>
     </section>
     <section id="staff-design" class="wow fadeInDown">
       <div class="container content">
         <Staff/>
+        </div>
+    </section>
+    <section id="blogs" class="wow fadeInDown">
+      <div class="container content">
+        <h2 class="pb-7 wow fadeIn">Blogs</h2>
+        <BlogList :listBlog="listBlog.slice(0,4)"/>
       </div>
     </section>
     <section id="skill-design" class="wow fadeInDown">
@@ -46,6 +52,7 @@ const WOW = !isServer ? require('wow.js') : null
 import WhatWeDoing from '../components/home/what-we-do'
 import AboutUs from '../components/home/about-us'
 import Staff from '../components/home/staff'
+import BlogList from '../components/blogs/blog-list'
 import SkillDesign from '../components/home/skill-design'
 
 export default {
@@ -53,6 +60,7 @@ export default {
     WhatWeDoing,
     AboutUs,
     Staff,
+    BlogList,
     SkillDesign
   },
   data() {
@@ -61,7 +69,110 @@ export default {
       sectionList: [
         '#introduction',
         '#about-us',
-        '#what-we-do'
+        '#what-we-do',
+        '#blogs'
+      ],
+      listBlog: [
+        {
+          name: 'Guide to Pro Photography',
+          date: new Date(),
+          description: `Let me start off by saying, you can do this! It will be hard work, but isn't impossible.`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            // require('~/assets/img/about-us/2.jpg'),
+            // require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Mordern Industrial Design',
+          date: new Date(),
+          description: `Industrial designs require little furniture and more floor space. This design gerve wants people to be able`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            // require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Learning Design Process',
+          date: new Date(),
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            // require('~/assets/img/about-us/4.jpg'),
+            // require('~/assets/img/about-us/5.jpg'),
+            // require('~/assets/img/about-us/6.jpg'),
+            // require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Design Thinking Process',
+          date: new Date(),
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg'),
+            require('~/assets/img/about-us/5.jpg'),
+            require('~/assets/img/about-us/6.jpg'),
+            require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        },
+        {
+          name: 'Design Thinking Process',
+          date: new Date(),
+          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+          images: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg'),
+            require('~/assets/img/about-us/5.jpg'),
+            require('~/assets/img/about-us/6.jpg'),
+            require('~/assets/img/about-us/7.jpg')
+          ],
+          responser: [
+            require('~/assets/img/about-us/1.jpg'),
+            require('~/assets/img/about-us/2.jpg'),
+            require('~/assets/img/about-us/3.jpg'),
+            require('~/assets/img/about-us/4.jpg')
+          ]
+        }
       ]
     }
   },
