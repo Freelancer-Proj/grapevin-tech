@@ -119,3 +119,68 @@
     @include pxRem(font-size, 50);
   }
 }
+
+#speech {
+  background-image: url('../img/speech/banner.jpg');
+  background-size: cover;
+  position: relative;
+  @include respond-above(wide) {
+    @include pxRem(height, 600);
+  }
+  @include respond-below(wide) {
+    @include pxRem(height, 300);
+  }
+  .container {
+    height: 100%;
+  }
+  .blur-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: map-get($color, black);
+    opacity: 0.5;
+  }
+  .speech-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    color: map-get($color, white);
+    z-index: 1000;
+    h4 {
+      @include respond-above(wide) {
+        @include pxRem(font-size, 26);
+      }
+      color: map-get($color, white);
+      &:after {
+        @include pxRem(margin, 15 auto 25);
+        content: '';
+        display: block;
+        width: 10%;
+        height: 1px;
+        background: #fff;
+      }
+    }
+    p {
+      @include respond-above(wide) {
+        @include pxRem(font-size, 24);
+      }
+    }
+  }
+  .action-btn {
+    position: absolute;
+    top: 50%;
+    .material-icons {
+      @include pxRem(font-size, 40);
+    }
+  }
+  .prev-btn {
+    @include pxRem(left, 25);
+  }
+  .next-btn {
+    @include pxRem(right, 25);
+  }
+}
