@@ -1,3 +1,12 @@
 button {
   outline: none;
 }
+.btn {
+  @include pxRem(padding, 5 10);
+}
+.btn-primary {
+  @include pxRem(border-radius, 5);
+  background-color: map-get($color, primary);
+  color: map-get($color, white);
+  font-weight: bold;
+}

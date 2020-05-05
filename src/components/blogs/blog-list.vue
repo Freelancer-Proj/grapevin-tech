@@ -5,8 +5,8 @@
           <BlogItem :blog="blog" />
         </v-col>
     </v-row>
-    <v-row class="f-row f-center-y ">
-      <router-link to="/blogs">See more</router-link>
+    <v-row class="f-row f-center-y mt-3">
+      <router-link class="btn btn-primary" to="/blogs">See more</router-link>
     </v-row>
   </div>
 </template>
