@@ -37,7 +37,24 @@ export default {
         infinite: true,
         dots: false,
         arrows: false,
-        slidesToShow: 3
+        slidesToShow: 3,
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              slidesToShow: 2,
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
       },
     }
   },

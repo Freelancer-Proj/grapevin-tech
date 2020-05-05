@@ -28,11 +28,13 @@
   h1 {
     @include pxRem(letter-spacing, -3);
     line-height: 1;
-    @include pxRem(margin-left, -55);
+    @include respond-above(medium) {
+      @include pxRem(margin-left, -55);
+    }
   }
 }
 
-#skill-design {
+#skills {
   @include pxRem(min-height, 500);
   h2 {
     @include pxRem(padding, 30 0 20);
@@ -55,7 +57,7 @@
   }
 }
 
-#staff-design {
+#staff {
   @include pxRem(min-height, 500);
   .staff-description {
     @include pxRem(font-size, 16);

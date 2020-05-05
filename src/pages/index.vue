@@ -32,15 +32,15 @@
         <BlogList :listBlog="listBlog.slice(0,4)"/>
       </div>
     </section>
-    <section id="staff-design" class="wow fadeInDown">
+    <section id="staff" class="wow fadeInDown">
       <div class="container content">
         <h2 class="pt-7 pb-7 wow fadeIn">Our Team</h2>
         <Staff/>
       </div>
     </section>
-    <section id="skill-design" class="wow fadeInDown">
+    <section id="skills" class="wow fadeInDown">
       <div class="container content">
-        <SkillDesign/>
+        <Skills/>
       </div>
     </section>
     <section id="statistics" class="t-10 pb-10">
@@ -64,7 +64,7 @@ import WhatWeDoing from '../components/home/what-we-do'
 import AboutUs from '../components/home/about-us'
 import Staff from '../components/home/staff'
 import BlogList from '../components/blogs/blog-list'
-import SkillDesign from '../components/home/skill-design'
+import Skills from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
 
 export default {
@@ -73,7 +73,7 @@ export default {
     AboutUs,
     Staff,
     BlogList,
-    SkillDesign,
+    Skills,
     AnimationNumber
   },
   data() {
@@ -83,7 +83,10 @@ export default {
         '#introduction',
         '#about-us',
         '#what-we-do',
-        '#blogs'
+        '#blogs',
+        '#staff',
+        '#skills',
+        '#statistics'
       ],
       listBlog: [
         {
@@ -187,6 +190,7 @@ export default {
           ]
         }
       ],
+      statisticsInit: false,
       statistics: [
         {
           num: 0,
@@ -213,7 +217,7 @@ export default {
       this.sectionList.forEach(x => {
         this.triggerPos(x)
       })
-      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top) {
+      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !statisticsInit) {
         this.statistics = [
           {
             num: 275,
@@ -231,7 +235,8 @@ export default {
             num: 33,
             text: '人口知能導入'
           }
-        ]
+        ];
+        this.statisticsInit = true;
       }
     })
   },

@@ -1,5 +1,7 @@
 export const state = () => ({
   navbarIsLock: false,
+  shortcutNavbarIsShow: false,
+  navIsOpen: null,
   homeSectionPosition: {
     height: 1,
     id: `01`,
@@ -13,6 +15,12 @@ export const mutations = {
   },
   setSectionPos (state, status) {
     state.homeSectionPosition = status
+  },
+  setShortcutNavbar (state, status) {
+    state.shortcutNavbarIsShow = status
+  },
+  openNav(state, status) {
+    state.navIsOpen = status
   }
 }
 // modules: {

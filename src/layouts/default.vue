@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header/>
+    <app-header v-if="isHeaderShow"/>
     <app-nav/>
-    <div class="wrapper" :class="{'wrapper-lock': navbarIsLock}">
+    <div class="wrapper" :class="{'wrapper-lock': navbarIsLock, 'no-wrapper': !shortcutNavbarIsShow}">
       <nuxt />
     </div>
     <app-footer/>
@@ -25,10 +25,24 @@ export default {
   //     // this.$store.commit('setSidebar', false)
   //   }
   // },
+  data() {
+    return {
+      isHeaderShow: false
+    }
+  },
   computed: {
     navbarIsLock () {
       return this.$store.state.navbarIsLock
-    }
+    },
+    shortcutNavbarIsShow () {
+      return this.$store.state.shortcutNavbarIsShow
+    },
+  },
+  mounted () {
+    this.isHeaderShow = $(window).width() < 768 || !['/home', '/'].includes(this.$route.path)
+    window.addEventListener("resize", () => {
+      this.isHeaderShow = $(window).width() < 768 || !['/home', '/'].includes(this.$route.path)
+    })
   },
   methods: {
     scrollTop() {
