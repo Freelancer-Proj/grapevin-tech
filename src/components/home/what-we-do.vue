@@ -1,29 +1,55 @@
 <template>
   <ul class="step-doing-list">
-    <li
-      class="step-doing-item wow bounceInLeft"
-      :class="index % 2 ? 'bounceInLeft' : 'bounceInRight'"
-      v-for="(step, index) of stepDoings"
-      :key="`step${index}`">
-      <v-row no-gutters class="f-row f-center-x">
-        <v-col
-          sm="6"
-          cols="12">
-          <img :src="step.cover" alt="design">
-        </v-col>
-        <v-col
-          sm="6"
-          cols="12">
-          <div class="pr-10 pl-10 step-doing">
-            <span class="badge badge-primary p-2 mb-2">
-              0{{index + 1}}
-            </span>
-            <h3 class="step-doing-title">{{step.name}}<small class="pl-2">{{step.jpName}}</small></h3>
-            <p class="step-doing-meta">{{step.desc}}</p>
-          </div>
-        </v-col>
-      </v-row>
-    </li>
+    <div class="wow bounceInLeft">
+      <li
+        class="step-doing-item"
+        v-for="(step, index) of stepDoings.slice(0,3)"
+        :key="`step${index}`">
+        <v-row no-gutters class="f-row f-center-x">
+          <v-col
+            sm="6"
+            cols="12">
+            <img :src="step.cover" alt="design">
+          </v-col>
+          <v-col
+            sm="6"
+            cols="12">
+            <div class="pr-10 pl-10 step-doing">
+              <span class="badge badge-primary p-2 mb-2">
+                0{{index + 1}}
+              </span>
+              <h3 class="step-doing-title">{{step.name}}<small class="pl-2">{{step.jpName}}</small></h3>
+              <p class="step-doing-meta">{{step.desc}}</p>
+            </div>
+          </v-col>
+        </v-row>
+      </li>
+    </div>
+    <div class="wow bounceInRight">
+      <li
+        class="step-doing-item"
+        v-for="(step, index) of stepDoings.slice(3,6)"
+        :key="`step${index}`">
+        <v-row no-gutters class="f-row f-center-x">
+          <v-col
+            sm="6"
+            cols="12">
+            <img :src="step.cover" alt="design">
+          </v-col>
+          <v-col
+            sm="6"
+            cols="12">
+            <div class="pr-10 pl-10 step-doing">
+              <span class="badge badge-primary p-2 mb-2">
+                0{{index + 1}}
+              </span>
+              <h3 class="step-doing-title">{{step.name}}<small class="pl-2">{{step.jpName}}</small></h3>
+              <p class="step-doing-meta">{{step.desc}}</p>
+            </div>
+          </v-col>
+        </v-row>
+      </li>
+     </div>
   </ul>
 </template>
 <script>

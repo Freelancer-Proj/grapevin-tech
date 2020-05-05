@@ -61,22 +61,24 @@
     @include pxRem(font-size, 16);
     color: map-get($color, text-blur);
   }
-  .staff-item {
-    .staff-content {
-      @include pxRem(border-radius, 5);
-      background-color: map-get($color, light-blue);
-      h4 {
-        color: map-get($color, black-a);
-      }
-      p {
-        @include pxRem(font-size, 16);
-        color: map-get($color, text-blur);
-      }
-      .staff-position {
-        @include pxRem(margin, 5 0);
-        color: map-get($color, blue);
-        display: block;
-      }
+  .staff-content {
+    @include pxRem(border-radius, 10);
+    background-color: map-get($color, light-blue);
+    .staff-avatar {
+      width: 60%;
+      margin: 0 auto;
+    }
+    h4 {
+      color: map-get($color, black-a);
+    }
+    p {
+      @include pxRem(font-size, 16);
+      color: map-get($color, text-blur);
+    }
+    .staff-position {
+      @include pxRem(margin, 5 0);
+      color: map-get($color, badge-1);
+      display: block;
     }
   }
   .action-btn {
@@ -86,16 +88,19 @@
       @include pxRem(box-shadow, 0 2 5 rgba(0, 0, 0, 0.1));
       border-radius: 50%;
       position: relative;
-      i {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      // i {
+      //   position: absolute;
+      //   left: 50%;
+      //   top: 50%;
+      //   transform: translate(-50%, -50%);
+      // }
     }
   }
 }
-  
+
 #blogs {
   background-color: map-get($color, bg-search);
 }
@@ -107,7 +112,7 @@
   }
 }
 
-#animation-number {
+#statistics {
   .animation-num {
     @include pxRem(font-size, 50);
   }

@@ -1,23 +1,25 @@
 <template>
   <div>
-    <v-row class="pt-10 f-row">
-      <v-col sm="4" cols="12" class="pl-4 pr-4 txt-center staff-item" v-for="(staff, index) of listStaff" :key="index">
-        <div class="staff-content pb-10">
-          <div class=" pl-10 pr-10">
-            <img :src="staff.avatar">
-          </div>
-          <h4>{{ staff.name }}</h4>
-          <span class="staff-position">{{ staff.position }}</span>
-          <p class="pl-8 pr-8">{{ staff.description }}</p>
-          <div>
-            <v-icon class="mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
+    <no-ssr>
+      <slick
+        ref="slick"
+        :options="slickOptions">
+        <div class="pl-4 pr-4 txt-center staff-item" v-for="(staff, index) of listStaff" :key="index">
+          <div class="staff-item staff-content pb-10 txt-center">
+            <img class="staff-avatar" :src="staff.avatar">
+            <h4>{{ staff.name }}</h4>
+            <span class="staff-position">{{ staff.position }}</span>
+            <p class="pl-8 pr-8">{{ staff.description }}</p>
+            <div>
+              <v-icon class="mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
+            </div>
           </div>
         </div>
-      </v-col>
-    </v-row>
-    <div class="pb-10 txt-center action-btn">
-      <button><i class="material-icons">arrow_back_ios</i></button>
-      <button><i class="material-icons">arrow_forward_ios</i></button>
+      </slick>
+    </no-ssr>
+    <div class="mt-5 pb-10 txt-center action-btn">
+      <button class="mr-2"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
+      <button class="ml-2"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
     </div>
   </div>
 </template>
@@ -31,6 +33,20 @@ export default {
   },
   data() {
     return {
+      slickOptions: {
+        infinite: true,
+        dots: false,
+        arrows: false,
+        slidesToShow: 3
+      },
+    }
+  },
+  methods: {
+    next() {
+      this.$refs.slick.next();
+    },
+    prev() {
+      this.$refs.slick.prev();
     }
   }
 }

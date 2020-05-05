@@ -26,15 +26,16 @@
         </svg>
       </div>
     </section>
-    <section id="staff-design" class="wow fadeInDown">
-      <div class="container content">
-        <Staff/>
-        </div>
-    </section>
-    <section id="blogs" class="wow fadeInDown">
+     <section id="blogs" class="wow fadeInDown">
       <div class="container content">
         <h2 class="pb-7 wow fadeIn">Blogs</h2>
         <BlogList :listBlog="listBlog.slice(0,4)"/>
+      </div>
+    </section>
+    <section id="staff-design" class="wow fadeInDown">
+      <div class="container content">
+        <h2 class="pt-7 pb-7 wow fadeIn">Our Team</h2>
+        <Staff/>
       </div>
     </section>
     <section id="skill-design" class="wow fadeInDown">
@@ -42,17 +43,16 @@
         <SkillDesign/>
       </div>
     </section>
-    <section id="animation-number" class="wow fadeInDown pt-10 pb-10">
+    <section id="statistics" class="t-10 pb-10">
       <div class="container content">
         <v-row no-gutters class="f-row">
-          <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of animationNumber" :key="index">
-            <AnimationNumber :valueNum="3" />
+          <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
+            <AnimationNumber :valueNum="item.num" />
             <p class="txt-bold">{{ item.text }}</p>
           </v-col>
         </v-row>
       </div>
     </section>
-    <v-icon>$angular</v-icon>
   </div>
 </template>
 
@@ -187,21 +187,21 @@ export default {
           ]
         }
       ],
-      animationNumber: [
+      statistics: [
         {
-          number: 275,
+          num: 0,
           text: 'アプリ開発'
         },
         {
-          number: 352,
+          num: 0,
           text: 'WEBサイト開発'
         },
         {
-          number: 60,
+          num: 0,
           text: '組込み系'
         },
         {
-          number: 33,
+          num: 0,
           text: '人口知能導入'
         }
       ]
@@ -213,6 +213,26 @@ export default {
       this.sectionList.forEach(x => {
         this.triggerPos(x)
       })
+      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top) {
+        this.statistics = [
+          {
+            num: 275,
+            text: 'アプリ開発'
+          },
+          {
+            num: 352,
+            text: 'WEBサイト開発'
+          },
+          {
+            num: 60,
+            text: '組込み系'
+          },
+          {
+            num: 33,
+            text: '人口知能導入'
+          }
+        ]
+      }
     })
   },
   methods: {
