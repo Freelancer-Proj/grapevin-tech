@@ -143,14 +143,9 @@
     opacity: 0.5;
   }
   .speech-item {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
+    display: block !important;
     color: map-get($color, white);
-    z-index: 1000;
-    width: 70%;
+    width: 70% !important;
     h4 {
       @include respond-above(wide) {
         @include pxRem(font-size, 26);
