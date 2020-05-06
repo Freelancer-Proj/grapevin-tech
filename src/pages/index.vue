@@ -224,7 +224,7 @@ export default {
       this.sectionList.forEach(x => {
         this.triggerPos(x)
       })
-      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !statisticsInit) {
+      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !this.$attrsstatisticsInit) {
         this.statistics = [
           {
             num: 275,
