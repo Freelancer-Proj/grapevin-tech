@@ -54,7 +54,7 @@
       </div>
     </section>
     <section id="speech" class="wow fadeInDown">
-      <div class="container content">
+      <div class="container content f-row f-center-x">
         <Speech/>
       </div>
       <div class="blur-background"></div>
