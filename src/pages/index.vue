@@ -57,7 +57,6 @@
       <div class="container content f-row f-center-x">
         <Speech/>
       </div>
-      <div class="blur-background"></div>
     </section>
   </div>
 </template>

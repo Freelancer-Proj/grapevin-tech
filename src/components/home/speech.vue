@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="speech-list">
     <no-ssr>
       <slick ref="slick" :options="slickOptions">
         <div class="speech-item txt-center" v-for="(speech, index) of speechData" :key="`speech${index}`">
@@ -7,9 +7,9 @@
           <p v-html="speech.content"></p>
         </div>
       </slick>
-      <button class="action-btn prev-btn"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
-      <button class="action-btn next-btn"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
     </no-ssr>
+    <button class="action-btn prev-btn"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
+    <button class="action-btn next-btn"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
   </div>
 </template>
 <script>
@@ -20,10 +20,10 @@ export default {
   data() {
     return {
       slickOptions: {
-        infinite: true,
+        infinite: false,
         dots: false,
         arrows: false,
-        slidesToShow: 1,
+        slidesToShow: 1
       },
       speechData: [
         {
