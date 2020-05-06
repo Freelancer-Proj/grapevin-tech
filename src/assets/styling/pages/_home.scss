@@ -128,7 +128,7 @@
     @include pxRem(height, 600);
   }
   @include respond-below(wide) {
-    @include pxRem(height, 300);
+    @include pxRem(height, 325);
   }
   .container {
     height: 100%;
@@ -150,6 +150,7 @@
     margin: auto;
     color: map-get($color, white);
     z-index: 1000;
+    width: 70%;
     h4 {
       @include respond-above(wide) {
         @include pxRem(font-size, 26);
@@ -178,9 +179,19 @@
     }
   }
   .prev-btn {
-    @include pxRem(left, 25);
+    @include respond-above(wide) {
+      @include pxRem(left, 25);
+    }
+    @include respond-below(wide) {
+      left: 0;
+    }
   }
   .next-btn {
-    @include pxRem(right, 25);
+    @include respond-above(wide) {
+      @include pxRem(right, 25);
+    }
+    @include respond-below(wide) {
+      right: 0;
+    }
   }
 }

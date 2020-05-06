@@ -2,17 +2,13 @@
   <div>
     <no-ssr>
       <slick ref="slick" :options="slickOptions">
-        <div v-for="(speech, index) of speechData" :key="`speech${index}`">
-          <v-row no-gutters class="pt-10 pb-10 f-row f-center-x txt-center">
-            <v-col sm="8" cols="8" class="speech-item">
-              <h4>{{ speech.title }}</h4>
-              <p v-html="speech.content"></p>
-            </v-col>
-          </v-row>
+        <div class="speech-item txt-center" v-for="(speech, index) of speechData" :key="`speech${index}`">
+          <h4>{{ speech.title }}</h4>
+          <p v-html="speech.content"></p>
         </div>
-        <button class="action-btn prev-btn"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
-        <button class="action-btn next-btn"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
       </slick>
+      <button class="action-btn prev-btn"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
+      <button class="action-btn next-btn"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
     </no-ssr>
   </div>
 </template>
