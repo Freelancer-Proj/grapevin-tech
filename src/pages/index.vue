@@ -53,6 +53,11 @@
         </v-row>
       </div>
     </section>
+    <section id="speech" class="wow fadeInDown">
+      <div class="container content f-row f-center-x">
+        <Speech/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -66,6 +71,7 @@ import Staff from '../components/home/staff'
 import BlogList from '../components/blogs/blog-list'
 import Skills from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
+import Speech from '../components/home/speech'
 
 export default {
   components: {
@@ -74,7 +80,8 @@ export default {
     Staff,
     BlogList,
     Skills,
-    AnimationNumber
+    AnimationNumber,
+    Speech
   },
   data() {
     return {
