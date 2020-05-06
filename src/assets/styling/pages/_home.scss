@@ -132,8 +132,9 @@
   }
   .container {
     height: 100%;
+    z-index: 1;
   }
-  .blur-background {
+  &:after {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -141,11 +142,9 @@
     left: 0;
     background-color: map-get($color, black);
     opacity: 0.5;
+    content: '';
   }
   .speech-item {
-    display: block !important;
-    color: map-get($color, white);
-    width: 70% !important;
     h4 {
       @include respond-above(wide) {
         @include pxRem(font-size, 26);
@@ -161,16 +160,25 @@
       }
     }
     p {
+      color: map-get($color, white);
       @include respond-above(wide) {
         @include pxRem(font-size, 24);
       }
     }
   }
+  .speech-list {
+    width: 80%;
+    margin: 0 auto;
+  }
   .action-btn {
     position: absolute;
+    color: white;
     top: 50%;
     .material-icons {
       @include pxRem(font-size, 40);
+    }
+    &:hover {
+      color: #f0f0f0;
     }
   }
   .prev-btn {

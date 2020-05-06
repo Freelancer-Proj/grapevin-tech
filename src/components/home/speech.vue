@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="speech-list">
     <no-ssr>
       <slick ref="slick" :options="slickOptions">
         <div class="speech-item txt-center" v-for="(speech, index) of speechData" :key="`speech${index}`">
@@ -20,10 +20,10 @@ export default {
   data() {
     return {
       slickOptions: {
-        infinite: true,
+        infinite: false,
         dots: false,
         arrows: false,
-        slidesToShow: 1,
+        slidesToShow: 1
       },
       speechData: [
         {
