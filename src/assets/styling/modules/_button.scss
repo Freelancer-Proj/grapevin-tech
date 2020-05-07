@@ -1,3 +1,10 @@
 button {
   outline: none;
 }
+.btn {
+  @include pxRem(padding, 5 10);
+}
+.btn-green {
+  color: map-get($color, blue-a);
+  background-color: map-get($color, rgba-blue);
+}

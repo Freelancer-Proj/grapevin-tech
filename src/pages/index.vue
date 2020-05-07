@@ -58,6 +58,11 @@
         <Speech/>
       </div>
     </section>
+    <section id="portfploi" class="wow fadeInDown">
+      <div class="container content f-row f-center-x">
+        <PortFploi/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -72,6 +77,7 @@ import BlogList from '../components/blogs/blog-list'
 import Skills from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
 import Speech from '../components/home/speech'
+import PortFploi from '../components/home/portfplio'
 
 export default {
   components: {
@@ -81,7 +87,8 @@ export default {
     BlogList,
     Skills,
     AnimationNumber,
-    Speech
+    Speech,
+    PortFploi
   },
   data() {
     return {
