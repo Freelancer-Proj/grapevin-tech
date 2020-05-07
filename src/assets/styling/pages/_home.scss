@@ -119,3 +119,82 @@
     @include pxRem(font-size, 50);
   }
 }
+
+#speech {
+  background-image: url('../img/speech/banner.jpg');
+  background-size: cover;
+  position: relative;
+  @include respond-above(wide) {
+    @include pxRem(height, 600);
+  }
+  @include respond-below(wide) {
+    @include pxRem(height, 325);
+  }
+  .container {
+    height: 100%;
+    z-index: 1;
+  }
+  &:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: map-get($color, black);
+    opacity: 0.5;
+    content: '';
+  }
+  .speech-item {
+    h4 {
+      @include respond-above(wide) {
+        @include pxRem(font-size, 26);
+      }
+      color: map-get($color, white);
+      &:after {
+        @include pxRem(margin, 15 auto 25);
+        content: '';
+        display: block;
+        width: 10%;
+        height: 1px;
+        background: #fff;
+      }
+    }
+    p {
+      color: map-get($color, white);
+      @include respond-above(wide) {
+        @include pxRem(font-size, 24);
+      }
+    }
+  }
+  .speech-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .action-btn {
+    position: absolute;
+    color: white;
+    top: 50%;
+    .material-icons {
+      @include pxRem(font-size, 40);
+    }
+    &:hover {
+      color: #f0f0f0;
+    }
+  }
+  .prev-btn {
+    @include respond-above(wide) {
+      @include pxRem(left, 25);
+    }
+    @include respond-below(wide) {
+      left: 0;
+    }
+  }
+  .next-btn {
+    @include respond-above(wide) {
+      @include pxRem(right, 25);
+    }
+    @include respond-below(wide) {
+      right: 0;
+    }
+  }
+}
