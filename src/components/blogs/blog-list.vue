@@ -1,7 +1,7 @@
 <template>
   <div class="blog-list">
     <v-row class="f-row f-space-between">
-        <v-col md="3" sm="6" cols="12" v-for="(blog, index) of listBlog" :key="index">
+        <v-col md="4" sm="6" cols="12" v-for="(blog, index) of listBlog" :key="index">
           <BlogItem :blog="blog" />
         </v-col>
     </v-row>
