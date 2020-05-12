@@ -1,0 +1,25 @@
+footer {
+  background-color: map-get($color, black-a);
+  color: rgba(255,255,255,.8);
+  .footer-link {
+    h5 {
+      color: map-get($color, white);
+      @include respond-above(wide) {
+        @include pxRem(font-size, 20);
+      }
+    }
+    a {
+      @include respond-above(wide) {
+        @include pxRem(font-size, 16);
+      }
+    }
+  }
+  .footer-logo {
+    @include pxRem(font-size, 32);
+    color: map-get($color, white);
+  }
+  .footer-team {
+    @include pxRem(font-size, 16);
+    color: map-get($color, white);
+  }
+}
