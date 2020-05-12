@@ -94,11 +94,24 @@ export default {
             sectionId: "#statistics",
             active: false
           },
-          // {
-          //   name: 'Our Team',
-          //   sectionId: "#what-we-do",
-          //   active: false
-          // },
+          {
+            key: '08',
+            name: 'Speech',
+            sectionId: "#speech",
+            active: false
+          },
+          {
+            key: '09',
+            name: 'Portfolio',
+            sectionId: "#portfolio",
+            active: false
+          },
+          {
+            key: '10',
+            name: 'Get In Touch',
+            sectionId: "#get-in-touch",
+            active: false
+          }
         ],
         active: true
       },
@@ -136,6 +149,15 @@ export default {
       },
       {
         key: '07'
+      },
+      {
+        key: '08'
+      },
+      {
+        key: '09'
+      },
+      {
+        key: '10'
       }
       // {
       //   key: '04'

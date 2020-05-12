@@ -108,7 +108,10 @@ export default {
         '#blogs',
         '#staff',
         '#skills',
-        '#statistics'
+        '#statistics',
+        '#speech',
+        '#portfolio',
+        '#get-in-touch'
       ],
       listBlog: [
         {
@@ -273,10 +276,11 @@ export default {
           scrollTopLine >= sectionTopLine &&
           scrollTopLine < sectionTopLine + sectionHeight
         ) {
+          const indexSection = this.sectionList.findIndex(x => x === sectionId)
           this.$store.commit('setSectionPos', {
             height: sectionHeight,
             top: sectionTopLine,
-            id: `0${this.sectionList.findIndex(x => x === sectionId) + 1}`
+            id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`
           })
           this.currentSection = sectionId
         }
