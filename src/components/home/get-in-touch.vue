@@ -36,12 +36,12 @@
       </v-col>
       <v-col sm="6" cols="12" class="pl-8">
         <div>
-          <h2 class="mb-5">Get In Touch</h2>
+          <h3 class="mb-5">Get In Touch</h3>
           <div class="contact-info">
             <div v-for="(contact, index) of contactData" :key="index" class="f-row f-center-x mb-2">
               <span class="material-icons mr-4">{{ contact.icon }}</span>
               <div>
-                <h4>{{ contact.title }}</h4>
+                <h5>{{ contact.title }}</h5>
                 <p v-html="contact.description"></p>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     submit () {
-      
+
     }
   }
 }

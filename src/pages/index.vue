@@ -58,14 +58,14 @@
         <Speech/>
       </div>
     </section>
-    <section id="get-in-touch" class="wow fadeInDown">
-      <div class="container content">
-        <GetInTouch/>
-      </div>
-    </section>
     <section id="portfolio" class="wow fadeInDown">
       <div class="container content f-row f-center-x">
         <Portfolio/>
+      </div>
+    </section>
+    <section id="get-in-touch" class="wow fadeInDown">
+      <div class="container content">
+        <GetInTouch/>
       </div>
     </section>
   </div>
