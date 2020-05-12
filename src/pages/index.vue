@@ -85,7 +85,6 @@ import Speech from '../components/home/speech'
 import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
 
-
 export default {
   components: {
     WhatWeDoing,

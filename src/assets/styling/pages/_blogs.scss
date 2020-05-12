@@ -27,3 +27,6 @@
     }
   }
 }
+.blog-gutters {
+  @include pxRem(padding, 20 50);
+}

@@ -20,11 +20,12 @@ export default {
     AppFooter,
     AppNav
   },
-  // watch:{
-  //   $route (to, from){
-  //     // this.$store.commit('setSidebar', false)
-  //   }
-  // },
+  watch:{
+    $route (to, from){
+      this.isHeaderShow = $(window).width() < 768 || !['/home', '/'].includes(to.path)
+      console.log(to.path, this.isHeaderShow)
+    }
+  },
   data() {
     return {
       isHeaderShow: false
