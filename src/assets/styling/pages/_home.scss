@@ -213,3 +213,24 @@
     }
   }
 }
+
+#portfolio {
+  @include pxRem(padding, 80 0);
+  .portflio-description {
+    color: map-get($color, text-blur);
+    @include respond-above(wide) {
+      @include pxRem(font-size, 20);
+    }
+  }
+  .portfolio-center {
+    @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+  }
+  .portfolio-content {
+    transition: all 0.5s ease-in-out 0s;
+    &:hover {
+      @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+      background-color: #fff;
+      transform: translate3d(0, -20px, 0);
+    }
+  }
+}
