@@ -29,7 +29,7 @@
      <section id="blogs" class="wow fadeInDown">
       <div class="container content">
         <h2 class="pb-7 wow fadeIn">Blogs</h2>
-        <BlogList :listBlog="listBlog.slice(0,4)"/>
+        <BlogList :listBlog="listBlog.slice(0,3)"/>
       </div>
     </section>
     <section id="staff" class="wow fadeInDown">
