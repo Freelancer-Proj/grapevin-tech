@@ -63,6 +63,11 @@
         <Portfolio/>
       </div>
     </section>
+    <section id="get-in-touch" class="wow fadeInDown">
+      <div class="container content">
+        <GetInTouch/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -77,7 +82,9 @@ import BlogList from '../components/blogs/blog-list'
 import Skills from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
 import Speech from '../components/home/speech'
+import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
+
 
 export default {
   components: {
@@ -88,6 +95,7 @@ export default {
     Skills,
     AnimationNumber,
     Speech,
+    GetInTouch,
     Portfolio
   },
   data() {

@@ -199,6 +199,21 @@
   }
 }
 
+#get-in-touch {
+  .contact-form {
+    @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+    .btn-primary {
+      @include pxRem(padding, 5 20);
+    }
+  }
+  .contact-info {
+    .material-icons {
+      @include pxRem(font-size, 32);
+      color: map-get($color, primary);
+    }
+  }
+}
+
 #portfolio {
   @include pxRem(padding, 80 0);
   .portflio-description {
