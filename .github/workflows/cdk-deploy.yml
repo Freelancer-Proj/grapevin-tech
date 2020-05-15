@@ -35,14 +35,13 @@ jobs:
         run: echo $authDomain $projectId && bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
         env:
           apiKey: ${{ secrets.API_KEY }}
-          authDomain: stg-grapevin-tech.firebaseapp.com
-          databaseURL: https://stg-grapevin-tech.firebaseio.com
-          projectId: stg-grapevin-tech
-          storageBucket: stg-grapevin-tech.appspot.com
-          messagingSenderId: 351226426855
+          authDomain: test-beebb.firebaseapp.com
+          databaseURL: https://test-beebb.firebaseio.com
+          projectId: test-beebb
+          storageBucket: test-beebb.appspot.com
+          messagingSenderId: 541656726837
           appId: ${{ secrets.APP_ID }}
-          measurementId: G-4CWQGZFN3T
-
+          measurementId: G-K6TYB8KKMV
       - name: Initial Public Folder
         run: |
           [ ! -d "./public" ]

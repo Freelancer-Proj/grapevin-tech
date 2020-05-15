@@ -1,14 +1,14 @@
 <template>
   <div class="blog-page pt-10 pb-10">
     <div class="container content">
-      <h2 class="txt-center mb-8">Blog Card Style</h2>
+      <h2 class="txt-center mb-8">Blogs</h2>
       <BlogList :listBlog="listBlog"/>
     </div>
   </div>
 </template>
 <script>
 
-import BlogList from '../components/blogs/blog-list'
+import BlogList from '../../components/blogs/blog-list'
 
 export default {
   components: {

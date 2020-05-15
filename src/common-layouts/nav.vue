@@ -20,7 +20,9 @@
           <img class="logo" src="../assets/img/grape-w.png" alt="">
           <ul class="menu-bar">
             <li v-for="(item, index) in homePos" :key="index" @click="activeSection(index)">
-              <span :class="{ active : item.active }">{{ item.name }}</span>
+              <nuxt-link :to="item.link">
+                <span :class="{ active : item.active }">{{ item.name }}</span>
+              </nuxt-link>
               <ul class="menu-bar-sub">
                 <li
                   v-for="(child, indexChild) in item.child"
@@ -51,6 +53,7 @@ export default {
     fullMenu: [
       {
         name: 'Home',
+        link: '/',
         child: [
           {
             key: '01',
@@ -94,24 +97,40 @@ export default {
             sectionId: "#statistics",
             active: false
           },
-          // {
-          //   name: 'Our Team',
-          //   sectionId: "#what-we-do",
-          //   active: false
-          // },
+          {
+            key: '08',
+            name: 'Speech',
+            sectionId: "#speech",
+            active: false
+          },
+          {
+            key: '09',
+            name: 'Portfolio',
+            sectionId: "#portfolio",
+            active: false
+          },
+          {
+            key: '10',
+            name: 'Get In Touch',
+            sectionId: "#get-in-touch",
+            active: false
+          }
         ],
         active: true
       },
       {
         name: 'Blogs',
+        link: '/blogs',
         active: false
       },
       {
         name: 'News',
+        link: '/news',
         active: false
       },
       {
         name: 'Contact',
+        link: '/contact',
         active: false
       }
     ],
@@ -136,6 +155,15 @@ export default {
       },
       {
         key: '07'
+      },
+      {
+        key: '08'
+      },
+      {
+        key: '09'
+      },
+      {
+        key: '10'
       }
       // {
       //   key: '04'
@@ -168,6 +196,14 @@ export default {
     },
     isNavOpen () {
       return this.$store.state.navIsOpen
+    }
+  },
+  watch:{
+    $route (to, from){
+      this.setShortcutNavBar()
+      if (!['/home', '/'].includes(from.path) && ['/home', '/'].includes(to.path)) {
+        this.activeSection(0)
+      }
     }
   },
   mounted() {

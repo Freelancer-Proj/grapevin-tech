@@ -2,7 +2,7 @@
   <div class="home">
     <section id="introduction">
       <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
-        <source src="https://firebasestorage.googleapis.com/v0/b/stg-grapevin-tech.appspot.com/o/video-bg.mp4?alt=media&token=b6861919-7a6c-4c70-8b5f-012255a959cc" type="video/mp4">
+        <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
       </video>
     </section>
     <section id="about-us" class="wow fadeInDown">
@@ -63,6 +63,11 @@
         <Portfolio/>
       </div>
     </section>
+    <section id="get-in-touch" class="wow fadeInDown">
+      <div class="container content">
+        <GetInTouch/>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -77,6 +82,7 @@ import BlogList from '../components/blogs/blog-list'
 import Skills from '../components/home/skill-design'
 import AnimationNumber from '../partial/animated-number'
 import Speech from '../components/home/speech'
+import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
 
 export default {
@@ -88,6 +94,7 @@ export default {
     Skills,
     AnimationNumber,
     Speech,
+    GetInTouch,
     Portfolio
   },
   data() {
@@ -100,7 +107,10 @@ export default {
         '#blogs',
         '#staff',
         '#skills',
-        '#statistics'
+        '#statistics',
+        '#speech',
+        '#portfolio',
+        '#get-in-touch'
       ],
       listBlog: [
         {
@@ -265,10 +275,11 @@ export default {
           scrollTopLine >= sectionTopLine &&
           scrollTopLine < sectionTopLine + sectionHeight
         ) {
+          const indexSection = this.sectionList.findIndex(x => x === sectionId)
           this.$store.commit('setSectionPos', {
             height: sectionHeight,
             top: sectionTopLine,
-            id: `0${this.sectionList.findIndex(x => x === sectionId) + 1}`
+            id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`
           })
           this.currentSection = sectionId
         }
