@@ -40,7 +40,7 @@
     </section>
     <section id="skills" class="wow fadeInDown">
       <div class="container content">
-        <Skills/>
+        <Skills :image="'https://www.zyyx.jp/assets/img/service/img-flow_pc.svg'"/>
       </div>
     </section>
     <section id="statistics" class="t-10 pb-10">
