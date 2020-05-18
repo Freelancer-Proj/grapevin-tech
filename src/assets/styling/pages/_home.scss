@@ -200,6 +200,11 @@
 }
 
 #get-in-touch {
+  .get-in-touch {
+    @include respond-above(wide) {
+      @include pxRem(padding-left, 40);
+    }
+  }
   .contact-form {
     @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
     .btn-primary {
@@ -207,9 +212,33 @@
     }
   }
   .contact-info {
-    .material-icons {
-      @include pxRem(font-size, 32);
-      color: map-get($color, primary);
+    .contact-phone {
+      border: 1px solid;
+      width: 60%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .phone-number {
+        @include respond-above(wide) {
+          @include pxRem(font-size, 26);
+        }
+        @include respond-below(wide) {
+          @include pxRem(font-size, 16);
+        }
+      }
+    }
+    .google-map {
+      iframe {
+        width: 100%;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        .material-icons {
+          @include pxRem(font-size, 18);
+        }
+      }
     }
   }
 }
