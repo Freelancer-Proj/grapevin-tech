@@ -4,46 +4,90 @@
       <v-col sm="6" cols="12" class="pl-4 pr-4">
         <div class="contact-form pd-5">
           <h2 class="mb-5">Contact us</h2>
-          <v-form v-model="contact.valid">
-            <v-row class="form-group">
-              <v-col sm="6" cols="12" class="pt-0 pb-0 pr-2">
-                <v-text-field v-model="contact.name" :rules="contact.nameRules" label="名前" filled required></v-text-field>
-              </v-col>
-              <v-col sm="6" cols="12" class="pt-0 pb-0 pl-2">
-                <v-text-field v-model="contact.company" :rules="contact.companyRules" label="会社名" filled required></v-text-field>
+          <v-form v-model="contact.valid" class="form">
+            <p>送信内容は個人情報保護のため暗号化処理されますので、安心してお問い合わせいただけます。</p>
+            <p><span class="txt-danger">※</span>は必須入力項目です。</p>
+            <div class="form-group form-required mt-6">
+              <label>お問い合わせの種類</label>
+              <v-radio-group class="form-radio" v-model="question" :mandatory="false">
+                <v-row>
+                    <v-col sm="4" cols="12" class="pt-0 pb-0">
+                      <v-radio label="案件のご相談" value="1"></v-radio>
+                      <v-radio label="業務提携のご相談" value="2"></v-radio>
+                    </v-col>
+                    <v-col sm="4" cols="12" class="pt-0 pb-0">
+                      <v-radio label="サービスに関するご相談" value="3"></v-radio>
+                      <v-radio label="採用への応募" value="4"></v-radio>
+                    </v-col>
+                    <v-col sm="4" cols="12" class="pt-0 pb-0">
+                      <v-radio label="その他" value="5"></v-radio>
+                    </v-col>
+                </v-row>
+              </v-radio-group>
+            </div>
+            <v-row class="form-group form-required">
+              <v-col sm="12" cols="12" class="pt-0 pb-0">
+                <v-text-field v-model="contact.company" :rules="contact.companyRules" label="貴社名" filled required></v-text-field>
               </v-col>
             </v-row>
             <v-row class="form-group">
               <v-col sm="12" cols="12" class="pt-0 pb-0">
-                <v-text-field v-model="contact.phoneNumber" :rules="contact.phoneNumberRules" :type="'number'" label="電話番号" filled required></v-text-field>
+                <v-text-field v-model="contact.department" label="部署名" filled></v-text-field>
               </v-col>
             </v-row>
             <v-row class="form-group">
               <v-col sm="12" cols="12" class="pt-0 pb-0">
-                <v-text-field v-model="contact.email" :rules="contact.emailRules" label="メールアドレス" filled required></v-text-field>
+                <v-text-field v-model="contact.position" label="役職" filled></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row class="form-group form-required">
+              <v-col sm="12" cols="12" class="pt-0 pb-0">
+                <v-text-field v-model="contact.name" :rules="contact.nameRules" label="お名前" rows="4" filled required></v-text-field>
               </v-col>
             </v-row>
             <v-row class="form-group">
               <v-col sm="12" cols="12" class="pt-0 pb-0">
-                <v-textarea v-model="contact.content" :rules="contact.contentRules" label="お問い合わせ内容" rows="4" filled required></v-textarea>
+                <v-text-field v-model="contact.position" label="お名前（ふりがな）" filled></v-text-field>
               </v-col>
             </v-row>
+            <v-row class="form-group form-required">
+              <v-col sm="12" cols="12" class="pt-0 pb-0">
+                <v-text-field v-model="contact.email" :rules="contact.emailRules" label="メールアドレス" rows="4" filled required></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row class="form-group form-required">
+              <v-col sm="12" cols="12" class="pt-0 pb-0">
+                <v-text-field v-model="contact.phoneNumber" :rules="contact.phoneNumberRules" label="電話番号" rows="4" filled required></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row class="form-group form-required">
+              <v-col sm="12" cols="12" class="pt-0 pb-0">
+                <v-textarea v-model="contact.content" :rules="contact.contentRules" label="メールアドレス" rows="4" filled required></v-textarea>
+              </v-col>
+            </v-row>
+             <v-checkbox v-model="agree" :label="`個人情報の取扱いに同意する `"></v-checkbox>
             <div class="txt-center">
-              <button class="btn btn-primary" @click="submit">SENT</button>
+              <button class="btn btn-primary" @click="submit">確認する</button>
             </div>
           </v-form>
         </div>
       </v-col>
-      <v-col sm="6" cols="12" class="pl-8">
+      <v-col sm="6" cols="12" class="get-in-touch">
         <div>
-          <h3 class="mb-5">Get In Touch</h3>
-          <div class="contact-info">
-            <div v-for="(contact, index) of contactData" :key="index" class="f-row f-center-x mb-2">
-              <span class="material-icons mr-4">{{ contact.icon }}</span>
-              <div>
-                <h5>{{ contact.title }}</h5>
-                <p v-html="contact.description"></p>
-              </div>
+          <h3 class="mb-5 txt-center">Get In Touch</h3>
+          <div class="contact-info txt-center">
+            <div class="contact-phone pd-2 mb-4">
+              <span class="material-icons mr-2">call</span>
+              <span class="phone-number txt-bold">+81-3-6382-9505</span>
+            </div>
+            <p class="txt-center">Email: info@treesofgrape.com</p>
+            <p class="txt-center">Skypeなどの音声通話打ち合わせも可能です。</p>
+            <div class="google-map mt-6">
+              <p>
+                <span class="material-icons mr-1">location_on</span>
+                <span>東京都新宿区西新宿1-26-2新宿野村ビル32階</span>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3521508612844!2d139.6931766150268!3d35.69295088019158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd5c3b6022d%3A0x2d4d3dd5a50a5b2e!2sSHINJUKU%20NOMURA%20BUILDING%2C%2032%E9%9A%8E%2C%201-ch%C5%8Dme-26-2%20Nishishinjuku%2C%20Shinjuku%20City%2C%20T%C5%8Dky%C5%8D-to%20163-0590%2C%20Japan!5e0!3m2!1sen!2s!4v1589425107332!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
           </div>
         </div>
@@ -62,24 +106,26 @@ export default {
         valid: false,
         name: '',
         nameRules: [
-          v => !!v || 'Name is required',
+          v => !!v || 'お名前を入力してください。',
         ],
         company: '',
         companyRules: [
-          v => !!v || 'Company is required',
+          v => !!v || '貴社名を入力してください。',
         ],
+        department: '',
+        position: '',
         phoneNumber: '',
         phoneNumberRules: [
-          v => !!v || 'Phone numer is required',
+          v => !!v || '電話番号を入力してください。',
         ],
         email: '',
         emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /.+@.+/.test(v) || 'E-mail must be valid',
+          v => !!v || 'メールアドレスを入力してください。',
+          v => /.+@.+/.test(v) || '不正な値です。正しい値を入力してください。',
         ],
         content: '',
         contentRules: [
-          v => !!v || 'Phone numer is required',
+          v => !!v || 'お問い合わせ内容を入力してください。',
         ],
       },
       contactData: [
@@ -103,7 +149,8 @@ export default {
           title: 'Something Else',
           description: `Skypeなどの音声通話打ち合わせも可能です。`
         }
-      ]
+      ],
+      agree: false
     }
   },
   methods: {
