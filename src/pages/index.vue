@@ -4,10 +4,20 @@
       <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
         <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
       </video>
+      <section class="about-us">
+        <div class="container content">
+          <AboutUs :typing="true"/>
+        </div>
+      </section>
     </section>
-    <section id="about-us" class="wow fadeInDown">
+    <section id="about-us" class="about-us">
       <div class="container content">
-        <AboutUs/>
+        <AboutUs :typing="false"/>
+      </div>
+    </section>
+    <section id="portfolio" class="wow fadeInDown">
+      <div class="container content f-row f-center-x">
+        <Portfolio/>
       </div>
     </section>
     <section id="what-we-do">
@@ -26,7 +36,7 @@
         </svg>
       </div>
     </section>
-     <section id="blogs" class="wow fadeInDown">
+    <section id="blogs" class="wow fadeInDown">
       <div class="container content">
         <h2 class="pb-7 wow fadeIn">Blogs</h2>
         <BlogList :listBlog="listBlog.slice(0,3)"/>
@@ -56,11 +66,6 @@
     <section id="speech" class="wow fadeInDown">
       <div class="container content f-row f-center-x">
         <Speech/>
-      </div>
-    </section>
-    <section id="portfolio" class="wow fadeInDown">
-      <div class="container content f-row f-center-x">
-        <Portfolio/>
       </div>
     </section>
     <section id="get-in-touch" class="wow fadeInDown">
@@ -102,14 +107,13 @@ export default {
       currentSection: null,
       sectionList: [
         '#introduction',
-        '#about-us',
+        '#portfolio',
         '#what-we-do',
         '#blogs',
         '#staff',
         '#skills',
         '#statistics',
         '#speech',
-        '#portfolio',
         '#get-in-touch'
       ],
       listBlog: [

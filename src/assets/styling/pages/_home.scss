@@ -23,7 +23,7 @@
   }
 }
 
-#about-us {
+.about-us {
   @include pxRem(min-height, 500);
   h1 {
     @include pxRem(letter-spacing, -3);
@@ -32,6 +32,13 @@
       @include pxRem(margin-left, -55);
     }
   }
+  .about-us-content {
+    display: inline-block;
+    @include pxRem(max-width, 900);
+  }
+  // .about-us-box {
+
+  // }
 }
 
 #skills {
@@ -260,6 +267,54 @@
       @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
       background-color: #fff;
       transform: translate3d(0, -20px, 0);
+    }
+  }
+}
+
+#introduction {
+  position: relative;
+  display: flex;
+  @include respond-above(wide) {
+    .about-us {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+      color: white;
+      h1, h4 {
+        color: white;
+      }
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  }
+  @include respond-below(wide) {
+    .about-us {
+      display: none;
+    }
+  }
+}
+
+@include respond-above(wide) {
+  #about-us {
+    display: none;
+  }
+}
+@include respond-below(wide) {
+  #about-us {
+    display: block;
+    h1 {
+      @include pxRem(margin-top, 20);
+      @include pxRem(font-size, 35);
     }
   }
 }
