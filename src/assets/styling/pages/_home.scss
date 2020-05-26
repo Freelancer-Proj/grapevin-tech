@@ -263,10 +263,26 @@
   }
   .portfolio-content {
     transition: all 0.5s ease-in-out 0s;
+    position: relative;
     &:hover {
       @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
       background-color: #fff;
       transform: translate3d(0, -20px, 0);
+    }
+    .portfolio-time {
+      @include pxRem(width, 50);
+      @include pxRem(left, 10);
+      @include pxRem(top, 10);
+      @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+      position: absolute;
+    }
+    p {
+      @include pxRem(min-height, 180);
+      color: map-get($color, text-blur);
+    }
+    .btn-primary {
+      @include pxRem(padding, 10 15 !important);
+      width: 100%;
     }
   }
 }
