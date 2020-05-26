@@ -1,26 +1,27 @@
 <template>
 <div>
+  <div  class="f-row f-center-y">
+    <div v-if="typing" class="type-js">
+      <h1 class="text-js">Hi, We are Grapevine!</h1>
+    </div>
+    <h1 v-if="!typing">Hi, We are Grapevine!</h1>
+  </div>
   <no-ssr>
     <slick
       ref="slick"
       :options="slickOptions">
-      <div v-for="(about, index) of aboutUs" :key="`about${index}`">
-        <v-row no-gutters class="pt-10 pb-10 f-row f-center-x">
-          <v-col
-            sm="6"
-            cols="12">
-            <Grid :images="about.images"/>
-          </v-col>
-          <v-col
-            sm="6"
-            cols="12">
-            <div class="pl-5">
-              <h1 class="mb-5">Hi,<br> We are Grapevine!</h1>
-              <h4 class="txt-uppercase mb-5">{{about.name}}</h4>
-              <div class="inner" v-html="about.desc"></div>
-            </div>
-          </v-col>
-        </v-row>
+      <div class="about-us-box" v-for="(about, index) of aboutUs" :key="`about${index}`">
+        <!-- <v-col
+          sm="6"
+          cols="12">
+          <Grid :images="about.images"/>
+        </v-col> -->
+        <div class="about-us-box f-row f-center-y">
+          <div class="about-us-content pl-5 pt-10 pb-10">
+            <h4 class="txt-uppercase mb-5">{{about.name}}</h4>
+            <div class="inner" v-html="about.desc"></div>
+          </div>
+        </div>
       </div>
     </slick>
   </no-ssr>
@@ -33,6 +34,9 @@ export default {
   components: {
     Grid
   },
+  props: [
+    'typing'
+  ],
   data() {
     return {
       slickOptions: {
@@ -92,6 +96,39 @@ export default {
           ]
         }
       ]
+    }
+  },
+  methods: {
+    autoType(elementClass, typingSpeed){
+      var thhis = $(elementClass);
+      thhis.css({
+        "position": "relative",
+        "display": "inline-block"
+      });
+      thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+      thhis = thhis.find(".text-js");
+      var text = thhis.text().trim().split('');
+      var amntOfChars = text.length;
+      var newString = "";
+      thhis.text("|");
+      setTimeout(function(){
+        thhis.css("opacity",1);
+        thhis.prev().removeAttr("style");
+        thhis.text("");
+        for(var i = 0; i < amntOfChars; i++){
+          (function(i,char){
+            setTimeout(function() {
+              newString += char;
+              thhis.text(newString);
+            },i*typingSpeed);
+          })(i+1,text[i]);
+        }
+      },1500);
+    }
+  },
+  mounted() {
+    if (this.typing) {
+      this.autoType(".type-js", 200);
     }
   }
 }

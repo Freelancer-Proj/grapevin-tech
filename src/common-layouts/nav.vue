@@ -63,9 +63,9 @@ export default {
           },
           {
             key: '02',
-            name: 'About us',
-            active: false,
-            sectionId: "#about-us"
+            name: 'Portfolio',
+            sectionId: "#portfolio",
+            active: false
           },
           {
             key: '03',
@@ -105,12 +105,6 @@ export default {
           },
           {
             key: '09',
-            name: 'Portfolio',
-            sectionId: "#portfolio",
-            active: false
-          },
-          {
-            key: '10',
             name: 'Get In Touch',
             sectionId: "#get-in-touch",
             active: false
@@ -162,9 +156,9 @@ export default {
       {
         key: '09'
       },
-      {
-        key: '10'
-      }
+      // {
+      //   key: '10'
+      // }
       // {
       //   key: '04'
       // }

@@ -61,3 +61,6 @@
 .txt-light {
   color: map-get($color, text-light);
 }
+.txt-danger {
+  color: map-get($color, danger);
+}
