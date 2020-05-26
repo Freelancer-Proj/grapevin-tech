@@ -2,7 +2,7 @@
   <div>
     <v-row class="pt-10 pb-10 f-row f-center-x">
       <v-col sm="6" cols="12" class="pl-6 pr-6">
-        <img class="default-img" :src="image ? image : defaultImage">
+        <img class="default-img" src="../../assets/img/about-us/8.png">
       </v-col>
       <v-col sm="6" cols="12" class="pl-6 pr-6">
         <span class="badge badge-primary">Technical</span>
@@ -35,12 +35,8 @@
 export default {
   components: {
   },
-  props: {
-    image: String,
-  },
   data() {
     return {
-      defaultImage: require('~/assets/img/about-us/8.png')
     }
   }
 }

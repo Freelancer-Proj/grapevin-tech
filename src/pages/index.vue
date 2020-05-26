@@ -48,12 +48,12 @@
         <Staff/>
       </div>
     </section>
-    <section id="skills" class="wow fadeInDown">
+    <section id="" class="wow fadeInDown pt-10 pb-10">
       <div class="container content">
-        <Skills :image="'https://www.zyyx.jp/assets/img/service/img-flow_pc.svg'"/>
+        <img src="https://www.zyyx.jp/assets/img/service/img-flow_pc.svg" alt="">
       </div>
     </section>
-    <section id="statistics" class="t-10 pb-10">
+    <section id="statistics" class="pt-10 pb-10">
       <div class="container content">
         <v-row no-gutters class="f-row">
           <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
