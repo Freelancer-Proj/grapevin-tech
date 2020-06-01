@@ -17,14 +17,33 @@
           <h4 class="">{{item.name}}</h4>
           <p class="pt-4 pl-4 pr-4">{{ item.description | shortDesc }}</p>
           <!-- <p v-html="short(item.description)"></p> -->
-          <button class="btn btn-primary" @click="showDialog(item.id)">View More</button>
+          <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
         </div>
       </v-col>
-      <v-dialog v-model="isPortfolioDialogShow" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <Dialog :portfplioData="curentPorrtfolio"/>
-      </v-dialog>
     </v-row>
   </div>
+  <v-dialog scrollable v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%" :hide-overlay="true">
+    <v-card height="80vh">
+      <v-card-title
+        class="headline grey lighten-2"
+        primary-title>
+        Privacy Policy
+      </v-card-title>
+      <v-card-text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </v-card-text>
+      <v-divider></v-divider>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          color="primary"
+          text
+          @click="closeDialog()">
+          I accept
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </div>
 </template>
 <script>
@@ -36,12 +55,17 @@ export default {
   },
   methods: {
     showDialog(id) {
-      this.isPortfolioDialogShow = true;
-      this.curentPorrtfolio = this.portfplioData.find(x => x.id === id);
+      this.isPortfolioDialogShow = true
+      this.curentPorrtfolio = this.portfplioData.find(x => x.id === id)
+    },
+    closeDialog() {
+      this.isPortfolioDialogShow = false
+      this.curentPorrtfolio = null
     }
   },
   data() {
     return {
+      dialog: true,
       isPortfolioDialogShow: false,
       curentPorrtfolio: Object,
       portfplioData: [
