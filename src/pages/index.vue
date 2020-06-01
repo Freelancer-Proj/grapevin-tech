@@ -48,7 +48,7 @@
         <Staff/>
       </div>
     </section>
-    <section id="" class="wow fadeInDown pt-10 pb-10">
+    <section id="skills" class="wow fadeInDown pt-10 pb-10">
       <div class="container content">
         <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
       </div>
@@ -245,7 +245,7 @@ export default {
       this.sectionList.forEach(x => {
         this.triggerPos(x)
       })
-      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !this.$attrsstatisticsInit) {
+      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !this.statistics) {
         this.statistics = [
           {
             num: 275,
