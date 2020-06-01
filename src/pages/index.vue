@@ -50,7 +50,7 @@
     </section>
     <section id="" class="wow fadeInDown pt-10 pb-10">
       <div class="container content">
-        <img src="https://www.zyyx.jp/assets/img/service/img-flow_pc.svg" alt="">
+        <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
       </div>
     </section>
     <section id="statistics" class="pt-10 pb-10">
