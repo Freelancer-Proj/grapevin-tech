@@ -13,10 +13,9 @@
         <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }">
           <img :src="item.images" alt="">
           <span>{{item.type}}</span>
-          <span class="portfolio-time pd-2">{{ item.date | shortDateTime }}</span>
+          <span class="portfolio-time pd-2">{{ item.date | dateTime('dd MMMM') }}</span>
           <h4 class="">{{item.name}}</h4>
-          <p class="pt-4 pl-4 pr-4">{{ item.description | shortDesc }}</p>
-          <!-- <p v-html="short(item.description)"></p> -->
+          <p v-html="item.description"></p>
           <button class="btn btn-primary">View More</button>
         </div>
       </v-col>
@@ -65,6 +64,12 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    this.portfplioData = this.portfplioData.map(x => ({
+      ...x,
+      description: this.$options.filters.shortDesc(x.description)
+    }))
   }
 }
 </script>

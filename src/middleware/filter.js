@@ -6,15 +6,11 @@ const filterPlugin = {
     Vue.filter('dateTime', (value, formatDate = 'dd MMMM yyyy') => {
       return format(value, formatDate)
     });
-    Vue.filter('shortDateTime', (value, formatDate = 'dd MMMM') => {
-      return format(value, formatDate)
-    });
-    Vue.filter('shortDesc', (string) => {
-      console.log(string);
-      if (string.length > 150) {
-        return string.slice(0, 150) + '...';
+    Vue.filter('shortDesc', (text) => {
+      if (text.length > 150) {
+        return text.slice(0, 150) + '...';
       } else {
-        return string;
+        return text;
       }
     });
   },
