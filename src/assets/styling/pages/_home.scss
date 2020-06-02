@@ -303,6 +303,62 @@
     }
   }
 }
+#reviews {
+  .section-views {
+    position: relative;
+    .shape-background {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      svg {
+        fill: map-get($color, primary);
+      }
+    }
+    .item-even {
+      display: inline-table;
+    }
+    .viewer-item {
+      .viewer-content {
+        box-shadow: 0 10px 55px 5px map-get($color, primary) !important;
+      }
+      .circle-image {
+        @include pxRem(width, 95);
+        @include pxRem(height, 95);
+        box-shadow: 0 0.5rem 1rem map-get($color, primary) !important;
+      }
+      p {
+        @include pxRem(font-size, 16);
+        color: map-get($color, text-blur);
+        line-height: 1.7;
+      }
+      .viewer-name {
+        @include pxRem(font-size, 20);
+        display: inline-block;
+        color: map-get($color, primary);
+      }
+      .viewer-position {
+        @include pxRem(font-size, 13);
+        font-style: italic;
+        color: rgb(140, 152, 164) !important
+      }
+    }
+    .viewer-intro {
+      color: map-get($color, white);
+      h2 {
+        color: map-get($color, white);
+        text-align: left;
+      }
+      p {
+        @include pxRem(font-size, 20);
+        text-align: left;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+    }
+  }
+}
 
 @include respond-above(wide) {
   #about-us {
