@@ -11,7 +11,7 @@
         class="pd-5"
         v-for="(item, index) of portfplioData" :key="index">
         <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }" @click="dialog = true">
-          <img :src="item.images" alt="">
+          <img :src="item.images[0]" alt="">
           <span>{{item.type}}</span>
           <span class="portfolio-time pd-2">{{ item.date | shortDateTime }}</span>
           <h4 class="">{{item.name}}</h4>
@@ -23,26 +23,9 @@
     </v-row>
   </div>
   <v-dialog scrollable v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%" :hide-overlay="true">
-    <v-card height="80vh">
-      <v-card-title
-        class="headline grey lighten-2"
-        primary-title>
-        Privacy Policy
-      </v-card-title>
-      <v-card-text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-          color="primary"
-          text
-          @click="closeDialog()">
-          I accept
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+    <div height="80vh">
+      <Dialog :portfplioData="curentPorrtfolio"/>
+    </div>
   </v-dialog>
 </div>
 </template>
@@ -72,7 +55,11 @@ export default {
         {
           id: 1,
           name: 'ライブ配信/生放送アプリ',
-          images: require('~/assets/img/portfplio/1.jpg'),
+          images: [
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/2.jpg'),
+            require('~/assets/img/portfplio/3.jpg')
+          ],
           date: new Date(),
           type: 'Sass',
           description: `Wingtrillは、いつでも、どこでも、あなたの人生の生き生きとした重要な瞬間をあなたの友人や家族と共有するのに役立ちます。
@@ -82,7 +69,11 @@ export default {
         {
           id: 2,
           name: 'ECアプリ（体験型）',
-          images: require('~/assets/img/portfplio/2.jpg'),
+          images: [
+            require('~/assets/img/portfplio/2.jpg'),
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/3.jpg')
+          ],
           date: new Date(),
           type: 'Marketing',
           description: `特定の洋服をオンラインで購入するかどうかを決定するだけで、多くの時間が失われていますか？ この問題は、オンラインドレッシングルームの出現により、解決されており、お気に入りの洋服を購入することができます。 このアプリは、顧客がスムーズに買い物をするのを手伝うための媒体の一つとして提供されます。<br>
@@ -91,7 +82,11 @@ export default {
         {
           id: 3,
           name: 'eラーニングサイト',
-          images: require('~/assets/img/portfplio/3.jpg'),
+          images: [
+            require('~/assets/img/portfplio/3.jpg'),
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/2.jpg')
+          ],
           date: new Date(),
           type: 'Landing',
           description: `OpenSesameはiTunesから楽曲をダウンロードするのと同じくらい簡単にeラーニングコースを購入し販売します。 OpenSesameがコースをプレビューしたり、レビューを読んで研究したりします。 サブスクリプションや長期コミットメントのないコースを購入し、LMS（Learning Management System）で即座に使用できます。 OpenSesameが協力し、従業員にとって最高のコース選びに集中できます。`
