@@ -7,7 +7,7 @@ on:
     tags:
       - 'v*'
 jobs:
-  hischool_deploy:
+  grapevin_deploy:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout

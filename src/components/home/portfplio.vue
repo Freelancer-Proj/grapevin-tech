@@ -13,11 +13,13 @@
         <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }" @click="dialog = true">
           <img :src="item.images[0]" alt="">
           <span>{{item.type}}</span>
-          <span class="portfolio-time pd-2">{{ item.date | shortDateTime }}</span>
+          <span class="portfolio-time pd-2">{{ item.date | dateTime('MM yyyy') }}</span>
           <h4 class="">{{item.name}}</h4>
-          <p class="pt-4 pl-4 pr-4">{{ item.description | shortDesc }}</p>
+          <p class="pt-4 pl-4 pr-4">{{ item.description | HTMLtoText | shortDesc }}</p>
           <!-- <p v-html="short(item.description)"></p> -->
-          <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
+          <div class="pt-4 pl-4 pr-4 pb-4">
+            <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
+          </div>
         </div>
       </v-col>
     </v-row>
