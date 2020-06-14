@@ -46,6 +46,12 @@ export default {
       this.curentPorrtfolio = null
     }
   },
+  // methods: {
+  //   short: (val) => {
+  //     console.log(Vue.filter('shortDesc'));
+  //     return this.$options.filters.shortDesc(val);
+  //   }
+  // },
   data() {
     return {
       dialog: true,
@@ -93,6 +99,12 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    this.portfplioData = this.portfplioData.map(x => ({
+      ...x,
+      description: this.$options.filters.shortDesc(x.description)
+    }))
   }
 }
 </script>
