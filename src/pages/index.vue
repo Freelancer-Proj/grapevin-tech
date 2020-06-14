@@ -73,6 +73,9 @@
         <GetInTouch/>
       </div>
     </section>
+    <section id="reviews" class="wow fadeInDown">
+      <ReViews/>
+    </section>
   </div>
 </template>
 
@@ -89,6 +92,7 @@ import AnimationNumber from '../partial/animated-number'
 import Speech from '../components/home/speech'
 import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
+import ReViews from '../components/home/reviews'
 
 export default {
   components: {
@@ -100,7 +104,8 @@ export default {
     AnimationNumber,
     Speech,
     GetInTouch,
-    Portfolio
+    Portfolio,
+    ReViews
   },
   data() {
     return {
