@@ -2,20 +2,14 @@ name: cdk deploy
 
 on:
   push:
-    # branches:
-    #   - develop
+    branches:
+      - develop
     tags:
       - 'v*'
 jobs:
-  firebase_deploy:
+  hischool_deploy:
     runs-on: ubuntu-18.04
     steps:
-      - name: Hello world
-        run: echo Hello world $FIRST_NAME $middle_name
-        env:
-          FIRST_NAME: Mona
-          middle_name: The
-
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -24,38 +18,42 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Setup firebase CLI
-        run: |
-          npm install -g firebase-tools
-
-      - name: Setup dependencies
-        run: npm install
-
       - name: Setup env file
-        run: echo $authDomain $projectId && bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
+        run: bash ./ops/set-env.sh $apiKey $authDomain $databaseURL $projectId $storageBucket $messagingSenderId $appId $measurementId
         env:
-          apiKey: ${{ secrets.API_KEY }}
-          authDomain: test-beebb.firebaseapp.com
-          databaseURL: https://test-beebb.firebaseio.com
-          projectId: test-beebb
-          storageBucket: test-beebb.appspot.com
-          messagingSenderId: 541656726837
-          appId: ${{ secrets.APP_ID }}
-          measurementId: G-K6TYB8KKMV
-      - name: Initial Public Folder
-        run: |
-          [ ! -d "./public" ]
-          mkdir ./public
+          apiKey: ${{ secrets.apiKey }}
+          authDomain: ${{ secrets.authDomain }}
+          databaseURL: ${{ secrets.databaseURL }}
+          projectId: ${{ secrets.projectId }}
+          storageBucket: ${{ secrets.storageBucket }}
+          messagingSenderId: ${{ secrets.messagingSenderId }}
+          appId: ${{ secrets.appId }}
+          measurementId: ${{ secrets.measurementId }}
 
-      - name: Clean Code & Build
-        run: |
-          npm run build:firebase
+      - name: remove old code
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ~/app/gravin-tech
+            rm -rf ~/app/gravin-tech/*
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: "./"
+          target: "~/app/gravin-tech"
 
-      - name: Deploy Code
-        run: |
-          firebase deploy --only functions,hosting --token "$FIREBASE_TOKEN"
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-
-
+      - name: ssh script to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ~/app/gravin-tech
+            bash ./ops/run-server.sh
