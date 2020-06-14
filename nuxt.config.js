@@ -79,7 +79,7 @@ module.exports = {
     ],
     script: [
       { src: 'https://use.fontawesome.com/ce16520130.js', defer: true },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js', async: true }
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' }
     ],
   },
   /*

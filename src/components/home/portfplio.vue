@@ -10,24 +10,41 @@
         cols="12"
         class="pd-5"
         v-for="(item, index) of portfplioData" :key="index">
-        <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }">
-          <img :src="item.images" alt="">
+        <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }" @click="dialog = true">
+          <img :src="item.images[0]" alt="">
           <span>{{item.type}}</span>
-          <span class="portfolio-time pd-2">{{ item.date | dateTime('dd MMMM') }}</span>
+          <span class="portfolio-time pd-2">{{ item.date | shortDateTime }}</span>
           <h4 class="">{{item.name}}</h4>
-          <p v-html="item.description"></p>
-          <button class="btn btn-primary">View More</button>
+          <p class="pt-4 pl-4 pr-4">{{ item.description | shortDesc }}</p>
+          <!-- <p v-html="short(item.description)"></p> -->
+          <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
         </div>
       </v-col>
     </v-row>
   </div>
+  <v-dialog scrollable v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%" :hide-overlay="true">
+    <div height="80vh">
+      <Dialog :portfplioData="curentPorrtfolio"/>
+    </div>
+  </v-dialog>
 </div>
 </template>
 <script>
-// import Vue from 'vue'
+import Dialog from '../portfplio/dialog';
 
 export default {
   components: {
+    Dialog
+  },
+  methods: {
+    showDialog(id) {
+      this.isPortfolioDialogShow = true
+      this.curentPorrtfolio = this.portfplioData.find(x => x.id === id)
+    },
+    closeDialog() {
+      this.isPortfolioDialogShow = false
+      this.curentPorrtfolio = null
+    }
   },
   // methods: {
   //   short: (val) => {
@@ -37,10 +54,18 @@ export default {
   // },
   data() {
     return {
+      dialog: true,
+      isPortfolioDialogShow: false,
+      curentPorrtfolio: Object,
       portfplioData: [
         {
+          id: 1,
           name: 'ライブ配信/生放送アプリ',
-          images: require('~/assets/img/portfplio/1.jpg'),
+          images: [
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/2.jpg'),
+            require('~/assets/img/portfplio/3.jpg')
+          ],
           date: new Date(),
           type: 'Sass',
           description: `Wingtrillは、いつでも、どこでも、あなたの人生の生き生きとした重要な瞬間をあなたの友人や家族と共有するのに役立ちます。
@@ -48,16 +73,26 @@ export default {
                         Wingtrillは、チャットウィンドウであなたのライブビデオストリームにコメントするためのオプションを友人に提供します。 友人が何らかの形でライブビデオストリームを見逃していると、後で24時間まで記録されたコピーを見ることができます。`
         },
         {
+          id: 2,
           name: 'ECアプリ（体験型）',
-          images: require('~/assets/img/portfplio/2.jpg'),
+          images: [
+            require('~/assets/img/portfplio/2.jpg'),
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/3.jpg')
+          ],
           date: new Date(),
           type: 'Marketing',
           description: `特定の洋服をオンラインで購入するかどうかを決定するだけで、多くの時間が失われていますか？ この問題は、オンラインドレッシングルームの出現により、解決されており、お気に入りの洋服を購入することができます。 このアプリは、顧客がスムーズに買い物をするのを手伝うための媒体の一つとして提供されます。<br>
                         試して購入：実際には、買い手がさまざまな服を試して、オンライン上でマネキンに合わせて、フィッティング、色、スタイルなどを評価するのに役立つ非常に新しくユニークなテクニックです。 バイヤーを美化することに関連しています。 My Kool Lookドレッシングルームをチェックしたり、写真を共有したりして、お買い物をお楽しみになれます。 これは、躊躇せずに、最高かつ革新的な技術の一つです。`
         },
         {
+          id: 3,
           name: 'eラーニングサイト',
-          images: require('~/assets/img/portfplio/3.jpg'),
+          images: [
+            require('~/assets/img/portfplio/3.jpg'),
+            require('~/assets/img/portfplio/1.jpg'),
+            require('~/assets/img/portfplio/2.jpg')
+          ],
           date: new Date(),
           type: 'Landing',
           description: `OpenSesameはiTunesから楽曲をダウンロードするのと同じくらい簡単にeラーニングコースを購入し販売します。 OpenSesameがコースをプレビューしたり、レビューを読んで研究したりします。 サブスクリプションや長期コミットメントのないコースを購入し、LMS（Learning Management System）で即座に使用できます。 OpenSesameが協力し、従業員にとって最高のコース選びに集中できます。`
