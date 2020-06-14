@@ -9,7 +9,7 @@
             <p><span class="txt-danger">※</span>は必須入力項目です。</p>
             <div class="form-group form-required mt-6">
               <label>お問い合わせの種類</label>
-              <v-radio-group class="form-radio" v-model="question" :mandatory="false">
+              <v-radio-group class="form-radio" v-model="contact.typeQuestion" :mandatory="false">
                 <v-row>
                     <v-col sm="4" cols="12" class="pt-0 pb-0">
                       <v-radio label="案件のご相談" value="1"></v-radio>
@@ -104,6 +104,7 @@ export default {
     return {
       contact: {
         valid: false,
+        typeQuestion: '',
         name: '',
         nameRules: [
           v => !!v || 'お名前を入力してください。',
