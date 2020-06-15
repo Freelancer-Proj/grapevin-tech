@@ -275,6 +275,7 @@
       @include pxRem(top, 10);
       @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
       position: absolute;
+      background-color: map-get($color, white);
     }
     p {
       @include pxRem(min-height, 180);
@@ -341,7 +342,7 @@
     }
     .viewer-item {
       .viewer-content {
-        box-shadow: 0 10px 55px 5px map-get($color, primary) !important;
+        box-shadow: 0px 5px 20px 5px map-get($color, primary) !important;
         background-color: white;
       }
       .circle-image {
@@ -376,6 +377,12 @@
         text-align: left;
         line-height: 1.7;
         font-weight: 300;
+      }
+      @include respond-below(wide) {
+        color: map-get($color, black);
+        h2 {
+          color: map-get($color, black);
+        }
       }
     }
   }

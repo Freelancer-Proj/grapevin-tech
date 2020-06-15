@@ -68,13 +68,13 @@
         <Speech/>
       </div>
     </section>
+    <section id="reviews" class="wow fadeInDown">
+      <ReViews/>
+    </section>
     <section id="get-in-touch" class="wow fadeInDown">
       <div class="container content">
         <GetInTouch/>
       </div>
-    </section>
-    <section id="reviews" class="wow fadeInDown">
-      <ReViews/>
     </section>
   </div>
 </template>
@@ -119,6 +119,7 @@ export default {
         '#skills',
         '#statistics',
         '#speech',
+        '#reviews',
         '#get-in-touch'
       ],
       listBlog: [

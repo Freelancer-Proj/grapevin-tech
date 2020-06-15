@@ -105,6 +105,12 @@ export default {
           },
           {
             key: '09',
+            name: 'Reviews',
+            sectionId: "#reviews",
+            active: false
+          },
+          {
+            key: '10',
             name: 'Get In Touch',
             sectionId: "#get-in-touch",
             active: false
@@ -156,9 +162,9 @@ export default {
       {
         key: '09'
       },
-      // {
-      //   key: '10'
-      // }
+      {
+        key: '10'
+      }
       // {
       //   key: '04'
       // }

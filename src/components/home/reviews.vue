@@ -16,7 +16,11 @@
         cols="12"
         class="pd-5">
         <v-row>
-          <v-col sm="6"
+          <v-col 
+            sm="12"
+            md="6"
+            lg="6"
+            xl="6"
             cols="12"
             class="pl-3 pr-3 viewer-item"
             :class="{ 'mt-6' : index%2 === 1, 'item-even': index%2 === 0 }"
