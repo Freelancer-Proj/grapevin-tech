@@ -320,6 +320,10 @@
   }
 }
 #reviews {
+  .shape-content {
+    position: relative;
+    z-index: 10;
+  }
   .section-views {
     position: relative;
     .shape-background {
@@ -338,6 +342,7 @@
     .viewer-item {
       .viewer-content {
         box-shadow: 0 10px 55px 5px map-get($color, primary) !important;
+        background-color: white;
       }
       .circle-image {
         @include pxRem(width, 95);

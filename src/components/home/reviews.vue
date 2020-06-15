@@ -5,7 +5,7 @@
         <path d="M208.09,0.00 C152.70,67.10 262.02,75.98 200.80,150.00 L0.00,150.00 L0.00,0.00 Z"></path>
       </svg>
     </div>
-    <v-row class="f-row f-center-x pl-3 pr-3">
+    <v-row class="shape-content f-row f-center-x pl-3 pr-3">
       <v-col sm="4"
         cols="12"
         class="pl-3 pr-3 viewer-intro">
@@ -17,7 +17,7 @@
         class="pd-5">
         <v-row>
           <v-col sm="6"
-            cols="12" 
+            cols="12"
             class="pl-3 pr-3 viewer-item"
             :class="{ 'mt-6' : index%2 === 1, 'item-even': index%2 === 0 }"
             v-for="(item, index) of viewsData.slice(0, 4)" :key="index">
