@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="dialog-content">
     <no-ssr>
       <slick ref="slick" :options="slickOptions">
-        <div class="about-us-box" v-for="(item, index) of portfplioData.images" :key="index">
-          <img :src="item" alt="portfplio image">
+        <div class="dialog-slide" v-for="(item, index) of portfplioData.images" :key="index">
+          <img :src="item" class="dialog-img" alt="portfplio image">
         </div>
       </slick>
     </no-ssr>

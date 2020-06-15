@@ -24,8 +24,11 @@
       </v-col>
     </v-row>
   </div>
-  <v-dialog scrollable v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%" :hide-overlay="true">
+  <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%">
     <div height="80vh">
+      <div class="dialog-close pd-4">
+        <span @click="closeDialog()"></span>
+      </div>
       <Dialog :portfplioData="curentPorrtfolio"/>
     </div>
   </v-dialog>
@@ -40,12 +43,15 @@ export default {
   },
   methods: {
     showDialog(id) {
+      this.dialog = true;
       this.isPortfolioDialogShow = true
       this.curentPorrtfolio = this.portfplioData.find(x => x.id === id)
     },
     closeDialog() {
+      this.dialog = false;
       this.isPortfolioDialogShow = false
       this.curentPorrtfolio = null
+      document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     }
   },
   // methods: {
@@ -56,7 +62,7 @@ export default {
   // },
   data() {
     return {
-      dialog: true,
+      dialog: false,
       isPortfolioDialogShow: false,
       curentPorrtfolio: Object,
       portfplioData: [

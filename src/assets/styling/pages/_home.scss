@@ -287,6 +287,40 @@
     }
   }
 }
+.dialog-close {
+  background-color: map-get($color, white);
+  transition-duration: 0.25s;
+  cursor: pointer;
+  user-select: none;
+  border-width: 0px;
+  outline: none;
+  position: relative;
+  span {
+    @include pxRem(width, 10);
+    @include pxRem(height, 10);
+    @include pxRem(top, 20);
+    @include pxRem(right, 20);
+    box-shadow: 0 -10px, 0 -20px, 10px 0, -20px 0, 20px 0, -10px 0, 0 20px, 0 10px;
+    transform: rotate3d(0, 0, 1, -135deg) scale3d(0.8, 0.8, 0.8);
+    color: map-get($color, black);
+    background-color: map-get($color, black);
+    display: block;
+    transition: .3s;
+    position: absolute;
+    &:hover {
+      box-shadow: -13px -13px, 0 -13px, 13px -13px, -13px 0, 13px 0, -13px 13px, 0 13px, 13px 13px;
+    }
+  }
+}
+.dialog-content {
+  background-color: map-get($color, white);
+  .dialog-slide {
+    .dialog-img {
+      margin: auto;
+      width: 70%;
+    }
+  }
+}
 
 #introduction {
   position: relative;
