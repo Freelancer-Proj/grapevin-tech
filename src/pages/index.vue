@@ -148,15 +148,15 @@ export default {
         scrollOverflowReset: true,
         // autoScrolling: true,
         anchors: [
-          'introduction',
-          'portfolio',
-          'what-we-do',
-          'blogs',
-          'staff',
-          'statistics',
-          'speech',
-          'reviews',
-          'get-in-touch'
+          'js-introduction',
+          'js-portfolio',
+          'js-what-we-do',
+          'js-blogs',
+          'js-staff',
+          'js-statistics',
+          'js-speech',
+          'js-reviews',
+          'js-get-in-touch'
         ],
       },
       isMobileDevice: false,
@@ -285,7 +285,7 @@ export default {
   },
   watch:{
     $route (to, from){
-      if (to.hash === '#statistics' && !this.statisticsInit) {
+      if (to.hash === '#js-statistics' && !this.statisticsInit) {
         this.statistics = [
           {
             num: 275,

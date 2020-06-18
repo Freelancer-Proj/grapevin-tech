@@ -1,6 +1,6 @@
 <template>
   <ul class="step-doing-list">
-    <div class="">
+    <div class="pb-10">
       <li
         class="step-doing-item"
         v-for="(step, index) of stepDoings"
