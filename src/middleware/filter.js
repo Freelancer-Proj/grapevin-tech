@@ -9,9 +9,9 @@ const filterPlugin = {
     Vue.filter('HTMLtoText', (value) => {
       return value.replace(/(<([^>]+)>)/ig,"")
     });
-    Vue.filter('shortDesc', (text) => {
-      if (text.length > 150) {
-        return text.slice(0, 150) + '...';
+    Vue.filter('shortDesc', (text, defaultLength = 150) => {
+      if (text.length > defaultLength) {
+        return text.slice(0, defaultLength) + '...';
       } else {
         return text;
       }

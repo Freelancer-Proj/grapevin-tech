@@ -2,9 +2,9 @@
 <div>
   <div class="txt-center">
     <!-- <span class="btn btn-green txt-bold">What We Offerd</span> -->
-    <h2 class="mt-3 mb-2 wow fadeIn">Portfolio</h2>
+    <h2 class="mt-3 mb-2">Portfolio</h2>
     <p class="portflio-description txt-center">実績の一部</p>
-    <v-row class="pt-10 f-row f-center-x">
+    <v-row class="pt-3 f-row f-center-x">
       <v-col
         sm="4"
         cols="12"
@@ -15,7 +15,7 @@
           <span>{{item.type}}</span>
           <span class="portfolio-time pd-2">{{ item.date | dateTime('MM yyyy') }}</span>
           <h4 class="">{{item.name}}</h4>
-          <p class="pt-4 pl-4 pr-4">{{ item.description | HTMLtoText | shortDesc }}</p>
+          <p class="pt-4 pl-4 pr-4">{{ item.description | HTMLtoText | shortDesc(100) }}</p>
           <!-- <p v-html="short(item.description)"></p> -->
           <div class="pt-4 pl-4 pr-4 pb-4">
             <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>

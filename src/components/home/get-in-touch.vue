@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-10">
     <v-row class="pt-10 pb-10 f-row f-center-x">
       <v-col sm="6" cols="12" class="pl-4 pr-4">
         <div class="contact-form pd-5">

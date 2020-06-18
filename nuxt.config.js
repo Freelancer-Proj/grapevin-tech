@@ -93,6 +93,7 @@ module.exports = {
     '@/middleware/filter',
     '@/plugins/vue-plyr',
     { src: '@/plugins/slick-slide', ssr: false },
+    { src: '~/plugins/vue-fullpage', ssr: false },
     '@/helpers/services/firebase.js',
   ],
   /*

@@ -74,7 +74,7 @@
     @include pxRem(border-radius, 10);
     background-color: map-get($color, light-blue);
     .staff-avatar {
-      width: 60%;
+      width: 50%;
       margin: 0 auto;
     }
     h4 {
@@ -251,7 +251,6 @@
 }
 
 #portfolio {
-  @include pxRem(padding, 80 0);
   .portflio-description {
     color: map-get($color, text-blur);
     @include respond-above(wide) {
@@ -278,7 +277,7 @@
       background-color: map-get($color, white);
     }
     p {
-      @include pxRem(min-height, 180);
+      // @include pxRem(min-height, 180);
       color: map-get($color, text-blur);
     }
     .btn-primary {
@@ -320,6 +319,10 @@
       width: 70%;
     }
   }
+}
+.overflow-video {
+  height: 100vh;
+  overflow: hidden;
 }
 
 #introduction {
@@ -434,5 +437,14 @@
       @include pxRem(margin-top, 20);
       @include pxRem(font-size, 35);
     }
+  }
+}
+.fullscreen {
+  height: 100vh;
+  .footer-home {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }

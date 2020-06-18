@@ -5,7 +5,7 @@
         ref="slick"
         :options="slickOptions">
         <div class="pl-4 pr-4 txt-center staff-item" v-for="(staff, index) of listStaff" :key="index">
-          <div class="staff-item staff-content pb-10 txt-center">
+          <div class="staff-item staff-content pb-2 txt-center">
             <img class="staff-avatar" :src="staff.avatar">
             <h4>{{ staff.name }}</h4>
             <span class="staff-position">{{ staff.position }}</span>
@@ -17,7 +17,7 @@
         </div>
       </slick>
     </no-ssr>
-    <div class="mt-5 pb-10 txt-center action-btn">
+    <div class="mt-2 txt-center action-btn">
       <button class="mr-2"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
       <button class="ml-2"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
     </div>

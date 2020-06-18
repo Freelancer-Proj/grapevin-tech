@@ -1,82 +1,98 @@
 <template>
-  <div class="home">
-    <section id="introduction">
-      <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
-        <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
-      </video>
-      <section class="about-us">
+  <no-ssr>
+    <full-page class="home" ref="fullpage" :options="options" id="fullpage">
+      <section id="introduction" class="section">
+        <div class="overflow-video">
+          <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
+            <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
+          </video>
+        </div>
+        <section class="about-us">
+          <div class="container content">
+            <AboutUs :typing="true"/>
+          </div>
+        </section>
+      </section>
+      <section v-if="isMobileDevice" id="about-us" class="about-us section">
         <div class="container content">
-          <AboutUs :typing="true"/>
+          <AboutUs :typing="false"/>
         </div>
       </section>
-    </section>
-    <section id="about-us" class="about-us">
-      <div class="container content">
-        <AboutUs :typing="false"/>
-      </div>
-    </section>
-    <section id="portfolio" class="wow fadeInDown">
-      <div class="container content f-row f-center-x">
-        <Portfolio/>
-      </div>
-    </section>
-    <section id="what-we-do">
-      <div class="shape-1">
-        <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
-        </svg>
-      </div>
-      <div class="container content">
-        <h2 class="pb-10 wow fadeIn">What we are doing?</h2>
-        <WhatWeDoing/>
-      </div>
-      <div class="shape-2">
-        <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-          <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
-        </svg>
-      </div>
-    </section>
-    <section id="blogs" class="wow fadeInDown">
-      <div class="container content">
-        <h2 class="pb-7 wow fadeIn">Blogs</h2>
-        <BlogList :listBlog="listBlog.slice(0,3)"/>
-      </div>
-    </section>
-    <section id="staff" class="wow fadeInDown">
-      <div class="container content">
-        <h2 class="pt-7 pb-7 wow fadeIn">Our Team</h2>
-        <Staff/>
-      </div>
-    </section>
-    <section id="skills" class="wow fadeInDown pt-10 pb-10">
-      <div class="container content">
-        <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
-      </div>
-    </section>
-    <section id="statistics" class="pt-10 pb-10">
-      <div class="container content">
-        <v-row no-gutters class="f-row">
-          <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
-            <AnimationNumber :valueNum="item.num" />
-            <p class="txt-bold">{{ item.text }}</p>
-          </v-col>
-        </v-row>
-      </div>
-    </section>
-    <section id="speech" class="wow fadeInDown">
-      <div class="container content f-row f-center-x">
-        <Speech/>
-      </div>
-    </section>
-    <section id="reviews" class="wow fadeInDown">
-      <ReViews/>
-    </section>
-    <section id="get-in-touch" class="wow fadeInDown">
-      <div class="container content">
-        <GetInTouch/>
-      </div>
-    </section>
-  </div>
+      <section id="portfolio" class="section">
+        <div class="container content f-row f-center-x">
+          <Portfolio/>
+        </div>
+      </section>
+      <section id="what-we-do" class="section">
+        <div class="shape-1">
+          <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+          </svg>
+        </div>
+        <div class="container content">
+          <h2 class="pb-10">What we are doing?</h2>
+          <WhatWeDoing/>
+        </div>
+        <div class="shape-2">
+          <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
+          </svg>
+        </div>
+      </section>
+      <section id="blogs" class="section">
+        <div class="container content">
+          <h2 class="pb-7">Blogs</h2>
+          <BlogList :listBlog="listBlog.slice(0,3)"/>
+        </div>
+      </section>
+      <section id="staff" class="section">
+        <div class="container content">
+          <h2 class="pt-3 pb-3">Our Team</h2>
+          <Staff/>
+        </div>
+      </section>
+      <section id="statistics" class="section">
+        <div class="container content">
+          <h2 class="pt-2 pb-10">Skills & Statistics</h2>
+          <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
+          <v-row no-gutters class="f-row pt-10">
+            <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
+              <AnimationNumber :valueNum="item.num" />
+              <p class="txt-bold">{{ item.text }}</p>
+            </v-col>
+          </v-row>
+        </div>
+      </section>
+      <!-- <section id="statistics" class="pt-10 pb-10 section">
+        <div class="container content">
+          <v-row no-gutters class="f-row">
+            <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
+              <AnimationNumber :valueNum="item.num" />
+              <p class="txt-bold">{{ item.text }}</p>
+            </v-col>
+          </v-row>
+        </div>
+      </section> -->
+      <section id="speech" class="section">
+        <div class="container content f-row f-center-x">
+          <Speech/>
+        </div>
+      </section>
+      <section id="reviews" class="section">
+        <Reviews/>
+      </section>
+      <section id="get-in-touch" class="section">
+        <div class="container content">
+          <GetInTouch/>
+        </div>
+      </section>
+      <section class="section">
+        <div class="fullscreen">
+          <app-footer class="footer-home"/>
+        </div>
+      </section>
+    </full-page>
+  </no-ssr>
 </template>
 
 <script>
@@ -92,10 +108,12 @@ import AnimationNumber from '../partial/animated-number'
 import Speech from '../components/home/speech'
 import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
-import ReViews from '../components/home/reviews'
+import Reviews from '../components/home/reviews'
+import AppFooter from '../common-layouts/footer'
 
 export default {
   components: {
+    AppFooter,
     WhatWeDoing,
     AboutUs,
     Staff,
@@ -105,10 +123,11 @@ export default {
     Speech,
     GetInTouch,
     Portfolio,
-    ReViews
+    Reviews
   },
   data() {
     return {
+      scrollable: false,
       currentSection: null,
       sectionList: [
         '#introduction',
@@ -122,6 +141,25 @@ export default {
         '#reviews',
         '#get-in-touch'
       ],
+      options: {
+        licenseKey: null,
+        scrollOverflow: true,
+        // scrollBar: true,
+        scrollOverflowReset: true,
+        // autoScrolling: true,
+        anchors: [
+          'introduction',
+          'portfolio',
+          'what-we-do',
+          'blogs',
+          'staff',
+          'statistics',
+          'speech',
+          'reviews',
+          'get-in-touch'
+        ],
+      },
+      isMobileDevice: false,
       listBlog: [
         {
           name: 'Guide to Pro Photography',
@@ -245,13 +283,9 @@ export default {
       ]
     }
   },
-  mounted() {
-    new WOW().init()
-    $(window).on('scroll', () => {
-      this.sectionList.forEach(x => {
-        this.triggerPos(x)
-      })
-      if ($(window).scrollTop() + ($(window).height() / 2) >= $('#statistics').position().top && !this.statisticsInit) {
+  watch:{
+    $route (to, from){
+      if (to.hash === '#statistics' && !this.statisticsInit) {
         this.statistics = [
           {
             num: 275,
@@ -272,12 +306,20 @@ export default {
         ];
         this.statisticsInit = true;
       }
+    }
+  },
+  // this.$refs.fullpage.api.setAutoScrolling(false)}, 500)
+  mounted() {
+    new WOW().init()
+    $(window).on('scroll', () => {
+      this.sectionList.forEach(x => {
+        this.triggerPos(x)
+      })
     })
   },
   methods: {
     triggerPos(sectionId) {
       if (this.currentSection !== sectionId) {
-        // const scrollTopLine = $(window).scrollTop() + ($(window).height() / 2)
         const scrollTopLine = $(window).scrollTop()
         const sectionTopLine = $(sectionId).position().top
         const sectionHeight = $(sectionId).outerHeight(true)
@@ -294,7 +336,17 @@ export default {
           this.currentSection = sectionId
         }
       }
-    }
+    },
+    lockScroll() {
+      $('html, body').css({
+        overflow: 'hidden'
+      });
+    },
+    unlockScroll() {
+      $('html, body').css({
+        overflow: 'visible'
+      });
+    },
   }
 }
 </script>

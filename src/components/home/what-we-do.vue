@@ -1,9 +1,9 @@
 <template>
   <ul class="step-doing-list">
-    <div class="wow bounceInLeft">
+    <div class="">
       <li
         class="step-doing-item"
-        v-for="(step, index) of stepDoings.slice(0,3)"
+        v-for="(step, index) of stepDoings"
         :key="`step${index}`">
         <v-row no-gutters class="f-row f-center-x">
           <v-col
@@ -25,7 +25,7 @@
         </v-row>
       </li>
     </div>
-    <div class="wow bounceInRight">
+    <!-- <div class="wow bounceInRight">
       <li
         class="step-doing-item"
         v-for="(step, index) of stepDoings.slice(3,6)"
@@ -41,7 +41,7 @@
             cols="12">
             <div class="pr-10 pl-10 step-doing">
               <span class="badge badge-primary p-2 mb-2">
-                0{{index + 1}}
+                0{{index + 4}}
               </span>
               <h3 class="step-doing-title">{{step.name}}<small class="pl-2">{{step.jpName}}</small></h3>
               <p class="step-doing-meta">{{step.desc}}</p>
@@ -49,7 +49,7 @@
           </v-col>
         </v-row>
       </li>
-     </div>
+     </div> -->
   </ul>
 </template>
 <script>
