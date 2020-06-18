@@ -6,11 +6,11 @@
         <ul class="menu-bar shortcut-menu-bar">
           <li v-for="(item, index) in sectionPos" :key="index" @click="activeSection(index)" :class="{ active : item.active }">
             <span>{{ item.key }}</span>
-            <transition
+            <!-- <transition
               :duration="5000"
               leave-active-class="animated fadeOutDown">
               <span class="menu-line" v-if="item.active" :style="{height: `${((currentScroll - item.top) / item.height) * 40}px`}"></span>
-            </transition>
+            </transition> -->
           </li>
         </ul>
       </div>
@@ -85,32 +85,32 @@ export default {
             sectionId: "#staff",
             active: false
           },
+          // {
+          //   key: '06',
+          //   name: 'Skills',
+          //   sectionId: "#skills",
+          //   active: false
+          // },
           {
             key: '06',
-            name: 'Skills',
-            sectionId: "#skills",
-            active: false
-          },
-          {
-            key: '07',
             name: 'Statistics',
             sectionId: "#statistics",
             active: false
           },
           {
-            key: '08',
+            key: '07',
             name: 'Speech',
             sectionId: "#speech",
             active: false
           },
           {
-            key: '09',
+            key: '08',
             name: 'Reviews',
             sectionId: "#reviews",
             active: false
           },
           {
-            key: '10',
+            key: '09',
             name: 'Get In Touch',
             sectionId: "#get-in-touch",
             active: false
@@ -162,9 +162,9 @@ export default {
       {
         key: '09'
       },
-      {
-        key: '10'
-      }
+      // {
+      //   key: '10'
+      // }
       // {
       //   key: '04'
       // }
@@ -176,8 +176,8 @@ export default {
         ({
           key: x.key,
           active: x.key === this.$store.state.homeSectionPosition.id,
-          height: this.$store.state.homeSectionPosition.height,
-          top: this.$store.state.homeSectionPosition.top
+          // height: this.$store.state.homeSectionPosition.height,
+          // top: this.$store.state.homeSectionPosition.top
         })
       )
     },
@@ -188,8 +188,8 @@ export default {
           sectionId: x.sectionId,
           key: x.key,
           active: x.key === this.$store.state.homeSectionPosition.id,
-          height: this.$store.state.homeSectionPosition.height,
-          top: this.$store.state.homeSectionPosition.top
+          // height: this.$store.state.homeSectionPosition.height,
+          // top: this.$store.state.homeSectionPosition.top
         })
       )
       return this.fullMenu;
@@ -222,17 +222,11 @@ export default {
       this.$store.commit('setShortcutNavbar', this.isNavShow)
     },
     scrollToDiv(sectionId) {
-      $('html, body').animate({
-        scrollTop: $(sectionId).offset().top + 1
-      }, 500);
+      this.$root.$emit('triggerScrollToSection', `js-${sectionId.substring(1)}`)
     },
     activeSection(id) {
       this.fullMenu.forEach((element, index) => {
-        if(index === id) {
-          element.active = true;
-        } else {
-          element.active = false;
-        }
+        element.active = index === id
       });
     },
     toggleLock() {

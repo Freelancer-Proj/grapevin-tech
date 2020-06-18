@@ -1,98 +1,108 @@
 <template>
-  <no-ssr>
-    <full-page class="home" ref="fullpage" :options="options" id="fullpage">
-      <section id="introduction" class="section">
-        <div class="overflow-video">
-          <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
-            <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
-          </video>
-        </div>
-        <section class="about-us">
+  <div>
+    <no-ssr>
+      <full-page class="home" ref="fullpage" :options="options" id="fullpage">
+        <section id="introduction" class="section">
+          <div class="overflow-video">
+            <video width="100%" id="video-background" muted loop autoplay="autoplay" playsinline>
+              <source src="https://firebasestorage.googleapis.com/v0/b/test-beebb.appspot.com/o/video-bg%20(1).mp4?alt=media&token=3dcc8afb-bfa0-4d2c-a4c3-f0fc172c1d55" type="video/mp4">
+            </video>
+          </div>
+          <section class="about-us">
+            <div class="container content">
+              <AboutUs :typing="true"/>
+            </div>
+          </section>
+        </section>
+        <section v-if="isMobileDevice" id="about-us" class="about-us section">
           <div class="container content">
-            <AboutUs :typing="true"/>
+            <AboutUs :typing="false"/>
           </div>
         </section>
-      </section>
-      <section v-if="isMobileDevice" id="about-us" class="about-us section">
-        <div class="container content">
-          <AboutUs :typing="false"/>
+        <section id="portfolio" class="section">
+          <div class="container content f-row f-center-x">
+            <Portfolio @dialogOpen="showDialogPortfolio"/>
+          </div>
+        </section>
+        <section id="what-we-do" class="section">
+          <div class="shape-1">
+            <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+              <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg>
+          </div>
+          <div class="container content">
+            <h2 class="pb-10">What we are doing?</h2>
+            <WhatWeDoing/>
+          </div>
+          <div class="shape-2">
+            <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+              <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
+            </svg>
+          </div>
+        </section>
+        <section id="blogs" class="section">
+          <div class="container content">
+            <h2 class="pb-7">Blogs</h2>
+            <BlogList :listBlog="listBlog.slice(0,3)"/>
+          </div>
+        </section>
+        <section id="staff" class="section">
+          <div class="container content">
+            <h2 class="pt-3 pb-3">Our Team</h2>
+            <Staff/>
+          </div>
+        </section>
+        <section id="statistics" class="section">
+          <div class="container content">
+            <h2 class="pt-2 pb-10">Skills & Statistics</h2>
+            <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
+            <v-row no-gutters class="f-row pt-10">
+              <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
+                <AnimationNumber :valueNum="item.num" />
+                <p class="txt-bold">{{ item.text }}</p>
+              </v-col>
+            </v-row>
+          </div>
+        </section>
+        <!-- <section id="statistics" class="pt-10 pb-10 section">
+          <div class="container content">
+            <v-row no-gutters class="f-row">
+              <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
+                <AnimationNumber :valueNum="item.num" />
+                <p class="txt-bold">{{ item.text }}</p>
+              </v-col>
+            </v-row>
+          </div>
+        </section> -->
+        <section id="speech" class="section">
+          <div class="container content f-row f-center-x">
+            <Speech/>
+          </div>
+        </section>
+        <section id="reviews" class="section">
+          <Reviews/>
+        </section>
+        <section id="get-in-touch" class="section">
+          <div class="container content">
+            <GetInTouch/>
+          </div>
+        </section>
+        <section class="section">
+          <div class="fullscreen">
+            <app-footer class="footer-home"/>
+          </div>
+        </section>
+      </full-page>
+    </no-ssr>
+    <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isDialogShow" width="80%">
+      <div height="80vh">
+        <div class="dialog-close pd-4">
+          <span @click="closeDialog()"></span>
         </div>
-      </section>
-      <section id="portfolio" class="section">
-        <div class="container content f-row f-center-x">
-          <Portfolio/>
-        </div>
-      </section>
-      <section id="what-we-do" class="section">
-        <div class="shape-1">
-          <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-            <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
-          </svg>
-        </div>
-        <div class="container content">
-          <h2 class="pb-10">What we are doing?</h2>
-          <WhatWeDoing/>
-        </div>
-        <div class="shape-2">
-          <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fafafa;"></path>
-          </svg>
-        </div>
-      </section>
-      <section id="blogs" class="section">
-        <div class="container content">
-          <h2 class="pb-7">Blogs</h2>
-          <BlogList :listBlog="listBlog.slice(0,3)"/>
-        </div>
-      </section>
-      <section id="staff" class="section">
-        <div class="container content">
-          <h2 class="pt-3 pb-3">Our Team</h2>
-          <Staff/>
-        </div>
-      </section>
-      <section id="statistics" class="section">
-        <div class="container content">
-          <h2 class="pt-2 pb-10">Skills & Statistics</h2>
-          <img :src="require('~/assets/img/portfplio/portfplio-flow.svg')" alt="">
-          <v-row no-gutters class="f-row pt-10">
-            <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
-              <AnimationNumber :valueNum="item.num" />
-              <p class="txt-bold">{{ item.text }}</p>
-            </v-col>
-          </v-row>
-        </div>
-      </section>
-      <!-- <section id="statistics" class="pt-10 pb-10 section">
-        <div class="container content">
-          <v-row no-gutters class="f-row">
-            <v-col sm="3" cols="6" class="txt-center" v-for="(item, index) of statistics" :key="index">
-              <AnimationNumber :valueNum="item.num" />
-              <p class="txt-bold">{{ item.text }}</p>
-            </v-col>
-          </v-row>
-        </div>
-      </section> -->
-      <section id="speech" class="section">
-        <div class="container content f-row f-center-x">
-          <Speech/>
-        </div>
-      </section>
-      <section id="reviews" class="section">
-        <Reviews/>
-      </section>
-      <section id="get-in-touch" class="section">
-        <div class="container content">
-          <GetInTouch/>
-        </div>
-      </section>
-      <section class="section">
-        <div class="fullscreen">
-          <app-footer class="footer-home"/>
-        </div>
-      </section>
-    </full-page>
-  </no-ssr>
+        <component :is="dialogComponent.name" v-bind="{portfolioData: dialogComponent.data}"></component>
+      </div>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -110,6 +120,7 @@ import GetInTouch from '../components/home/get-in-touch'
 import Portfolio from '../components/home/portfplio'
 import Reviews from '../components/home/reviews'
 import AppFooter from '../common-layouts/footer'
+import PortfolioDialog from '../components/dialogs/portfolio-dialog'
 
 export default {
   components: {
@@ -123,11 +134,18 @@ export default {
     Speech,
     GetInTouch,
     Portfolio,
-    Reviews
+    Reviews,
+    PortfolioDialog
   },
   data() {
     return {
+      dialog: false,
+      isDialogShow: false,
       scrollable: false,
+      dialogComponent: {
+        name: null,
+        data: null
+      },
       currentSection: null,
       sectionList: [
         '#introduction',
@@ -135,7 +153,6 @@ export default {
         '#what-we-do',
         '#blogs',
         '#staff',
-        '#skills',
         '#statistics',
         '#speech',
         '#reviews',
@@ -306,37 +323,77 @@ export default {
         ];
         this.statisticsInit = true;
       }
+
+      const indexSection = this.sectionList.findIndex(x => x === `#${to.hash.substring(4)}`)
+      this.$store.commit('setSectionPos', {
+        id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`
+      })
     }
   },
-  // this.$refs.fullpage.api.setAutoScrolling(false)}, 500)
+  computed: {
+    sectionPos () {
+      console.log(this.$store.state.homeSectionPosition)
+      return this.shortcutMenu.map(x =>
+        ({
+          key: x.key,
+          active: x.key === this.$store.state.sectionAnchor,
+          // height: this.$store.state.homeSectionPosition.height,
+          // top: this.$store.state.homeSectionPosition.top
+        })
+      )
+    },
+  },
   mounted() {
     new WOW().init()
-    $(window).on('scroll', () => {
-      this.sectionList.forEach(x => {
-        this.triggerPos(x)
-      })
+    this.$root.$on('triggerScrollToSection', (anchor) => {
+      console.log(anchor)
+      this.$refs.fullpage.api.moveTo(anchor, 0)
     })
   },
   methods: {
-    triggerPos(sectionId) {
-      if (this.currentSection !== sectionId) {
-        const scrollTopLine = $(window).scrollTop()
-        const sectionTopLine = $(sectionId).position().top
-        const sectionHeight = $(sectionId).outerHeight(true)
-        if (
-          scrollTopLine >= sectionTopLine &&
-          scrollTopLine < sectionTopLine + sectionHeight
-        ) {
-          const indexSection = this.sectionList.findIndex(x => x === sectionId)
-          this.$store.commit('setSectionPos', {
-            height: sectionHeight,
-            top: sectionTopLine,
-            id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`
-          })
-          this.currentSection = sectionId
-        }
+    closeDialog() {
+      this.dialog = false
+      this.isDialogShow = false
+      this.dialogComponent = {
+        name: null,
+        data: null
       }
+      this.$refs.fullpage.api.setAutoScrolling(true)
+      // this.$refs.fullpage.api.setAllowScrolling(true)
+      // this.currentPortfolio = null
+      // this.$emit('dialogOpen', false)
+      // document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     },
+    showDialogPortfolio(e) {
+      console.log(e)
+      this.dialogComponent = {
+        name: PortfolioDialog,
+        data: e
+      }
+      this.$refs.fullpage.api.setAutoScrolling(false)
+      // this.$refs.fullpage.api.setAllowScrolling(false)
+      this.dialog = true
+      this.isDialogShow = true
+    },
+    // triggerPos(sectionId) {
+    //   if (this.currentSection !== sectionId) {
+    //     const scrollTopLine = $(window).scrollTop()
+    //     const sectionTopLine = $(sectionId).position().top
+    //     const sectionHeight = $(sectionId).outerHeight(true)
+    //     if (
+    //       scrollTopLine >= sectionTopLine &&
+    //       scrollTopLine < sectionTopLine + sectionHeight
+    //     ) {
+    //       const indexSection = this.sectionList.findIndex(x => x === sectionId)
+    //       this.$store.commit('setSectionPos', {
+    //         height: sectionHeight,
+    //         top: sectionTopLine,
+    //         id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`
+    //       })
+    //       this.currentSection = sectionId
+    //     }
+    //   }
+    // },
     lockScroll() {
       $('html, body').css({
         overflow: 'hidden'
@@ -350,3 +407,13 @@ export default {
   }
 }
 </script>
+<style scoped>
+.dialog {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+</style>

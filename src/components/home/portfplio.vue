@@ -1,57 +1,45 @@
 <template>
-<div>
-  <div class="txt-center">
-    <!-- <span class="btn btn-green txt-bold">What We Offerd</span> -->
-    <h2 class="mt-3 mb-2">Portfolio</h2>
-    <p class="portflio-description txt-center">実績の一部</p>
-    <v-row class="pt-3 f-row f-center-x">
-      <v-col
-        sm="4"
-        cols="12"
-        class="pd-5"
-        v-for="(item, index) of portfplioData" :key="index">
-        <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }" @click="dialog = true">
-          <img :src="item.images[0]" alt="">
-          <span>{{item.type}}</span>
-          <span class="portfolio-time pd-2">{{ item.date | dateTime('MM yyyy') }}</span>
-          <h4 class="">{{item.name}}</h4>
-          <p class="pt-4 pl-4 pr-4">{{ item.description | HTMLtoText | shortDesc(100) }}</p>
-          <!-- <p v-html="short(item.description)"></p> -->
-          <div class="pt-4 pl-4 pr-4 pb-4">
-            <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
+  <div>
+    <div class="txt-center">
+      <!-- <span class="btn btn-green txt-bold">What We Offerd</span> -->
+      <h2 class="mt-3 mb-2">Portfolio</h2>
+      <p class="portflio-description txt-center">実績の一部</p>
+      <v-row class="pt-3 f-row f-center-x">
+        <v-col
+          sm="4"
+          cols="12"
+          class="pd-5"
+          v-for="(item, index) of portfolioData" :key="index">
+          <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }">
+            <img :src="item.images[0]" alt="">
+            <span>{{item.type}}</span>
+            <span class="portfolio-time pd-2">{{ item.date | dateTime('MM yyyy') }}</span>
+            <h4 class="">{{item.name}}</h4>
+            <p class="pt-4 pl-4 pr-4">{{ item.description | HTMLtoText | shortDesc(100) }}</p>
+            <!-- <p v-html="short(item.description)"></p> -->
+            <div class="pt-4 pl-4 pr-4 pb-4">
+              <button class="btn btn-primary" @click.stop="showDialog(item.id)">View More</button>
+            </div>
           </div>
-        </div>
-      </v-col>
-    </v-row>
-  </div>
-  <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isPortfolioDialogShow" width="80%">
-    <div height="80vh">
-      <div class="dialog-close pd-4">
-        <span @click="closeDialog()"></span>
-      </div>
-      <Dialog :portfplioData="curentPorrtfolio"/>
+        </v-col>
+      </v-row>
     </div>
-  </v-dialog>
-</div>
+  </div>
 </template>
 <script>
-import Dialog from '../portfplio/dialog';
 
 export default {
-  components: {
-    Dialog
-  },
   methods: {
     showDialog(id) {
-      this.dialog = true;
-      this.isPortfolioDialogShow = true
-      this.curentPorrtfolio = this.portfplioData.find(x => x.id === id)
+      this.currentPortfolio = this.portfolioData.find(x => x.id === id)
+      this.$emit('dialogOpen', this.currentPortfolio)
     },
     closeDialog() {
-      this.dialog = false;
-      this.isPortfolioDialogShow = false
-      this.curentPorrtfolio = null
-      document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
+      // this.dialog = false;
+      // this.isPortfolioDialogShow = false
+      // this.currentPortfolio = null
+      // this.$emit('dialogOpen', false)
+      // document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     }
   },
   // methods: {
@@ -64,8 +52,8 @@ export default {
     return {
       dialog: false,
       isPortfolioDialogShow: false,
-      curentPorrtfolio: Object,
-      portfplioData: [
+      currentPortfolio: Object,
+      portfolioData: [
         {
           id: 1,
           name: 'ライブ配信/生放送アプリ',
@@ -109,10 +97,11 @@ export default {
     }
   },
   mounted() {
-    this.portfplioData = this.portfplioData.map(x => ({
+    this.portfolioData = this.portfolioData.map(x => ({
       ...x,
       description: this.$options.filters.shortDesc(x.description)
     }))
   }
 }
 </script>
+
