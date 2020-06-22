@@ -290,11 +290,20 @@
   z-index: 200;
   background-color: map-get($color, white);
   transition-duration: 0.25s;
-  cursor: pointer;
   user-select: none;
   border-width: 0px;
   outline: none;
   position: relative;
+  text-align: right;
+  div {
+    cursor: pointer;
+    display: inline-block;
+    &:hover {
+      span {
+        box-shadow: -13px -13px, 0 -13px, 13px -13px, -13px 0, 13px 0, -13px 13px, 0 13px, 13px 13px;
+      }
+    }
+  }
   span {
     @include pxRem(width, 10);
     @include pxRem(height, 10);
@@ -307,9 +316,6 @@
     display: block;
     transition: .3s;
     position: absolute;
-    &:hover {
-      box-shadow: -13px -13px, 0 -13px, 13px -13px, -13px 0, 13px 0, -13px 13px, 0 13px, 13px 13px;
-    }
   }
 }
 .dialog-content {
