@@ -21,10 +21,14 @@
         </section>
         <section id="portfolio" class="section">
           <div class="container content f-row f-center-x">
-            <Portfolio @dialogOpen="showDialogPortfolio"/>
+            <transition
+              :duration="3000"
+              enter-active-class="animated fadeInLeft">
+              <Portfolio v-show="animations.portfolio" @dialogOpen="showDialogPortfolio"/>
+            </transition>
           </div>
         </section>
-        <section id="what-we-do" class="section">
+        <section id="whatwedo" class="section">
           <div class="shape-1">
             <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
               <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
@@ -32,7 +36,11 @@
           </div>
           <div class="container content">
             <h2 class="pb-10">What we are doing?</h2>
-            <WhatWeDoing/>
+            <!-- <transition
+              :duration="3000"
+              enter-active-class="animated fadeInLeft"> -->
+              <WhatWeDoing/>
+            <!-- </transition> -->
           </div>
           <div class="shape-2">
             <svg viewBox="0 0 500 100" preserveAspectRatio="none" style="height: 100%; width: 100%;">
@@ -82,7 +90,7 @@
         <section id="reviews" class="section">
           <Reviews/>
         </section>
-        <section id="get-in-touch" class="section">
+        <section id="getintouch" class="section">
           <div class="container content">
             <GetInTouch/>
           </div>
@@ -139,6 +147,10 @@ export default {
   },
   data() {
     return {
+      animations: {
+        portfolio: false,
+        'whatwedo': false,
+      },
       dialog: false,
       isDialogShow: false,
       scrollable: false,
@@ -150,13 +162,13 @@ export default {
       sectionList: [
         '#introduction',
         '#portfolio',
-        '#what-we-do',
+        '#whatwedo',
         '#blogs',
         '#staff',
         '#statistics',
         '#speech',
         '#reviews',
-        '#get-in-touch'
+        '#getintouch'
       ],
       options: {
         licenseKey: null,
@@ -167,13 +179,13 @@ export default {
         anchors: [
           'js-introduction',
           'js-portfolio',
-          'js-what-we-do',
+          'js-whatwedo',
           'js-blogs',
           'js-staff',
           'js-statistics',
           'js-speech',
           'js-reviews',
-          'js-get-in-touch'
+          'js-getintouch'
         ],
       },
       isMobileDevice: false,
@@ -323,7 +335,8 @@ export default {
         ];
         this.statisticsInit = true;
       }
-
+      console.log(to.hash.substring(4))
+      this.animations[to.hash.substring(4)] = true
       const indexSection = this.sectionList.findIndex(x => x === `#${to.hash.substring(4)}`)
       this.$store.commit('setSectionPos', {
         id: indexSection + 1 < 10 ? `0${indexSection + 1}` : `${indexSection + 1}`

@@ -70,7 +70,7 @@ export default {
           {
             key: '03',
             name: 'What we do',
-            sectionId: "#what-we-do",
+            sectionId: "#whatwedo",
             active: false
           },
           {
@@ -112,7 +112,7 @@ export default {
           {
             key: '09',
             name: 'Get In Touch',
-            sectionId: "#get-in-touch",
+            sectionId: "#getintouch",
             active: false
           }
         ],

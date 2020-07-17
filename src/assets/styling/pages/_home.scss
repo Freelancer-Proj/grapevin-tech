@@ -1,4 +1,4 @@
-#what-we-do {
+#whatwedo {
   background-color: map-get($color, primary);
   .shape-2 {
     svg {
@@ -206,7 +206,7 @@
   }
 }
 
-#get-in-touch {
+#getintouch {
   .get-in-touch {
     @include respond-above(wide) {
       @include pxRem(padding-left, 40);
