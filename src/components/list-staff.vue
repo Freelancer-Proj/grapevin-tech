@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div v-if="listStaff">
     <no-ssr>
       <slick
         ref="slick"
         :options="slickOptions">
         <div class="pl-4 pr-4 txt-center staff-item" v-for="(staff, index) of listStaff" :key="index">
           <div class="staff-item staff-content pb-2 txt-center">
-            <img class="staff-avatar" :src="staff.avatar">
+            <img v-if="staff.avatar" class="staff-avatar" :src="staff.avatar">
             <h4>{{ staff.name }}</h4>
             <span class="staff-position">{{ staff.position }}</span>
-            <p class="pl-8 pr-8">{{ staff.description }}</p>
+            <p class="pl-8 pr-8">{{ staff.desc }}</p>
             <div>
               <v-icon class="mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
             </div>

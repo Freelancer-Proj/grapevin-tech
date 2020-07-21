@@ -7,57 +7,27 @@
 <script>
 
 import ListStaff from '../list-staff';
+import {api} from '../../helpers/services/api.service'
+
 export default {
   components: {
     ListStaff
   },
   data() {
     return {
-      listStaff : [
-        {
-          avatar: require('~/assets/img/staff/secretary.png'),
-          name: 'Celio Jemy',
-          position: 'Founder',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        },
-        {
-          avatar: require('~/assets/img/staff/manager.png'),
-          name: 'Vinit Saw',
-          position: 'Manager',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        },
-        {
-          avatar: require('~/assets/img/staff/founder.png'),
-          name: 'Nina Loe',
-          position: 'Ceo',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        },
-        {
-          avatar: require('~/assets/img/staff/secretary.png'),
-          name: 'Celio Jemy',
-          position: 'Founder',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        },
-        {
-          avatar: require('~/assets/img/staff/manager.png'),
-          name: 'Vinit Saw',
-          position: 'Manager',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        },
-        {
-          avatar: require('~/assets/img/staff/founder.png'),
-          name: 'Nina Loe',
-          position: 'Ceo',
-          description: 'Build a Beautiful, Clean & Modern Design website.',
-          speciality: ['angular', 'php', 'react', 'wordpress']
-        }
-      ]
+      listStaff : []
     }
+  },
+  created() {
+    api.get(['staffs']).then(res => {
+      if (res) {
+        res.map(x => {
+          x.speciality = x.speciality.toLowerCase();
+          x.speciality = x.speciality.split(',');
+        })
+        this.listStaff = res;
+      }
+    })
   }
 }
 </script>

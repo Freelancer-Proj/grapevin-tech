@@ -1,13 +1,13 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export class APIService {
+class APIService {
   constructor () {
-    axios.defaults.baseURL = process.env.VUE_APP_API
-    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-    axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET,POST,OPTIONS'
-    axios.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type'
+    axios.defaults.baseURL = process.env.VUE_APP_API;
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET,POST,OPTIONS';
+    axios.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type';
     axios.interceptors.request.use((request) => {
-      request.headers['access-token'] = localStorage.getItem('ACCESS_TOKEN')
+      request.headers['access-token'] = localStorage.getItem('ACCESS_TOKEN');
       return request
     }, (error) => {
       return Promise.reject(error)
@@ -32,7 +32,6 @@ export class APIService {
         params: options
       })
         .then(resp => {
-          console.log(resp)
           resolve(resp.data)
         })
         .catch(err => {
@@ -97,3 +96,5 @@ export class APIService {
     }
   }
 }
+
+export const api = new APIService();
