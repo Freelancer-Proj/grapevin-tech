@@ -12,15 +12,15 @@
               <v-radio-group class="form-radio" v-model="contact.typeQuestion" :mandatory="false">
                 <v-row>
                     <v-col sm="4" cols="12" class="pt-0 pb-0">
-                      <v-radio label="案件のご相談" value="1"></v-radio>
-                      <v-radio label="業務提携のご相談" value="2"></v-radio>
+                      <v-radio label="案件のご相談" value="案件のご相談"></v-radio>
+                      <v-radio label="業務提携のご相談" value="業務提携のご相談"></v-radio>
                     </v-col>
                     <v-col sm="4" cols="12" class="pt-0 pb-0">
-                      <v-radio label="サービスに関するご相談" value="3"></v-radio>
-                      <v-radio label="採用への応募" value="4"></v-radio>
+                      <v-radio label="サービスに関するご相談" value="サービスに関するご相談"></v-radio>
+                      <v-radio label="採用への応募" value="採用への応募"></v-radio>
                     </v-col>
                     <v-col sm="4" cols="12" class="pt-0 pb-0">
-                      <v-radio label="その他" value="5"></v-radio>
+                      <v-radio label="その他" value="その他"></v-radio>
                     </v-col>
                 </v-row>
               </v-radio-group>
@@ -57,7 +57,7 @@
             </v-row>
             <v-row class="form-group form-required">
               <v-col sm="12" cols="12" class="pt-0 pb-0">
-                <v-text-field v-model="contact.phoneNumber" :rules="contact.phoneNumberRules" label="電話番号" rows="4" filled required></v-text-field>
+                <v-text-field v-model="contact.phoneNumber" :rules="contact.phoneNumberRules" label="電話番号" type="number" rows="4" filled required></v-text-field>
               </v-col>
             </v-row>
             <v-row class="form-group form-required">
@@ -96,6 +96,8 @@
   </div>
 </template>
 <script>
+
+import {api} from '../../helpers/services/api.service'
 
 export default {
   components: {
@@ -156,7 +158,18 @@ export default {
   },
   methods: {
     submit () {
-
+      const body = {
+        inquire_type: this.contact.typeQuestion,
+        company_name: this.contact.company,
+        position: this.contact.position,
+        name: this.contact.name,
+        furigana_name: this.contact.department,
+        email: this.contact.email,
+        phone: this.contact.phoneNumber,
+        content: this.contact.content
+      }
+      api.post(['contact_us'], body).then(res => {
+      })
     }
   }
 }
