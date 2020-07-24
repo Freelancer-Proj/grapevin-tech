@@ -26,7 +26,7 @@
             :class="{ 'mt-6' : index%2 === 1, 'item-even': index%2 === 0 }"
             v-for="(item, index) of viewsData" :key="index">
             <div class=" pd-5 viewer-content f-row f-center-x">
-              <img class="circle-image mr-6" v-if="item.avatar" :src="item.avatar" alt="viewer avatar">
+              <img class="circle-image mr-6" v-if="item.avatar" :src="item.avatar.url" alt="viewer avatar">
               <div>
                 <p v-html="item.content" class="mb-3"></p>
                 <div>
