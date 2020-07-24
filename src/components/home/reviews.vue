@@ -1,5 +1,5 @@
 <template>
-  <div class="section-views pt-10 pb-10">
+  <div class="section-views pt-10 pb-10" v-if="viewsData.length">
     <div class="shape-background transform-md-rotate" style="overflow: hidden;">
       <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
         <path d="M208.09,0.00 C152.70,67.10 262.02,75.98 200.80,150.00 L0.00,150.00 L0.00,0.00 Z"></path>
@@ -24,13 +24,13 @@
             cols="12"
             class="pl-3 pr-3 viewer-item"
             :class="{ 'mt-6' : index%2 === 1, 'item-even': index%2 === 0 }"
-            v-for="(item, index) of viewsData.slice(0, 4)" :key="index">
+            v-for="(item, index) of viewsData" :key="index">
             <div class=" pd-5 viewer-content f-row f-center-x">
-              <img class="circle-image mr-6" :src="item.avatar" alt="viewer avatar">
+              <img class="circle-image mr-6" v-if="item.avatar" :src="item.avatar" alt="viewer avatar">
               <div>
-                <p v-html="item.description" class="mb-3"></p>
+                <p v-html="item.content" class="mb-3"></p>
                 <div>
-                  <h5 class="viewer-name mr-1">{{ item.name }}</h5>
+                  <h5 class="viewer-name mr-1">{{ item.reviewer }}</h5>
                   <span class="viewer-position">- {{ item.position }}</span>
                 </div>
               </div>
@@ -43,38 +43,22 @@
 </template>
 <script>
 
+import {api} from '../../helpers/services/api.service'
+
 export default {
   components: {
   },
   data() {
     return {
-      viewsData: [
-        {
-          name: 'Romi Jensen',
-          position: 'Founder',
-          description: `Bootsland Amazing Landing Page All-in-one, clean code, Crative & Modern design.`,
-          avatar: require('~/assets/img/views/1.jpg'),
-        },
-        {
-          name: 'Leeny Biton',
-          position: 'Manager',
-          description: `Bootsland Amazing Landing Page All-in-one, clean code, Crative & Modern design.`,
-          avatar: require('~/assets/img/views/2.jpg'),
-        },
-        {
-          name: 'Johny Stock',
-          position: 'Supervisor',
-          description: `Bootsland Amazing Landing Page All-in-one, clean code, Crative & Modern design.`,
-          avatar: require('~/assets/img/views/3.jpg'),
-        },
-        {
-          name: 'Jensen Rom',
-          position: 'Ceo',
-          description: `Bootsland Amazing Landing Page All-in-one, clean code, Crative & Modern design.`,
-          avatar: require('~/assets/img/views/1.jpg'),
-        }
-      ]
+      viewsData: []
     }
+  },
+  created() {
+    api.get(['reviews']).then(res => {
+      if (res) {
+        this.viewsData = res.slice(0, 4);
+      }
+    })
   }
 }
 </script>
