@@ -52,7 +52,7 @@ module.exports = {
     vendor: ['wowjs']
   },
   env: {
-    VUE_APP_API: 'http://admin.grapevine.jp/api/v1',
+    VUE_APP_API: 'https://admin.grapevine.jp/api/v1',
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     databaseURL: process.env.databaseURL,
