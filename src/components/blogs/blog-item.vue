@@ -2,9 +2,9 @@
   <article class="blog-item pd-2">
     <BlogGrid :images="blog.images"/>
     <div class="blog-content pd-2">
-      <h4>{{ blog.name }}</h4>
-      <span class="txt-light">{{ blog.date | dateTime }}</span>
-      <p class="blog-description mt-3 mb-3">{{ blog.description }}</p>
+      <h4>{{ blog.title }}</h4>
+      <span class="txt-light">{{ blog.created_at | dateTime }}</span>
+      <p class="blog-description mt-3 mb-3">{{ blog.desc }}</p>
       <div class="responser">
         <img v-for="(responser, index) of blog.responser" :key="index" class="circle-image" :src="responser">
       </div>

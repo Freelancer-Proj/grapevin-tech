@@ -123,6 +123,7 @@ import Portfolio from '../components/home/portfplio'
 import Reviews from '../components/home/reviews'
 import AppFooter from '../common-layouts/footer'
 import PortfolioDialog from '../components/dialogs/portfolio-dialog'
+import { api } from '../helpers/services/api.service'
 
 export default {
   components: {
@@ -138,6 +139,17 @@ export default {
     Portfolio,
     Reviews,
     PortfolioDialog
+  },
+  created() {
+    api.get(['statistics']).then(res => {
+      if (res) {
+        this.statisticsRes = res.map(x => ({
+          num: +x.number,
+          text: x.name
+        }))
+        // this.statistics = res.slice(0, 4);
+      }
+    })
   },
   data() {
     return {
@@ -282,6 +294,7 @@ export default {
         }
       ],
       statisticsInit: false,
+      statisticsRes: Array,
       statistics: [
         {
           num: 0,
@@ -305,24 +318,25 @@ export default {
   watch:{
     $route (to, from){
       if (to.hash === '#js-statistics' && !this.statisticsInit) {
-        this.statistics = [
-          {
-            num: 275,
-            text: 'アプリ開発'
-          },
-          {
-            num: 352,
-            text: 'WEBサイト開発'
-          },
-          {
-            num: 60,
-            text: '組込み系'
-          },
-          {
-            num: 33,
-            text: '人口知能導入'
-          }
-        ];
+        this.statistics = this.statisticsRes;
+        // this.statistics = [
+        //   {
+        //     num: 275,
+        //     text: 'アプリ開発'
+        //   },
+        //   {
+        //     num: 352,
+        //     text: 'WEBサイト開発'
+        //   },
+        //   {
+        //     num: 60,
+        //     text: '組込み系'
+        //   },
+        //   {
+        //     num: 33,
+        //     text: '人口知能導入'
+        //   }
+        // ];
         this.statisticsInit = true;
       }
 
@@ -334,7 +348,6 @@ export default {
   },
   computed: {
     sectionPos () {
-      console.log(this.$store.state.homeSectionPosition)
       return this.shortcutMenu.map(x =>
         ({
           key: x.key,
@@ -348,7 +361,6 @@ export default {
   mounted() {
     new WOW().init()
     this.$root.$on('triggerScrollToSection', (anchor) => {
-      console.log(anchor)
       this.$refs.fullpage.api.moveTo(anchor, 0)
     })
   },
@@ -367,7 +379,6 @@ export default {
       // document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     },
     showDialogPortfolio(e) {
-      console.log(e)
       this.dialogComponent = {
         name: PortfolioDialog,
         data: e
