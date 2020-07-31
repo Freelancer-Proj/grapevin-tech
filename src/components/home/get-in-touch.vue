@@ -67,7 +67,7 @@
             </v-row>
              <v-checkbox v-model="agree" :label="`個人情報の取扱いに同意する `"></v-checkbox>
             <div class="txt-center">
-              <button class="btn btn-primary" @click="submit" :disabled="disabledForm | !contact.valid">確認する</button>
+              <button class="btn btn-primary" @click="submit" :disabled="disabledForm || !contact.valid">確認する</button>
             </div>
           </v-form>
         </div>
