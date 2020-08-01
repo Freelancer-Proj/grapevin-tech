@@ -3,6 +3,11 @@ button {
 }
 .btn {
   @include pxRem(padding, 5 15);
+  cursor: pointer;
+  &:disabled {
+    background-color: map-get($color, primary);
+    cursor: auto;
+  }
 }
 
 .btn-primary {
@@ -16,6 +21,9 @@ button {
   }
   &:active {
     background-color: map-get($color, orange);
+  }
+  &:disabled {
+    background-color: map-get($color, primary);
   }
 }
 .btn-green {

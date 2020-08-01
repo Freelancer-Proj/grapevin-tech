@@ -30,3 +30,6 @@
 .blog-gutters {
   @include pxRem(padding, 20 50);
 }
+.v-pagination__item--active {
+  color: map-get($color, danger) !important;
+}

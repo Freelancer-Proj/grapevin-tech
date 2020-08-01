@@ -71,8 +71,13 @@ module.exports = {
       { name: 'apple-touch-fullscreen', content: 'yes' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-title', content: 'Grapevin' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'apple-mobile-web-app-title', content: 'Grapevine' },
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:image', name: 'og:image', content: '/assets/img/portfplio/portfplio-flow.svg' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'Grapevine Tech' },
+      { hid: 'og:image:alt', name: 'og:image:alt', content: 'Grapevine' },
+      { hid: 'description', name: 'description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
+      { hid: 'og:description', name: 'og:description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

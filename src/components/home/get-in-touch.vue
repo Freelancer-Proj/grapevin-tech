@@ -67,7 +67,7 @@
             </v-row>
              <v-checkbox v-model="agree" :label="`個人情報の取扱いに同意する `"></v-checkbox>
             <div class="txt-center">
-              <button class="btn btn-primary" @click="submit">確認する</button>
+              <button class="btn btn-primary" @click="submit" :disabled="disabledForm || !contact.valid">確認する</button>
             </div>
           </v-form>
         </div>
@@ -92,6 +92,17 @@
           </div>
         </div>
       </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-dialog v-model="dialog" persistent max-width="500">
+        <v-card>
+          <v-card-title class="headline">{{ message }}</v-card-title>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="closeDialog()">OK</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-row>
   </div>
 </template>
@@ -153,11 +164,15 @@ export default {
           description: `Skypeなどの音声通話打ち合わせも可能です。`
         }
       ],
-      agree: false
+      agree: false,
+      dialog: false,
+      message: '',
+      disabledForm: false
     }
   },
   methods: {
     submit () {
+      this.dialog = this.disabledForm = true;
       const body = {
         inquire_type: this.contact.typeQuestion,
         company_name: this.contact.company,
@@ -169,7 +184,16 @@ export default {
         content: this.contact.content
       }
       api.post(['contact_us'], body).then(res => {
-      })
+        this.message = 'フォームを送信しました';
+        this.disabledForm = false;
+      }, err => {
+        this.message = 'エラーが発生しました';
+        this.disabledForm = false;
+      });
+    },
+    closeDialog() {
+      this.dialog = false;
+      document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     }
   }
 }

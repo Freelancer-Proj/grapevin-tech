@@ -123,6 +123,7 @@ import Portfolio from '../components/home/portfplio'
 import Reviews from '../components/home/reviews'
 import AppFooter from '../common-layouts/footer'
 import PortfolioDialog from '../components/dialogs/portfolio-dialog'
+import { api } from '../helpers/services/api.service'
 
 export default {
   components: {
@@ -138,6 +139,26 @@ export default {
     Portfolio,
     Reviews,
     PortfolioDialog
+  },
+  created() {
+    api.get(['statistics']).then(res => {
+      if (res) {
+        this.statisticsRes = res.map(x => ({
+          num: +x.number,
+          text: x.name
+        }))
+      }
+    });
+    api.get(['blogs']).then(res => {
+      if (res) {
+        res.map(x => {
+          x.responser = this.responser;
+          x.listImages = [x.images.url];
+          x.date = new Date(x.created_at)
+        })
+        this.listBlog = res;
+      }
+    });
   },
   data() {
     return {
@@ -179,109 +200,116 @@ export default {
         ],
       },
       isMobileDevice: false,
+      responser: [
+        require('~/assets/img/about-us/1.jpg'),
+        require('~/assets/img/about-us/2.jpg'),
+        require('~/assets/img/about-us/3.jpg'),
+        require('~/assets/img/about-us/4.jpg')
+      ],
       listBlog: [
-        {
-          name: 'Guide to Pro Photography',
-          date: new Date(),
-          description: `Let me start off by saying, you can do this! It will be hard work, but isn't impossible.`,
-          images: [
-            require('~/assets/img/about-us/1.jpg'),
-            // require('~/assets/img/about-us/2.jpg'),
-            // require('~/assets/img/about-us/3.jpg'),
-            // require('~/assets/img/about-us/4.jpg'),
-            // require('~/assets/img/about-us/5.jpg'),
-            // require('~/assets/img/about-us/6.jpg'),
-            // require('~/assets/img/about-us/7.jpg')
-          ],
-          responser: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg')
-          ]
-        },
-        {
-          name: 'Mordern Industrial Design',
-          date: new Date(),
-          description: `Industrial designs require little furniture and more floor space. This design gerve wants people to be able`,
-          images: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            // require('~/assets/img/about-us/3.jpg'),
-            // require('~/assets/img/about-us/4.jpg'),
-            // require('~/assets/img/about-us/5.jpg'),
-            // require('~/assets/img/about-us/6.jpg'),
-            // require('~/assets/img/about-us/7.jpg')
-          ],
-          responser: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg')
-          ]
-        },
-        {
-          name: 'Learning Design Process',
-          date: new Date(),
-          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
-          images: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            // require('~/assets/img/about-us/4.jpg'),
-            // require('~/assets/img/about-us/5.jpg'),
-            // require('~/assets/img/about-us/6.jpg'),
-            // require('~/assets/img/about-us/7.jpg')
-          ],
-          responser: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg')
-          ]
-        },
-        {
-          name: 'Design Thinking Process',
-          date: new Date(),
-          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
-          images: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg'),
-            require('~/assets/img/about-us/5.jpg'),
-            require('~/assets/img/about-us/6.jpg'),
-            require('~/assets/img/about-us/7.jpg')
-          ],
-          responser: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg')
-          ]
-        },
-        {
-          name: 'Design Thinking Process',
-          date: new Date(),
-          description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
-          images: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg'),
-            require('~/assets/img/about-us/5.jpg'),
-            require('~/assets/img/about-us/6.jpg'),
-            require('~/assets/img/about-us/7.jpg')
-          ],
-          responser: [
-            require('~/assets/img/about-us/1.jpg'),
-            require('~/assets/img/about-us/2.jpg'),
-            require('~/assets/img/about-us/3.jpg'),
-            require('~/assets/img/about-us/4.jpg')
-          ]
-        }
+        // {
+        //   name: 'Guide to Pro Photography',
+        //   date: new Date(),
+        //   description: `Let me start off by saying, you can do this! It will be hard work, but isn't impossible.`,
+        //   images: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     // require('~/assets/img/about-us/2.jpg'),
+        //     // require('~/assets/img/about-us/3.jpg'),
+        //     // require('~/assets/img/about-us/4.jpg'),
+        //     // require('~/assets/img/about-us/5.jpg'),
+        //     // require('~/assets/img/about-us/6.jpg'),
+        //     // require('~/assets/img/about-us/7.jpg')
+        //   ],
+        //   responser: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg')
+        //   ]
+        // },
+        // {
+        //   name: 'Mordern Industrial Design',
+        //   date: new Date(),
+        //   description: `Industrial designs require little furniture and more floor space. This design gerve wants people to be able`,
+        //   images: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     // require('~/assets/img/about-us/3.jpg'),
+        //     // require('~/assets/img/about-us/4.jpg'),
+        //     // require('~/assets/img/about-us/5.jpg'),
+        //     // require('~/assets/img/about-us/6.jpg'),
+        //     // require('~/assets/img/about-us/7.jpg')
+        //   ],
+        //   responser: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg')
+        //   ]
+        // },
+        // {
+        //   name: 'Learning Design Process',
+        //   date: new Date(),
+        //   description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+        //   images: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     // require('~/assets/img/about-us/4.jpg'),
+        //     // require('~/assets/img/about-us/5.jpg'),
+        //     // require('~/assets/img/about-us/6.jpg'),
+        //     // require('~/assets/img/about-us/7.jpg')
+        //   ],
+        //   responser: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg')
+        //   ]
+        // },
+        // {
+        //   name: 'Design Thinking Process',
+        //   date: new Date(),
+        //   description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+        //   images: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg'),
+        //     require('~/assets/img/about-us/5.jpg'),
+        //     require('~/assets/img/about-us/6.jpg'),
+        //     require('~/assets/img/about-us/7.jpg')
+        //   ],
+        //   responser: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg')
+        //   ]
+        // },
+        // {
+        //   name: 'Design Thinking Process',
+        //   date: new Date(),
+        //   description: `This involves a methodical intergration of pedagical and technological elements to enrich all learning`,
+        //   images: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg'),
+        //     require('~/assets/img/about-us/5.jpg'),
+        //     require('~/assets/img/about-us/6.jpg'),
+        //     require('~/assets/img/about-us/7.jpg')
+        //   ],
+        //   responser: [
+        //     require('~/assets/img/about-us/1.jpg'),
+        //     require('~/assets/img/about-us/2.jpg'),
+        //     require('~/assets/img/about-us/3.jpg'),
+        //     require('~/assets/img/about-us/4.jpg')
+        //   ]
+        // }
       ],
       statisticsInit: false,
+      statisticsRes: Array,
       statistics: [
         {
           num: 0,
@@ -305,24 +333,25 @@ export default {
   watch:{
     $route (to, from){
       if (to.hash === '#js-statistics' && !this.statisticsInit) {
-        this.statistics = [
-          {
-            num: 275,
-            text: 'アプリ開発'
-          },
-          {
-            num: 352,
-            text: 'WEBサイト開発'
-          },
-          {
-            num: 60,
-            text: '組込み系'
-          },
-          {
-            num: 33,
-            text: '人口知能導入'
-          }
-        ];
+        this.statistics = this.statisticsRes;
+        // this.statistics = [
+        //   {
+        //     num: 275,
+        //     text: 'アプリ開発'
+        //   },
+        //   {
+        //     num: 352,
+        //     text: 'WEBサイト開発'
+        //   },
+        //   {
+        //     num: 60,
+        //     text: '組込み系'
+        //   },
+        //   {
+        //     num: 33,
+        //     text: '人口知能導入'
+        //   }
+        // ];
         this.statisticsInit = true;
       }
 
@@ -334,7 +363,6 @@ export default {
   },
   computed: {
     sectionPos () {
-      console.log(this.$store.state.homeSectionPosition)
       return this.shortcutMenu.map(x =>
         ({
           key: x.key,
@@ -348,7 +376,6 @@ export default {
   mounted() {
     new WOW().init()
     this.$root.$on('triggerScrollToSection', (anchor) => {
-      console.log(anchor)
       this.$refs.fullpage.api.moveTo(anchor, 0)
     })
   },
@@ -367,7 +394,6 @@ export default {
       // document.getElementsByClassName('v-dialog__container')[0].setAttribute('display', 'none');
     },
     showDialogPortfolio(e) {
-      console.log(e)
       this.dialogComponent = {
         name: PortfolioDialog,
         data: e
