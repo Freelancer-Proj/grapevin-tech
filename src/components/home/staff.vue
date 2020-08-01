@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="staff-description txt-center">A type of businesses need access to development resources, so we<br> give you the option to decide how much you need to use.</p>
-    <div v-if="listStaff">
+    <div v-if="listStaff.length > 0">
       <no-ssr>
         <slick
           ref="slick"
@@ -41,7 +41,7 @@ export default {
           x.speciality = x.speciality.split(',');
         })
         this.listStaff = res;
-        this.reInit();
+        // this.reInit();
       }
     })
   },
@@ -80,14 +80,14 @@ export default {
     prev() {
       this.$refs.slick.prev();
     },
-    reInit() {
-      let currIndex = this.$refs.slick.currentSlide();
-      this.$refs.slick.destroy();
-      this.$nextTick(() => {
-        this.$refs.slick.create();
-        this.$refs.slick.goTo(currIndex, true);
-      });
-    }
+    // reInit() {
+    //   let currIndex = this.$refs.slick.currentSlide();
+    //   this.$refs.slick.destroy();
+    //   this.$nextTick(() => {
+    //     this.$refs.slick.create();
+    //     this.$refs.slick.goTo(currIndex, true);
+    //   });
+    // }
   }
 }
 </script>
