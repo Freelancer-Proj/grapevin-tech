@@ -1,5 +1,5 @@
 .v-dialog__container {
-  display: unset;
+  display: unset !important;
 }
 .v-dialog__content {
   transition: all 0.5s;
