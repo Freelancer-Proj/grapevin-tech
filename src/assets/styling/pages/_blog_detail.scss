@@ -28,6 +28,9 @@
   .blog-desc {
     text-align: justify;
   }
+  .blog-time {
+    display: inline-block;
+  }
   .blog-share-tag {
     @include respond-above(wide) {
       display: flex;
