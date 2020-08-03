@@ -5,23 +5,28 @@
         <img :src="blogDetail.images.url" alt="">
         <span class="date-post">{{ new Date(blogDetail.updated_at) | dateTime('dd MMMM') }}</span>
       </div>
-      <div class="blog-view pt-5">
+      <!-- <div class="blog-view pt-5">
         <p class="blog-view mr-4"><span class="material-icons mr-2">sms</span><strong>131</strong></p>
         <p class="blog-view mr-4"><span class="material-icons mr-2">visibility</span><strong>255</strong></p>
         <p class="blog-view mr-4"><span class="material-icons mr-2">sms</span><strong>14</strong></p>
-      </div>
+      </div> -->
     </div>
     <h2 class="mb-3">{{ blogDetail.title }}</h2>
     <p class="blog-desc" v-html="blogDetail.content"></p>
+    <h4 class="blog-time mb-2">Time post: </h4>{{ ' ' + new Date(blogDetail.updated_at) }}
     <div class="blog-share-tag mt-4">
       <div class="share-social">
-        <h4 class="mb-2">Share:</h4>
+        <h4 class="mb-2">Responser:</h4>
+        <p class="responser">
+          <img v-for="(responser, index) of responser" :key="index" class="circle-image" :src="responser">
+        </p>
+        <!-- <h4 class="mb-2">Share:</h4>
         <p>
           <span class="material-icons mr-2">facebook</span>
           <span class="material-icons mr-2">facebook</span>
           <span class="material-icons mr-2">facebook</span>
           <span class="material-icons mr-2">facebook</span>
-        </p>
+        </p> -->
       </div>
       <div class="detail-tag">
         <h4 class="mb-2">Tags:</h4>
@@ -52,7 +57,13 @@ export default {
   data() {
     return {
       blogDetail: Object,
-      blogTag: Array
+      blogTag: Array,
+      responser: [
+        require('~/assets/img/about-us/1.jpg'),
+        require('~/assets/img/about-us/2.jpg'),
+        require('~/assets/img/about-us/3.jpg'),
+        require('~/assets/img/about-us/4.jpg')
+      ],
     }
   },
   methods: {
