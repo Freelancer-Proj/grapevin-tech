@@ -4,4 +4,5 @@
 .v-dialog__content {
   transition: all 0.5s;
   background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
 }

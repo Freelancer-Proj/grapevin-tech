@@ -94,8 +94,8 @@
         </section>
       </full-page>
     </no-ssr>
-    <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isDialogShow" width="80%">
-      <div height="80vh">
+    <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isDialogShow" width="100%">
+      <div height="90vh">
         <div class="dialog-close">
           <div class="pd-4" @click="closeDialog()">
             <span></span>
@@ -381,6 +381,7 @@ export default {
   },
   methods: {
     closeDialog() {
+      console.log(123123)
       this.dialog = false
       this.isDialogShow = false
       this.dialogComponent = {
@@ -398,7 +399,7 @@ export default {
         name: PortfolioDialog,
         data: e
       }
-      // this.$refs.fullpage.api.setAutoScrolling(false)
+      this.$refs.fullpage.api.setAutoScrolling(false)
       // this.$refs.fullpage.api.setAllowScrolling(false)
       this.dialog = true
       this.isDialogShow = true
