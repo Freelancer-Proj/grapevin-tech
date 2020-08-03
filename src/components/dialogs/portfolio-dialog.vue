@@ -2,12 +2,12 @@
   <div class="dialog-content">
     <no-ssr>
       <slick ref="slick" :options="slickOptions">
-        <div class="dialog-slide" v-for="(item, index) of portfolioData.images" :key="index">
+        <div class="dialog-slide" v-for="(item, index) of portfolioData.listImg" :key="index">
           <img :src="item" class="dialog-img" alt="portfplio image">
         </div>
       </slick>
     </no-ssr>
-    <p class="pd-4" v-html="portfolioData.description"></p>
+    <p class="pd-4" v-html="portfolioData.desc"></p>
   </div>
 </template>
 <script>
