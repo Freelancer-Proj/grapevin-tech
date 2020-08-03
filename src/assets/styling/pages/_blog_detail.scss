@@ -1,0 +1,57 @@
+.blog-detail {
+  .blog-banner {
+    position: relative;
+    img {
+      width: 100%;
+      box-shadow: 0px 5px 20px 5px #FCD575 !important;
+      background-color: map-get($color, white);
+    }
+    span {
+      @include pxRem(padding, 10);
+      @include pxRem(width, 70);
+      @include pxRem(top, 15);
+      @include pxRem(left, 15);
+      @include pxRem(border-radius, 5);
+      box-shadow: 0px 5px 20px 5px #FCD575 !important;
+      background-color: map-get($color, white);
+      position: absolute;
+      text-align: center;
+    }
+  }
+  .blog-view {
+    display: flex;
+    align-items: center;
+    strong {
+      color: rgb(140, 152, 164) !important;
+    }
+  }
+  .blog-desc {
+    text-align: justify;
+  }
+  .blog-share-tag {
+    @include respond-above(wide) {
+      display: flex;
+      justify-content: space-between;
+    }
+    .share-social {
+      span {
+        @include pxRem(font-size, 28);
+      }
+    }
+    .detail-tag {
+      @include respond-above(wide) {
+        text-align: right;
+      }
+      span {
+        @include pxRem(border-radius, 5);
+        background-color: map-get($color, primary);
+        @include respond-above(wide) {
+          @include pxRem(margin-left, 10);
+        }
+        @include respond-below(wide) {
+          @include pxRem(margin-right, 10);
+        }
+      }
+    }
+  }
+}
