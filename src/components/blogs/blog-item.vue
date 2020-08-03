@@ -1,6 +1,6 @@
 <template>
-  <router-link to="/blog.path">
-    <article class="blog-item pd-2" :click="blogsDetail(blog)">
+  <router-link :to="'blogs/' + blog.path">
+    <article class="blog-item pd-2">
       <BlogGrid :images="blog.listImages"/>
       <div class="blog-content pd-2">
         <h4>{{ blog.title }}</h4>
@@ -28,9 +28,6 @@ export default {
     }
   },
   methods: {
-    blogsDetail() {
-
-    }
   }
 }
 </script>
