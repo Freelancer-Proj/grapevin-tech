@@ -13,7 +13,7 @@
           <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }">
             <img v-if="item.listImg.length" :src="item.listImg[0]" alt="">
             <span>{{item.type_portfolio}}</span>
-            <span class="portfolio-time pd-2">{{ new Date(item.updated_at) | dateTime('MM yyyy') }}</span>
+            <span class="portfolio-time pd-2">{{ new Date(item.updated_at) | dateTime('MMMM yyyy') }}</span>
             <h4 class="">{{item.title}}</h4>
             <p class="pt-4 pl-4 pr-4">{{ item.desccription | HTMLtoText | shortDesc(100) }}</p>
             <div class="pt-4 pl-4 pr-4 pb-4">

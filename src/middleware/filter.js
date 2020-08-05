@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import { format } from 'date-fns'
+import { ja } from 'date-fns/locale'
 
 const filterPlugin = {
   install() {
+    const jaLocal = ja;
     Vue.filter('dateTime', (value, formatDate = 'dd MMMM yyyy') => {
-      return format(value, formatDate)
+      console.log(value);
+      return format(value, formatDate, { locale: jaLocal });
     });
     Vue.filter('HTMLtoText', (value) => {
       return value.replace(/(<([^>]+)>)/ig,"")

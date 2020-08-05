@@ -13,10 +13,10 @@
     </div>
     <h2 class="mb-3">{{ blogDetail.title }}</h2>
     <p class="blog-desc" v-html="blogDetail.content"></p>
-    <h4 class="blog-time mb-2">Time post: </h4>{{ ' ' + new Date(blogDetail.updated_at) }}
+    <h4 class="blog-time mb-2">時間: </h4>{{ new Date(blogDetail.updated_at) | dateTime('dd MMMM yyyy') }}
     <div class="blog-share-tag mt-4">
       <div class="share-social">
-        <h4 class="mb-2">Responser:</h4>
+        <h4 class="mb-2">担当者:</h4>
         <p class="responser">
           <img v-for="(responser, index) of responser" :key="index" class="circle-image" :src="responser">
         </p>
@@ -29,7 +29,7 @@
         </p> -->
       </div>
       <div class="detail-tag">
-        <h4 class="mb-2">Tags:</h4>
+        <h4 class="mb-2">タグ:</h4>
         <p v-if="blogTag.length">
           <span class="pd-2" v-for="(tag, index) of blogTag" :key="index">{{ tag }}</span>
         </p>
@@ -56,7 +56,7 @@ export default {
   props: [],
   data() {
     return {
-      blogDetail: Object,
+      blogDetail: null,
       blogTag: Array,
       responser: [
         require('~/assets/img/about-us/1.jpg'),
