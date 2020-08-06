@@ -392,7 +392,7 @@ export default {
         name: null,
         data: null
       }
-      // this.$refs.fullpage.api.setAutoScrolling(true)
+      this.$refs.fullpage.api.setAutoScrolling(true)
       // this.$refs.fullpage.api.setAllowScrolling(true)
       // this.currentPortfolio = null
       // this.$emit('dialogOpen', false)
