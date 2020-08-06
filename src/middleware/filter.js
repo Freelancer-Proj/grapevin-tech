@@ -5,7 +5,17 @@ import { ja } from 'date-fns/locale'
 const filterPlugin = {
   install() {
     Vue.filter('dateTime', (value, formatDate = 'dd MMMM yyyy') => {
-      return format(value, formatDate, { locale: ja });
+      switch (typeof(value)) {
+        case 'string':
+          const date = new Date(value);
+          if (date.toString() === 'Invalid Date') {
+            return 'Invalid Date';
+          } else {
+            return format(date, formatDate, { locale: ja });
+          }
+        case 'object':
+          return format(value, formatDate, { locale: ja });
+      }
     });
     Vue.filter('HTMLtoText', (value) => {
       return value.replace(/(<([^>]+)>)/ig,"")

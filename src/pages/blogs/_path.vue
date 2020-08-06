@@ -3,7 +3,7 @@
     <div>
       <div class="blog-banner" v-if="blogDetail.images">
         <img :src="blogDetail.images.url" alt="">
-        <span class="date-post">{{ new Date(blogDetail.updated_at) | dateTime('dd MMMM') }}</span>
+        <span class="date-post">{{ blogDetail.updated_at | dateTime('dd MMMM') }}</span>
       </div>
       <!-- <div class="blog-view pt-5">
         <p class="blog-view mr-4"><span class="material-icons mr-2">sms</span><strong>131</strong></p>
@@ -13,7 +13,7 @@
     </div>
     <h2 class="mb-3">{{ blogDetail.title }}</h2>
     <p class="blog-desc" v-html="blogDetail.content"></p>
-    <h4 class="blog-time mb-2">時間: </h4>{{ new Date(blogDetail.updated_at) | dateTime('dd MMMM yyyy') }}
+    <h4 class="blog-time mb-2">時間: </h4>{{ blogDetail.updated_at | dateTime('dd MMMM yyyy') }}
     <div class="blog-share-tag mt-4">
       <div class="share-social">
         <h4 class="mb-2">担当者:</h4>
