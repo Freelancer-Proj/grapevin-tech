@@ -286,18 +286,21 @@
     }
   }
 }
+.v-card-dialog {
+  display: flex;
+  justify-content: flex-end;
+}
 .dialog-close {
-  @include pxRem(right, 30);
-  @include respond-below(wide) {
-    @include pxRem(top, 30);
-  }
+  // @include pxRem(right, 30);
+  // @include respond-below(wide) {
+  //   @include pxRem(top, 30);
+  // }
   z-index: 200;
   background-color: map-get($color, white);
   transition-duration: 0.25s;
   user-select: none;
   border-width: 0px;
   outline: none;
-  position: fixed;
   text-align: right;
   div {
     cursor: pointer;
@@ -319,7 +322,6 @@
     background-color: map-get($color, black);
     display: block;
     transition: .3s;
-    position: absolute;
   }
 }
 .dialog-content {

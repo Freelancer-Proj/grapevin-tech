@@ -95,14 +95,18 @@
       </full-page>
     </no-ssr>
     <v-dialog scrollable light v-model="dialog" @click:outside="closeDialog()" v-if="isDialogShow" width="100%">
-      <div height="90vh">
-        <div class="dialog-close">
-          <div class="pd-4" @click="closeDialog()">
-            <span></span>
+      <v-card height="90vh">
+        <v-card-title class="v-card-dialog">
+          <div class="dialog-close">
+            <div class="pd-4" @click="closeDialog()">
+              <span></span>
+            </div>
           </div>
-        </div>
-        <component :is="dialogComponent.name" v-bind="{portfolioData: dialogComponent.data}"></component>
-      </div>
+        </v-card-title>
+        <v-card-text>
+          <component :is="dialogComponent.name" v-bind="{portfolioData: dialogComponent.data}"></component>
+        </v-card-text>
+      </v-card>
     </v-dialog>
   </div>
 </template>
