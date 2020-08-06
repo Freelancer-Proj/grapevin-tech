@@ -5,14 +5,14 @@ import { ja } from 'date-fns/locale'
 const filterPlugin = {
   install() {
     Vue.filter('dateTime', (value, formatDate = 'dd MMMM yyyy') => {
-      const messege = 'Invalid Date';
+      const message = 'Invalid Date';
       if (typeof(value) === 'string') {
         const date = new Date(value);
-        return date.toString() === messege ? messege : format(date, formatDate, { locale: ja });
+        return date.toString() === message ? message : format(date, formatDate, { locale: ja });
       } else if (value instanceof Date) {
         return format(value, formatDate, { locale: ja });
       } else {
-        return messege;
+        return message;
       }
     });
     Vue.filter('HTMLtoText', (value) => {
