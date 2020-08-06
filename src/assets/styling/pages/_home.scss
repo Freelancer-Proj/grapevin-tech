@@ -286,6 +286,10 @@
     }
   }
 }
+.v-card-dialog {
+  display: flex;
+  justify-content: flex-end;
+}
 .dialog-close {
   z-index: 200;
   background-color: map-get($color, white);
@@ -293,7 +297,6 @@
   user-select: none;
   border-width: 0px;
   outline: none;
-  position: relative;
   text-align: right;
   div {
     cursor: pointer;
@@ -315,7 +318,6 @@
     background-color: map-get($color, black);
     display: block;
     transition: .3s;
-    position: absolute;
   }
 }
 .dialog-content {
@@ -324,6 +326,32 @@
     .dialog-img {
       margin: auto;
       width: 70%;
+    }
+  }
+  .dialog-slide-info {
+    @include respond-above(wide) {
+      display: flex;
+    }
+    .slick-slider {
+      @include respond-above(wide) {
+        width: 70%;
+      }
+    }
+    .dialog-info {
+      @include respond-above(wide) {
+        width: 30%;
+      }
+      ul {
+        li {
+          @include pxRem(padding, 10 0);
+          border-bottom: 1px solid;
+          color: map-get($color, text-light);
+          span {
+            font-weight: bold;
+            color: map-get($color, black);
+          }
+        }
+      }
     }
   }
 }

@@ -20,7 +20,6 @@ export default {
         res.map(x => {
           // x.responser = this.responser;
           x.listImages = [x.images.url];
-          x.date = new Date(x.created_at)
         })
         this.listBlog = res;
       }
