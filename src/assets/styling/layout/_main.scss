@@ -5,7 +5,9 @@
 }
 .wrapper {
   transition: all 0.5s ease-out;
-  @include pxRem(padding-left, 60);
+  @include respond-above(wide) {
+    @include pxRem(padding-left, 60);
+  }
 }
 
 .no-wrapper {

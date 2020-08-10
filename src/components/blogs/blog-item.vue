@@ -1,7 +1,7 @@
 <template>
   <router-link :to="'blogs/' + blog.path">
     <article class="blog-item pd-2">
-      <BlogGrid :images="blog.listImages"/>
+      <BlogGrid :images="blog.blog_images"/>
       <div class="blog-content pd-2">
         <h4>{{ blog.title }}</h4>
         <span class="txt-light">{{ blog.updated_at | dateTime }}</span>

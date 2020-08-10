@@ -4,7 +4,7 @@
       class="blog-grid"
       cols="12">
       <figure>
-        <img :src="images[0]">
+        <img :src="images[0].image.url">
       </figure>
     </v-col>
     <v-col v-if="images.length === 2"
@@ -12,13 +12,13 @@
       v-for="(item, index) of listImage" :key="index"
       cols="6">
       <figure>
-        <img :src="item">
+        <img :src="item.image.url">
       </figure>
     </v-col>
     <div class="blog-3grid" v-if="images.length > 2">
       <v-col class="blog-grid" cols="6">
         <figure>
-          <img :src="listImage[0]">
+          <img :src="listImage[0].image.url">
         </figure>
       </v-col>
       <v-col
@@ -26,7 +26,7 @@
         cols="6">
         <div v-for="(item, index) of listImage" :key="index" v-if="index > 0" class="blur-image">
           <figure>
-            <img class="half-image" :src="item">
+            <img class="half-image" :src="item.image.url">
           </figure>
           <div v-if="lengthImages > 3 && index === 2" :class="{ 'more-blur': lengthImages > 3 && index === 2}"><span>{{ restImage.length + '+'}}</span></div>
         </div>
