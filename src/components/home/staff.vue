@@ -8,7 +8,7 @@
           :options="slickOptions">
           <div class="pl-4 pr-4 txt-center staff-item" v-for="(staff, index) of listStaff" :key="index">
             <div class="staff-item staff-content pb-2 txt-center">
-              <img v-if="staff.avatar" class="staff-avatar" :src="staff.avatar">
+              <img class="staff-avatar" :src="staff.avatar ? staff.avatar : defaultAvatar">
               <h4>{{ staff.name }}</h4>
               <span class="staff-position">{{ staff.position }}</span>
               <p class="staff-desc pl-8 pr-8">{{ staff.desc }}</p>
@@ -71,6 +71,7 @@ export default {
           // instead of a settings object
         ]
       },
+      defaultAvatar: require('../../assets/img/staff/founder.png')
     }
   },
   methods: {
