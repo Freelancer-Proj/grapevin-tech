@@ -4,18 +4,13 @@
       <h2 class="txt-center">NEWS</h2>
       <v-simple-table class="mt-6 mb-4 news-table">
         <template v-slot:default>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Content</th>
-              <th class="notify-at">Notify at</th>
-            </tr>
-          </thead>
           <tbody>
             <tr v-for="(item, index) of listNews" :key="index">
-              <td class="news-title pt-2 pb-2">{{ item.title }}</td>
-              <td v-html="item.content"></td>
               <td>{{ item.notify_at | dateTime }}</td>
+              <td class="pt-2 pb-2">
+                <h4 class="news-title">{{ item.title }}</h4>
+                <p v-html="item.content"></p>
+              </td>
             </tr>
           </tbody>
         </template>

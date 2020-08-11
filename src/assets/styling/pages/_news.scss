@@ -1,11 +1,5 @@
 .news-page {
   .news-table {
-    .notify-at {
-      width: 10%;
-    }
-    th {
-      @include pxRem(font-size, 16);
-    }
     .news-title {
       cursor: pointer;
       &:hover {
