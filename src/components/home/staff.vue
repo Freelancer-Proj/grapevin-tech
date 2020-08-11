@@ -11,7 +11,7 @@
               <img v-if="staff.avatar" class="staff-avatar" :src="staff.avatar">
               <h4>{{ staff.name }}</h4>
               <span class="staff-position">{{ staff.position }}</span>
-              <p class="pl-8 pr-8">{{ staff.desc }}</p>
+              <p class="staff-desc pl-8 pr-8">{{ staff.desc }}</p>
               <div>
                 <v-icon class="mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
               </div>

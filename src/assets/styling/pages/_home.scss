@@ -89,6 +89,10 @@
       color: map-get($color, badge-1);
       display: block;
     }
+    .staff-desc {
+      @include pxRem(height, 25);
+      overflow: hidden;
+    }
   }
   .action-btn {
     button {

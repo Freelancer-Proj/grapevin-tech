@@ -17,10 +17,6 @@ export default {
   created() {
     api.get(['blogs']).then(res => {
       if (res) {
-        res.map(x => {
-          // x.responser = this.responser;
-          x.listImages = [x.images.url];
-        })
         this.listBlog = res;
       }
     })
