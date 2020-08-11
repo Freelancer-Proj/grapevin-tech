@@ -1,0 +1,10 @@
+.news-page {
+  .news-item {
+    h4 {
+      cursor: pointer;
+      &:hover {
+        color: map-get($color, text-light);
+      }
+    }
+  }
+}
