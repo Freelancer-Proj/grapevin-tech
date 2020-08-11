@@ -1,10 +1,20 @@
 .news-page {
-  .news-item {
-    h4 {
+  .news-table {
+    .notify-at {
+      width: 10%;
+    }
+    th {
+      @include pxRem(font-size, 16);
+    }
+    .news-title {
       cursor: pointer;
       &:hover {
         color: map-get($color, text-light);
       }
+    }
+    td {
+      @include pxRem(padding, 10 15);
+      height: auto;
     }
   }
 }

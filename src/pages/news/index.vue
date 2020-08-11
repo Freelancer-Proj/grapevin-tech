@@ -2,13 +2,24 @@
   <div class="news-page">
     <div class="wrapper container pt-10 pb-10">
       <h2 class="txt-center">NEWS</h2>
-      <ul class="mt-4 mb-4">
-        <li class="news-item mb-2" v-for="(item, index) of listNews" :key="index">
-          <h4>{{ item.title }}</h4>
-          <p v-html="item.content"></p>
-          <p>Notify At: {{ item.notify_at | dateTime }}</p>
-        </li>
-      </ul>
+      <v-simple-table class="mt-6 mb-4 news-table">
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Content</th>
+              <th class="notify-at">Notify at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) of listNews" :key="index">
+              <td class="news-title pt-2 pb-2">{{ item.title }}</td>
+              <td v-html="item.content"></td>
+              <td>{{ item.notify_at | dateTime }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
       <div class="txt-center">
         <v-pagination
           v-model="page"
