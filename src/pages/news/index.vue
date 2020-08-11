@@ -26,7 +26,6 @@
             :prev-icon="prevIcon"
             :page="page"
             :total-visible="totalVisible"
-            :number="getPage(page)"
           ></v-pagination>
         </div>
       </div>
@@ -43,12 +42,17 @@ import {api} from '../../helpers/services/api.service'
 export default {
   components: {
   },
+  watch: {
+    page: function (newValue, oldVal) {
+      this.getNews(newValue)
+    }
+  },
   created() {
-    this.getNews(1);
+    this.page = 1;
   },
   data() {
     return {
-      page: 1,
+      page: 0,
       listNews: [],
       circle: false,
       disabled: false,
@@ -66,9 +70,6 @@ export default {
           this.totalPage =  res.meta.total_page;
         }
       });
-    },
-    getPage(page) {
-      this.getNews(page);
     }
   }
 }
