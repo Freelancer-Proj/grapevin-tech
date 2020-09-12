@@ -24,6 +24,7 @@
         </div>
         <h2 class="mb-3">{{ blogDetail.title }}</h2>
         <p class="blog-desc" v-html="blogDetail.desc"></p>
+        <p class="blog-desc" v-html="blogDetail.content"></p>
         <h4 class="blog-time mb-2">時間: </h4>{{ blogDetail.updated_at | dateTime('dd MMMM yyyy') }}
         <div class="blog-share-tag mt-4">
           <div class="share-social">
