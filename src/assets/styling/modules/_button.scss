@@ -1,0 +1,32 @@
+button {
+  outline: none;
+}
+.btn {
+  @include pxRem(padding, 5 15);
+  cursor: pointer;
+  &:disabled {
+    background-color: map-get($color, primary);
+    cursor: auto;
+  }
+}
+
+.btn-primary {
+  @include pxRem(border-radius, 5);
+  background-color: map-get($color, primary);
+  color: map-get($color, white);
+  font-weight: bold;
+  transition: all 0.3s;
+  &:hover {
+    background-color: map-get($color, badge-1);
+  }
+  &:active {
+    background-color: map-get($color, orange);
+  }
+  &:disabled {
+    background-color: map-get($color, primary);
+  }
+}
+.btn-green {
+  color: map-get($color, blue-a);
+  background-color: map-get($color, rgba-blue);
+}

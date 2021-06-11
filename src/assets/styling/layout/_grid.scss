@@ -22,22 +22,22 @@ $container-width: 1180px;
   padding-right: $grid-gutter;
   margin: 0 auto;
   width: 100%;
-  max-width: $container-width;
+  max-width: $container-width !important;
   position: relative;
   @include respond-below(medium) {
     padding: 0 10px;
   }
 }
-.row {
-  @extend %clr;
-  margin-left: -$grid-gutter;
-  margin-right: -$grid-gutter;
-  > [class*="col-"] {
-    float: left;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
-  }
-}
+// .row {
+//   @extend %clr;
+//   margin-left: -$grid-gutter;
+//   margin-right: -$grid-gutter;
+//   > [class*="col-"] {
+//     float: left;
+//     padding-left: $grid-gutter;
+//     padding-right: $grid-gutter;
+//   }
+// }
 
 // Remove gutters (margin, padding) of row & col
 .row-no-gutters {

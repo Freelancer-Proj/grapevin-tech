@@ -1,0 +1,18 @@
+.v-dialog__container {
+  display: unset !important;
+  position: relative;
+}
+.v-dialog__content {
+  transition: all 0.5s;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  @include respond-above(wide) {
+    @include pxRem(padding-left, 60);
+  }
+  @include respond-below(wide) {
+    transform: translateY(40px);
+  }
+  .v-dialog.v-dialog--active.v-dialog--scrollable::-webkit-scrollbar {
+    display: none !important;
+  }
+}

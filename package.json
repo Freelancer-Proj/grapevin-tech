@@ -1,5 +1,5 @@
 {
-  "name": "template-website-element",
+  "name": "grapevin-tech",
   "version": "1.0.0",
   "description": "My top-notch Nuxt.js project",
   "author": "quan do",
@@ -24,22 +24,25 @@
   },
   "dependencies": {
     "animate.css": "^3.7.2",
+    "axios": "^0.19.2",
     "cross-env": "^5.2.0",
     "date-fns": "^2.12.0",
     "dotenv": "^8.2.0",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
-    "firebase": "^7.8.2",
+    "firebase": "^7.15.3",
     "gsap": "^3.2.6",
     "intersection-observer": "^0.9.0",
     "jquery": "^3.5.0",
     "nuxt": "^2.0.0",
+    "nuxt-fullpage.js": "0.0.3",
     "nuxt-polyfill": "^1.0.3",
     "plyr": "^3.5.10",
     "reset-css": "^5.0.1",
     "smoothscroll-polyfill": "^0.4.4",
     "url-polyfill": "^1.1.8",
     "vue-cool-lightbox": "^1.1.0",
+    "vue-fullpage.js": "^0.1.5",
     "vue-masonry": "^0.11.8",
     "vue-plyr": "^6.0.4",
     "vue-slick": "^1.1.15",
@@ -47,10 +50,11 @@
     "wow.js": "^1.2.2"
   },
   "devDependencies": {
+    "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/vuetify": "^1.11.0",
     "material-design-icons-iconfont": "^5.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "nodemon": "^1.18.9",
     "sass-loader": "^8.0.2"
   }

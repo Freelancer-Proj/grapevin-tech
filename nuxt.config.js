@@ -2,6 +2,9 @@ require('dotenv').config()
 const webpack = require('webpack')
 
 module.exports = {
+  googleAnalytics: {
+    id: 'UA-199203792-2'
+  },
   srcDir: 'src',
   mode: 'universal',
   buildDir: 'functions/.nuxt',
@@ -52,6 +55,7 @@ module.exports = {
     vendor: ['wowjs']
   },
   env: {
+    VUE_APP_API: 'https://admin.grapevine.jp/api/v1',
     apiKey: process.env.apiKey,
     authDomain: process.env.authDomain,
     databaseURL: process.env.databaseURL,
@@ -62,7 +66,7 @@ module.exports = {
     measurementId: process.env.measurementId
   },
   head: {
-    title: 'Grapevin',
+    title: '株式会社ぶどうの樹',
     description: 'Grapevin Tech',
     meta: [
       { charset: 'utf-8' },
@@ -70,15 +74,21 @@ module.exports = {
       { name: 'apple-touch-fullscreen', content: 'yes' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-title', content: 'Grapevin' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'apple-mobile-web-app-title', content: 'Grapevine' },
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:image', name: 'og:image', content: '/assets/img/portfplio/portfplio-flow.svg' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'Grapevine Tech' },
+      { hid: 'og:image:alt', name: 'og:image:alt', content: 'Grapevine' },
+      { hid: 'description', name: 'description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
+      { hid: 'og:description', name: 'og:description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
+      { name: "google-site-verification", content:"tM5-AwpS-I4Fgv5GZqw-bBvUYBEqEVley1rriYNmd9k" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Open+Sans:wght@400;700&display=swap' }
+      { rel: 'preload', href: 'https://fonts.googleapis.com/css2?family=Anton&family=PT+Sans:wght@400;700&display=swap' }
     ],
     script: [
-      { src: 'https://use.fontawesome.com/ce16520130.js' },
+      { src: 'https://use.fontawesome.com/ce16520130.js', defer: true },
       { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' }
     ],
   },
@@ -93,6 +103,7 @@ module.exports = {
     '@/middleware/filter',
     '@/plugins/vue-plyr',
     { src: '@/plugins/slick-slide', ssr: false },
+    { src: '~/plugins/vue-fullpage', ssr: false },
     '@/helpers/services/firebase.js',
   ],
   /*
@@ -108,12 +119,14 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
   vuetify: {
     defaultAssets: {
-      icons: 'md'
-    }
+      icons: 'md',
+    },
+    optionsPath: '@/plugins/vuetify.js'
   },
   /*
   ** Nuxt.js modules

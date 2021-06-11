@@ -1,0 +1,490 @@
+#what-we-do {
+  background-color: map-get($color, primary);
+  .shape-2 {
+    svg {
+      display: block;
+    }
+  }
+  .step-doing {
+    .badge {
+      @include pxRem(font-size, 24);
+    }
+    &-meta {
+      color: #4F4f4f;
+    }
+    &-item:nth-child(even) {
+      direction: rtl;
+    }
+    &-title {
+      small {
+        @include pxRem(font-size, 16);
+      }
+    }
+  }
+}
+
+.about-us {
+  @include pxRem(min-height, 500);
+  h1 {
+    @include pxRem(letter-spacing, -3);
+    line-height: 1;
+    @include respond-above(medium) {
+      @include pxRem(margin-left, -55);
+    }
+  }
+  .about-us-content {
+    display: inline-block;
+    @include pxRem(max-width, 900);
+  }
+  // .about-us-box {
+
+  // }
+}
+
+#skills {
+  @include pxRem(min-height, 500);
+  h2 {
+    @include pxRem(padding, 30 0 20);
+    text-align: left;
+  }
+  p {
+    color: map-get($color, text-light);
+  }
+  .skill-percent {
+    .percent {
+      @include pxRem(font-size, 40);
+      line-height: 1;
+      @include respond-below(medium) {
+        @include pxRem(font-size, 25);
+      }
+      span {
+        color: map-get($color, badge-1);
+      }
+    }
+  }
+}
+
+#staff {
+  @include pxRem(min-height, 500);
+  .staff-description {
+    @include pxRem(font-size, 16);
+    color: map-get($color, text-blur);
+  }
+  .staff-content {
+    @include pxRem(border-radius, 10);
+    background-color: map-get($color, light-blue);
+    .staff-avatar {
+      width: 50%;
+      margin: 0 auto;
+    }
+    h4 {
+      color: map-get($color, black-a);
+    }
+    p {
+      @include pxRem(font-size, 16);
+      color: map-get($color, text-blur);
+    }
+    .staff-position {
+      @include pxRem(margin, 5 0);
+      color: map-get($color, badge-1);
+      display: block;
+    }
+    .staff-desc {
+      @include pxRem(height, 25);
+      overflow: hidden;
+    }
+  }
+  .action-btn {
+    button {
+      @include pxRem(width, 50);
+      @include pxRem(height, 50);
+      @include pxRem(box-shadow, 0 2 5 rgba(0, 0, 0, 0.1));
+      border-radius: 50%;
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      // i {
+      //   position: absolute;
+      //   left: 50%;
+      //   top: 50%;
+      //   transform: translate(-50%, -50%);
+      // }
+    }
+  }
+}
+
+#blogs {
+  background-color: map-get($color, bg-search);
+}
+
+.home {
+  h2 {
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
+
+#statistics {
+  .animation-num {
+    @include pxRem(font-size, 50);
+  }
+}
+
+#speech {
+  background-image: url('../img/speech/banner.jpg');
+  background-size: cover;
+  position: relative;
+  @include respond-above(wide) {
+    @include pxRem(height, 600);
+  }
+  @include respond-below(wide) {
+    @include pxRem(height, 325);
+  }
+  .container {
+    height: 100%;
+    z-index: 1;
+  }
+  &:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: map-get($color, black);
+    opacity: 0.5;
+    content: '';
+  }
+  .speech-item {
+    h4 {
+      @include respond-above(wide) {
+        @include pxRem(font-size, 26);
+      }
+      color: map-get($color, white);
+      &:after {
+        @include pxRem(margin, 15 auto 25);
+        content: '';
+        display: block;
+        width: 10%;
+        height: 1px;
+        background: #fff;
+      }
+    }
+    p {
+      color: map-get($color, white);
+      @include respond-above(wide) {
+        @include pxRem(font-size, 24);
+      }
+    }
+  }
+  .speech-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .action-btn {
+    position: absolute;
+    color: white;
+    top: 50%;
+    .material-icons {
+      @include pxRem(font-size, 40);
+    }
+    &:hover {
+      color: #f0f0f0;
+    }
+  }
+  .prev-btn {
+    @include respond-above(wide) {
+      @include pxRem(left, 25);
+    }
+    @include respond-below(wide) {
+      left: 0;
+    }
+  }
+  .next-btn {
+    @include respond-above(wide) {
+      @include pxRem(right, 25);
+    }
+    @include respond-below(wide) {
+      right: 0;
+    }
+  }
+}
+
+#get-in-touch {
+  .get-in-touch {
+    @include respond-above(wide) {
+      @include pxRem(padding-left, 40);
+    }
+  }
+  .contact-form {
+    @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+    .btn-primary {
+      @include pxRem(padding, 5 20);
+    }
+  }
+  .contact-info {
+    .contact-phone {
+      border: 1px solid;
+      width: 60%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .phone-number {
+        @include respond-above(wide) {
+          @include pxRem(font-size, 26);
+        }
+        @include respond-below(wide) {
+          @include pxRem(font-size, 16);
+        }
+      }
+    }
+    .google-map {
+      iframe {
+        width: 100%;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        .material-icons {
+          @include pxRem(font-size, 18);
+        }
+      }
+    }
+  }
+}
+
+#portfolio {
+  .portflio-description {
+    color: map-get($color, text-blur);
+    @include respond-above(wide) {
+      @include pxRem(font-size, 20);
+    }
+  }
+  .portfolio-center {
+    @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+  }
+  .portfolio-content {
+    transition: all 0.5s ease-in-out 0s;
+    position: relative;
+    &:hover {
+      @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+      background-color: #fff;
+      transform: translate3d(0, -20px, 0);
+    }
+    .portfolio-time {
+      @include pxRem(width, 50);
+      @include pxRem(left, 10);
+      @include pxRem(top, 10);
+      @include pxRem(box-shadow, 0 10 55 5 rgba(252,213,117, 0.2));
+      position: absolute;
+      background-color: map-get($color, white);
+    }
+    p {
+      // @include pxRem(min-height, 180);
+      color: map-get($color, text-blur);
+    }
+    .btn-primary {
+      @include pxRem(padding, 10 15 !important);
+      width: 100%;
+    }
+  }
+}
+.v-card-dialog {
+  display: flex;
+  justify-content: flex-end;
+}
+.dialog-close {
+  z-index: 200;
+  background-color: map-get($color, white);
+  transition-duration: 0.25s;
+  user-select: none;
+  border-width: 0px;
+  outline: none;
+  text-align: right;
+  div {
+    cursor: pointer;
+    display: inline-block;
+    &:hover {
+      span {
+        box-shadow: -13px -13px, 0 -13px, 13px -13px, -13px 0, 13px 0, -13px 13px, 0 13px, 13px 13px;
+      }
+    }
+  }
+  span {
+    @include pxRem(width, 10);
+    @include pxRem(height, 10);
+    @include pxRem(top, 20);
+    @include pxRem(right, 20);
+    box-shadow: 0 -10px, 0 -20px, 10px 0, -20px 0, 20px 0, -10px 0, 0 20px, 0 10px;
+    transform: rotate3d(0, 0, 1, -135deg) scale3d(0.8, 0.8, 0.8);
+    color: map-get($color, black);
+    background-color: map-get($color, black);
+    display: block;
+    transition: .3s;
+  }
+}
+.dialog-content {
+  background-color: map-get($color, white);
+  .dialog-slide {
+    .dialog-img {
+      margin: auto;
+      width: 70%;
+    }
+  }
+  .dialog-slide-info {
+    @include respond-above(wide) {
+      display: flex;
+    }
+    .slick-slider {
+      @include respond-above(wide) {
+        width: 70%;
+      }
+    }
+    .dialog-info {
+      @include respond-above(wide) {
+        width: 30%;
+      }
+      ul {
+        li {
+          @include pxRem(padding, 10 0);
+          border-bottom: 1px solid;
+          color: map-get($color, text-light);
+          span {
+            font-weight: bold;
+            color: map-get($color, black);
+          }
+        }
+      }
+    }
+  }
+}
+.overflow-video {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#introduction {
+  position: relative;
+  display: flex;
+  @include respond-above(wide) {
+    .about-us {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 11;
+      color: white;
+      h1, h4 {
+        color: white;
+      }
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  }
+  @include respond-below(wide) {
+    .about-us {
+      display: none;
+    }
+  }
+}
+#reviews {
+  .shape-content {
+    position: relative;
+    z-index: 10;
+  }
+  .section-views {
+    position: relative;
+    height: 100vh;
+    .shape-background {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      svg {
+        fill: map-get($color, primary);
+      }
+    }
+    .item-even {
+      display: inline-table;
+    }
+    .viewer-item {
+      .viewer-content {
+        box-shadow: 0px 5px 20px 5px map-get($color, primary) !important;
+        background-color: white;
+      }
+      .circle-image {
+        @include pxRem(width, 95);
+        @include pxRem(height, 95);
+        box-shadow: 0 0.5rem 1rem map-get($color, primary) !important;
+      }
+      p {
+        @include pxRem(font-size, 16);
+        color: map-get($color, text-blur);
+        line-height: 1.7;
+      }
+      .viewer-name {
+        @include pxRem(font-size, 20);
+        display: inline-block;
+        color: map-get($color, primary);
+      }
+      .viewer-position {
+        @include pxRem(font-size, 13);
+        font-style: italic;
+        color: rgb(140, 152, 164) !important
+      }
+    }
+    .viewer-intro {
+      color: map-get($color, white);
+      h2 {
+        color: map-get($color, white);
+        text-align: left;
+      }
+      p {
+        @include pxRem(font-size, 20);
+        text-align: left;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+      @include respond-below(wide) {
+        color: map-get($color, black);
+        h2 {
+          color: map-get($color, black);
+        }
+      }
+    }
+  }
+}
+
+@include respond-above(wide) {
+  #about-us {
+    display: none;
+  }
+}
+@include respond-below(wide) {
+  #about-us {
+    display: block;
+    h1 {
+      @include pxRem(margin-top, 20);
+      @include pxRem(font-size, 35);
+    }
+  }
+}
+.fullscreen {
+  height: 100vh;
+  .footer-home {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

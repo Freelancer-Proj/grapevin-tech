@@ -1,0 +1,165 @@
+.menu {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  top: 0;
+  background-color: map-get($color, black-a);
+  cursor: pointer;
+  @include pxRem(width, 60);
+  transition: width 0.5s ease-out;
+  overflow: hidden;
+  .active {
+    color: map-get($color, primary) !important;
+  }
+  .icon-lock {
+    color: white;
+    position: absolute;
+    @include pxRem(bottom, 10);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .menu-bar {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .shortcut-menu {
+    @include pxRem(padding, 10);
+    @include pxRem(width, 60);
+    position: relative;
+    height: 100%;
+    .logo {
+      @include pxRem(width, 40);
+      height: auto;
+    }
+    .menu-bar {
+      li {
+        @include pxRem(font-size, 16);
+        font-family: Anton;
+        font-weight: bold;
+        color: map-get($color, white);
+        position: relative;
+      }
+      .menu-line {
+        @include pxRem(width, 1);
+        @include pxRem(height, 2);
+        display: block;
+        position: absolute;
+        margin: auto;
+        background-color: map-get($color, primary);
+        top: 50%;
+        left: 50%;
+        transform: translate(0, 50%);
+      }
+      .active {
+        .menu-line {
+          position: relative;
+          transform: none;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+  .full-menu {
+    display: none;
+    @include pxRem(padding, 10);
+    .logo {
+      @include pxRem(margin-top, 20);
+      @include pxRem(width, 145);
+      height: auto;
+    }
+    .menu-container {
+      text-align: center;
+      .menu-bar {
+        li {
+          text-transform: capitalize;
+          @include pxRem(font-size, 22);
+          font-family: PT sans;
+          color: map-get($color, white);
+          @include pxRem(padding-bottom, 20);
+          &:hover {
+            color: map-get($color, hover);
+          }
+        }
+        &-sub {
+          li {
+            @include pxRem(font-size, 16);
+            padding-bottom: 0;
+            &:hover {
+              color: map-get($color, hover);
+            }
+          }
+        }
+      }
+    }
+  }
+  &:hover {
+    .shortcut-menu {
+      display: none;
+    }
+    @include pxRem(width, 200);
+    .full-menu {
+      display: block;
+    }
+  }
+  .close-btn {
+    color: white;
+    text-align: right;
+  }
+}
+.nav-lock {
+  @include pxRem(width, 200);
+  .shortcut-menu {
+    display: none;
+  }
+  .full-menu {
+    display: block;
+  }
+}
+.nav-close {
+  &:hover {
+    @include pxRem(width, 40);
+    .shortcut-menu {
+      display: block;
+    }
+    .full-menu {
+      display: none;
+    }
+  }
+}
+.nav-open {
+  @include pxRem(width, 200);
+  .shortcut-menu {
+    display: none;
+  }
+  .full-menu {
+    display: block;
+  }
+}
+.menu-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background: transparent;
+}
+.nav-closed {
+  width: 0 !important;
+  .shortcut-menu {
+    display: none;
+  }
+  .full-menu {
+    display: none;
+  }
+}
+
+.menu-nowidth {
+  width: 0;
+}

@@ -1,10 +1,26 @@
 export const state = () => ({
-  sidebarDisplay: false
+  navbarIsLock: false,
+  shortcutNavbarIsShow: false,
+  navIsOpen: null,
+  homeSectionPosition: {
+    height: 1,
+    id: `01`,
+    top: 0
+  }
 })
 
 export const mutations = {
-  setSidebar (state, status = null) {
-    state.sidebarDisplay = status !== null ? status : !state.sidebarDisplay
+  toggleLockNavbar (state, status) {
+    state.navbarIsLock = status
+  },
+  setSectionPos (state, status) {
+    state.homeSectionPosition = status
+  },
+  setShortcutNavbar (state, status) {
+    state.shortcutNavbarIsShow = status
+  },
+  openNav(state, status) {
+    state.navIsOpen = status
   }
 }
 // modules: {

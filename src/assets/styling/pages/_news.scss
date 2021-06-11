@@ -1,0 +1,14 @@
+.news-page {
+  .news-table {
+    .news-title {
+      cursor: pointer;
+      &:hover {
+        color: map-get($color, text-light);
+      }
+    }
+    td {
+      @include pxRem(padding, 10 15);
+      height: auto;
+    }
+  }
+}

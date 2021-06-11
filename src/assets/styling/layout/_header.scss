@@ -1,0 +1,77 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: map-get($color, black-a);
+  padding: 0 10px;
+  @include respond-below(medium) {
+    .header-sp {
+      display: flex;
+    }
+    .header-pc {
+      display: none;
+    }
+  }
+  @include respond-above(medium) {
+    .header-pc {
+      display: flex;
+    }
+    .header-sp {
+      display: none;
+    }
+  }
+}
+.header {
+  @extend .f-row, .f-center-x, .f-space-between;
+  height: 60px;
+  .logo {
+    width: 142px;
+    height: auto;
+  }
+}
+.header-menu {
+  // display: none;
+  padding: 0.6rem;
+  cursor: pointer;
+  div {
+    background: white;
+    margin: 5px auto;
+    width: 30px;
+    height: 2px;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+  }
+}
+.close-menu {
+  div {
+    &:first-child {
+      transform: translateY(5px) rotate(45deg);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:last-child {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+}
+.header-pc {
+  // justify-content: unset;
+  .header-menu-bar {
+    @extend .f-row, .f-center-y;
+    color: white;
+    width: 70%;
+    &-item {
+      @include pxRem(padding, 0 20);
+    }
+    .nuxt-link-active {
+      color: map-get($color, primary);
+    }
+  }
+  .header-box {
+    width: 100%;
+    @extend .f-row, .f-center-x, .f-space-between;
+  }
+}
