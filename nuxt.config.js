@@ -2,6 +2,9 @@ require('dotenv').config()
 const webpack = require('webpack')
 
 module.exports = {
+  googleAnalytics: {
+    id: 'UA-199203792-2'
+  },
   srcDir: 'src',
   mode: 'universal',
   buildDir: 'functions/.nuxt',
@@ -63,7 +66,7 @@ module.exports = {
     measurementId: process.env.measurementId
   },
   head: {
-    title: 'Grapevin',
+    title: '株式会社ぶどうの樹',
     description: 'Grapevin Tech',
     meta: [
       { charset: 'utf-8' },
@@ -78,6 +81,7 @@ module.exports = {
       { hid: 'og:image:alt', name: 'og:image:alt', content: 'Grapevine' },
       { hid: 'description', name: 'description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
       { hid: 'og:description', name: 'og:description', content: '次世代アプリのUIデザインライブ配信アプリ等を含めた次世代型のアプリ開発と提案に強いアプリ開発会社' },
+      { name: "google-site-verification", content:"tM5-AwpS-I4Fgv5GZqw-bBvUYBEqEVley1rriYNmd9k" }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -115,7 +119,8 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
   ],
   vuetify: {
     defaultAssets: {
