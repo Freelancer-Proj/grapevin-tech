@@ -30,3 +30,9 @@ button {
   color: map-get($color, blue-a);
   background-color: map-get($color, rgba-blue);
 }
+
+.slide-btn {
+  &:disabled {
+    opacity: 0.3;
+  }
+}

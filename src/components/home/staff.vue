@@ -12,16 +12,22 @@
               <h4>{{ staff.name }}</h4>
               <span class="staff-position">{{ staff.position }}</span>
               <p class="staff-desc pl-8 pr-8">{{ staff.desc }}</p>
-              <div>
-                <v-icon class="mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
+              <div class="f-row f-center">
+                <button v-if="staff.speciality.length > 3" class="mr-2 inline-flex"><i class="material-icons" @click="() => prevIcon(index)">keyboard_arrow_left</i></button>
+                <div style="width: 50%">
+                  <slick ref="slickIcons" :options="specialOptions">
+                    <v-icon class="ml-1 mr-1" v-for="(icon, index) of staff.speciality" :key="index">${{ icon }}</v-icon>
+                  </slick>
+                </div>
+                <button v-if="staff.speciality.length > 3" class="ml-2 inline-flex"><i class="material-icons" @click="() => nextIcon(index)">keyboard_arrow_right</i></button>
               </div>
             </div>
           </div>
         </slick>
       </no-ssr>
       <div class="mt-2 txt-center action-btn">
-        <button class="mr-2"><i class="material-icons" @click="prev()">keyboard_arrow_left</i></button>
-        <button class="ml-2"><i class="material-icons" @click="next()">keyboard_arrow_right</i></button>
+        <button :disabled="+currentSlide === 0" class="mr-2 slide-btn" @click="prev()"><i class="material-icons">keyboard_arrow_left</i></button>
+        <button :disabled="+currentSlide === (listStaff.length - 4)" class="ml-2 slide-btn" @click="next()"><i class="material-icons">keyboard_arrow_right</i></button>
       </div>
     </div>
   </div>
@@ -48,8 +54,9 @@ export default {
   data() {
     return {
       listStaff: [],
+      currentSlide: 0,
       slickOptions: {
-        infinite: true,
+        infinite: false,
         dots: false,
         arrows: false,
         slidesToShow: 3,
@@ -71,15 +78,44 @@ export default {
           // instead of a settings object
         ]
       },
+      specialOptions: {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+      },
       defaultAvatar: require('../../assets/img/staff/founder.png')
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.reInit();
+    }, 1000)
   },
   methods: {
     next() {
       this.$refs.slick.next();
+      this.currentSlide = this.$refs.slick.currentSlide();
+      this.reInit();
     },
     prev() {
       this.$refs.slick.prev();
+      this.currentSlide = this.$refs.slick.currentSlide();
+      this.reInit();
+    },
+    nextIcon(index) {
+      this.$refs.slickIcons[index].next();
+    },
+    prevIcon(index) {
+      this.$refs.slickIcons[index].prev();
+    },
+    reInit() {
+      this.$refs.slickIcons.forEach(x => {
+        this.$nextTick(() => {
+          x.reSlick();
+        });
+      });
     },
     // reInit() {
     //   let currIndex = this.$refs.slick.currentSlide();

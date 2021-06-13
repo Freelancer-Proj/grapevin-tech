@@ -35,7 +35,11 @@ export default {
       if (res) {
         res.map(x => {
           if (x.cover) {
-            x.listImg = [x.cover.url];
+            let portfolioImages = [];
+            if (x.portfolio_images && x.portfolio_images.length > 0) {
+              portfolioImages = x.portfolio_images.map(y => y.image.url)
+            }
+            x.listImg = [x.cover.url, ...portfolioImages];
           }
           x.desccription = this.$options.filters.shortDesc(x.desc);
         })
