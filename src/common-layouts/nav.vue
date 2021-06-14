@@ -128,11 +128,11 @@ export default {
         link: '/news',
         active: false
       },
-      {
-        name: 'Contact',
-        link: '/contact',
-        active: false
-      }
+      // {
+      //   name: 'Contact',
+      //   link: '/contact',
+      //   active: false
+      // }
     ],
     shortcutMenu: [
       {

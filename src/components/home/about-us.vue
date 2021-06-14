@@ -53,9 +53,8 @@ export default {
       aboutUs: [
         {
           name: 'ABOUT US',
-          desc: `<h6 class="txt-bold">私たちは世界中のエンジニアと繋がるクラウドソーシング・ファームです。</h6>
-                <p>私たちはアプリやWEBシステムの開発とその附帯サービスを提供します。</p>
-                <p>私たちは世界中のアソシエイツと連携して、お客様のご要望に的確にお応えします </p>`,
+          desc: `<h6 class="txt-bold">革新的なアプリ開発</h6>
+                <p>私たちは最先端のIT技術を駆使し、トレンドに合わせたアプリ開発に特化しております。</p>`,
           images: [
             require('~/assets/img/about-us/1.jpg'),
             require('~/assets/img/about-us/2.jpg'),

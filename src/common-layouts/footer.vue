@@ -17,14 +17,14 @@
         </v-row>
         <v-row>
           <v-col sm="6" cols="12">
-            <router-link class="footer-logo" to="/">Grapevin<span class="txt-bold">Tech</span></router-link>
+            <router-link class="footer-logo" to="/">Grapevine<span class="txt-bold">Tech</span></router-link>
           </v-col>
           <v-col sm="6" cols="12">
-            
+
           </v-col>
         </v-row>
         <hr class="mt-8 mb-8">
-        <p class="txt-center footer-team">&#64; 2020 Grapevine INC | All Rights Reserved</p>
+        <p class="txt-center footer-team">&#64; 2020 株式会社ぶどうの樹 | All Rights Reserved</p>
       </div>
     </div>
   </footer>
@@ -42,30 +42,28 @@ export default {
         {
           type: 'Pages',
           page: [
-            { link: '', name: 'About' },
-            { link: '', name: 'Shop' },
-            { link: '', name: 'Faq' },
+            { link: '/', name: 'Home' },
             { link: '/blogs', name: 'Blogs' },
-            { link: '', name: 'Contact Us' },
+            { link: '/news', name: 'News' },
           ]
         },
-        {
-          type: 'Service',
-          page: [
-            { link: '', name: 'Content Writing' },
-            { link: '', name: 'Documentation' },
-            { link: '', name: 'Account' },
-            { link: '', name: 'Carrers' }
-          ]
-        },
-        {
-          type: 'Legal',
-          page: [
-            { link: '', name: 'Term Of Service' },
-            { link: '', name: 'Privacy Policy' },
-            { link: '', name: 'Support' }
-          ]
-        }
+        // {
+        //   type: 'Service',
+        //   page: [
+        //     { link: '', name: 'Content Writing' },
+        //     { link: '', name: 'Documentation' },
+        //     { link: '', name: 'Account' },
+        //     { link: '', name: 'Carrers' }
+        //   ]
+        // },
+        // {
+        //   type: 'Legal',
+        //   page: [
+        //     { link: '', name: 'Term Of Service' },
+        //     { link: '', name: 'Privacy Policy' },
+        //     { link: '', name: 'Support' }
+        //   ]
+        // }
       ],
 
     }

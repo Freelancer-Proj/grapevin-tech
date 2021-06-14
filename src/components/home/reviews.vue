@@ -10,13 +10,13 @@
         cols="12"
         class="pl-3 pr-3 viewer-intro">
         <h2 class="mb-3">Discover Our Client Feedback</h2>
-        <p>All types of businesses need access to development resources, so we give you the option to decide how much you need to use.</p>
+        <p>プロダクトに携わらせて頂いたクライアント様からの評価になります。</p>
       </v-col>
       <v-col sm="8"
         cols="12"
         class="pd-5">
         <v-row>
-          <v-col 
+          <v-col
             sm="12"
             md="6"
             lg="6"
