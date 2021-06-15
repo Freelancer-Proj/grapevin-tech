@@ -133,7 +133,8 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/style-resources',
-    'nuxt-polyfill'
+    'nuxt-polyfill',
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Build configuration

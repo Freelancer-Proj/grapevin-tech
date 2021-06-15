@@ -23,6 +23,7 @@
     "build:env": "run(){ bash ./ops/set-env.sh $@; }; run"
   },
   "dependencies": {
+    "@nuxtjs/sitemap": "^2.4.0",
     "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "cross-env": "^5.2.0",
