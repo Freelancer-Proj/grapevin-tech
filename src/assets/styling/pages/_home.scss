@@ -456,7 +456,7 @@
       .circle-image {
         @include pxRem(width, 95);
         @include pxRem(height, 95);
-        box-shadow: 0 0.5rem 1rem map-get($color, primary) !important;
+        // box-shadow: 0 0.5rem 1rem map-get($color, primary) !important;
       }
       p {
         @include pxRem(font-size, 16);
