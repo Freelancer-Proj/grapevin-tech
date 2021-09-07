@@ -24,7 +24,7 @@
           </v-col>
         </v-row>
         <hr class="mt-8 mb-8">
-        <p class="txt-center footer-team">&#64; 2020 株式会社ぶどうの樹 | All Rights Reserved</p>
+        <p class="txt-center footer-team">&#64;27th line Copyright</p>
       </div>
     </div>
   </footer>

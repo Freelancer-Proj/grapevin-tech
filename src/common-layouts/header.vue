@@ -6,11 +6,11 @@
         <div></div>
         <div></div>
       </div>
-      <img class="logo" src="../assets/img/grape-w.png" alt="">
+      <img class="logo" src="../assets/img/grape-w.png" alt="Grapevine Logo">
     </div>
     <div class="header header-pc container">
       <div class="header-box">
-        <img class="logo" src="../assets/img/grape-w.png" alt="">
+        <img class="logo" src="../assets/img/grape-w.png" alt="Grapevine Logo">
         <ul class="header-menu-bar">
           <li class="header-menu-bar-item" v-for="(item, index) in fullMenu" :key="index">
             <nuxt-link :to="item.link">

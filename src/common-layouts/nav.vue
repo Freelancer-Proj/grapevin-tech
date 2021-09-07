@@ -2,7 +2,7 @@
   <div>
     <nav class="menu" :class="{ 'nav-lock': lock, 'nav-close': closed, 'menu-nowidth': !isNavShow && !isNavOpen, 'nav-open': isNavOpen === true, 'nav-closed': isNavOpen === false && !isNavShow }">
       <div class="shortcut-menu" v-if="isNavShow">
-        <img class="logo" src="../assets/img/grape-w-vertical.png" alt="">
+        <img class="logo" src="../assets/img/grape-w-vertical.png" alt="Grapevine Logo">
         <ul class="menu-bar shortcut-menu-bar">
           <li v-for="(item, index) in sectionPos" :key="index" @click="activeSection(index)" :class="{ active : item.active }">
             <span>{{ item.key }}</span>
@@ -17,7 +17,7 @@
       <div class="full-menu">
         <a class="close-btn" @click="closeMenu()"><i class="material-icons">close</i></a>
         <div class="menu-container">
-          <img class="logo" src="../assets/img/grape-w.png" alt="">
+          <img class="logo" src="../assets/img/grape-w.png" alt="Grapevine Logo">
           <ul class="menu-bar">
             <li v-for="(item, index) in homePos" :key="index" @click="activeSection(index)">
               <nuxt-link :to="item.link">

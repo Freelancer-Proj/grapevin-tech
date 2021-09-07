@@ -11,7 +11,7 @@
           class="pd-5"
           v-for="(item, index) of portfolioData" :key="index">
           <div class="portfolio-content" :class="{ 'portfolio-center' : index === 1 }">
-            <img v-if="item.listImg.length" :src="item.listImg[0]" alt="">
+            <img v-if="item.listImg.length" :src="item.listImg[0]" alt="OpenSesame" alt_view_tip="3">
             <span>{{item.type_portfolio}}</span>
             <span class="portfolio-time pd-2">{{ item.updated_at | dateTime('MMMM yyyy') }}</span>
             <h4 class="">{{item.title}}</h4>

@@ -66,7 +66,7 @@ module.exports = {
     measurementId: process.env.measurementId
   },
   head: {
-    title: '株式会社ぶどうの樹',
+    title: 'アプリ開発の依頼は実績多数の株式会社ぶどうの樹',
     description: 'Grapevin Tech',
     meta: [
       { charset: 'utf-8' },

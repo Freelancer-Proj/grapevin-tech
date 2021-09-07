@@ -22,7 +22,7 @@
             <p class="blog-view mr-4"><span class="material-icons mr-2">sms</span><strong>14</strong></p>
           </div> -->
         </div>
-        <h2 class="mb-3">{{ blogDetail.title }}</h2>
+        <h1 class="mb-3">{{ blogDetail.title }}</h1>
         <div class="blog-desc" v-html="blogDetail.desc"></div>
         <div class="blog-content" v-html="blogDetail.content"></div>
         <h4 class="blog-time mb-2">時間: </h4>{{ blogDetail.updated_at | dateTime('dd MMMM yyyy') }}

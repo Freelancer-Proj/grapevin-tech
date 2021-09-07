@@ -2,9 +2,9 @@
 <div>
   <div  class="f-row f-center-y">
     <div v-if="typing" class="type-js">
-      <h1 class="text-js">Hi, We are Grapevine!</h1>
+      <h1 class="text-js">アプリ開発の依頼はぶどうの樹へ</h1>
     </div>
-    <h1 v-if="!typing">Hi, We are Grapevine!</h1>
+    <h1 v-if="!typing">アプリ開発の依頼はぶどうの樹へ</h1>
   </div>
   <no-ssr>
     <slick
@@ -53,7 +53,7 @@ export default {
       aboutUs: [
         {
           name: 'ABOUT US',
-          desc: `<h6 class="txt-bold">トレンドに合わせた高品質のアプリ開発サービスを<br>生配信アプリ/音声SNSアプリ/SNSアプリ/etc...</h6>
+          desc: `<h1 class="txt-bold">トレンドに合わせた高品質のアプリ開発サービスを<br>生配信アプリ/音声SNSアプリ/SNSアプリ/etc...</h1>
                 <p>私たちは最先端のIT技術を駆使し、トレンドに合わせたアプリ開発に特化しております。</p>
                 <p>豊富な実績から、ライブ配信アプリ開発には特に強みを持っており、
 多方面からアプローチ可能な企画提案や、よく使われている機能などを速やかに実装可能です。
