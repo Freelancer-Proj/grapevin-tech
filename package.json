@@ -38,6 +38,7 @@
     "nuxt": "^2.0.0",
     "nuxt-fullpage.js": "0.0.3",
     "nuxt-polyfill": "^1.0.3",
+    "nuxt-robots-module": "^1.5.1",
     "plyr": "^3.5.10",
     "reset-css": "^5.0.1",
     "smoothscroll-polyfill": "^0.4.4",
