@@ -137,8 +137,8 @@ module.exports = {
   modules: [
     '@nuxtjs/style-resources',
     'nuxt-polyfill',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
   ],
   robots: {
     UserAgent: '*',
