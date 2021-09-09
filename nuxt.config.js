@@ -1,11 +1,5 @@
 require('dotenv').config()
 const webpack = require('webpack')
-const getRoutes = async () => {
-  const { $content } = require("@nuxt/content");
-  const files = await $content({ deep: true }).only(["path"]).fetch();
-
-  return files.map((file) => (file.path === "/index" ? "/" : file.path));
-};
 
 module.exports = {
   googleAnalytics: {
@@ -62,9 +56,9 @@ module.exports = {
   },
   sitemap: {
     hostname: 'https://grapevine.jp',
-    routes() {
-      return getRoutes();
-    },
+    // routes() {
+    //   return getRoutes();
+    // },
   },
   env: {
     VUE_APP_API: 'https://admin.grapevine.jp/api/v1',
