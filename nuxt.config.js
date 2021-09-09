@@ -54,6 +54,9 @@ module.exports = {
     ],
     vendor: ['wowjs']
   },
+  sitemap: {
+    hostname: 'https://grapevine.jp'
+  },
   env: {
     VUE_APP_API: 'https://admin.grapevine.jp/api/v1',
     apiKey: process.env.apiKey,
