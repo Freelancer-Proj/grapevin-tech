@@ -24,7 +24,7 @@
           </v-col>
         </v-row>
         <hr class="mt-8 mb-8">
-        <p class="txt-center footer-team">&#64;27th line Copyright</p>
+        <p class="txt-center footer-team">@ 2020 <a href="https://grapevine.jp/">アプリ開発の依頼は株式会社ぶどうの樹</a> All Rights Reserved</p>
       </div>
     </div>
   </footer>

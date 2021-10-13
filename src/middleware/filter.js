@@ -4,13 +4,13 @@ import { ja } from 'date-fns/locale'
 
 const filterPlugin = {
   install() {
-    Vue.filter('dateTime', (value, formatDate = 'dd MMMM yyyy') => {
+    Vue.filter('dateTime', (value, formatDate = 'yyyy年MM月dd日') => {
       const message = 'Invalid Date';
       if (typeof(value) === 'string') {
         const date = new Date(value);
-        return date.toString() === message ? message : format(date, formatDate, { locale: ja });
+        return date.toString() === message ? message : format(date, formatDate);
       } else if (value instanceof Date) {
-        return format(value, formatDate, { locale: ja });
+        return format(value, formatDate);
       } else {
         return message;
       }

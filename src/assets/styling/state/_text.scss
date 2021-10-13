@@ -25,6 +25,9 @@
 .txt-primary {
   color: map-get($color, primary);
 }
+.txt-white {
+  color: white !important;
+}
 
 .txt-xs {
   @include pxRem(font-size, 12);

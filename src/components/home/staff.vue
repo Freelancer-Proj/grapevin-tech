@@ -1,8 +1,11 @@
 <template>
   <div>
     <div class="pl-2 pr-2" style="margin: 0 auto; max-width: 600px">
-      <p class="staff-description txt-center">トレンドの入れ替わりが激しいIT業界で常に最先端の技術を取得する、韓国大手IT会社の元サーバーリーダが率いるプロフェッショナルなエンジニアチームと、</p>
-      <p class="staff-description txt-center">圧倒的に豊富な知識量と経験で、クライアント様に最適な提案が可能なプロフェッショナルチームです。</p>
+      <p class="staff-description txt-center">
+        トレンドの入れ替わりが激しいIT業界で常に最先端の技術を取得する、韓国大手IT会社の元サーバーリーダが率いるプロフェッショナルなエンジニアチームと、
+        <br>
+        圧倒的に豊富な知識量と経験で、クライアント様に最適な提案が可能なプロフェッショナルチームです。
+      </p>
     </div>
     <div v-if="listStaff.length > 0">
       <no-ssr>
