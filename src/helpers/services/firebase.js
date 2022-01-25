@@ -17,9 +17,9 @@ class FirebaseService {
         measurementId: process.env.measurementId
       };
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig)
+      // firebase.initializeApp(firebaseConfig)
     }
-    this.firestore = firebase.firestore()
+    // this.firestore = firebase.firestore()
   }
 
   convertRecord(res) {

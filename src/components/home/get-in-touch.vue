@@ -82,13 +82,13 @@
             </div>
             <p class="txt-center">Email: info@treesofgrape.com</p>
             <p class="txt-center">Skypeなどの音声通話打ち合わせも可能です。</p>
-            <div class="google-map mt-6">
+            <!-- <div class="google-map mt-6">
               <p>
                 <span class="material-icons mr-1">location_on</span>
                 <span>東京都新宿区西新宿1-26-2新宿野村ビル32階</span>
               </p>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.3521508612844!2d139.6931766150268!3d35.69295088019158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd5c3b6022d%3A0x2d4d3dd5a50a5b2e!2sSHINJUKU%20NOMURA%20BUILDING%2C%2032%E9%9A%8E%2C%201-ch%C5%8Dme-26-2%20Nishishinjuku%2C%20Shinjuku%20City%2C%20T%C5%8Dky%C5%8D-to%20163-0590%2C%20Japan!5e0!3m2!1sen!2s!4v1589425107332!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-            </div>
+            </div> -->
           </div>
         </div>
       </v-col>
